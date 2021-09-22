@@ -10,11 +10,11 @@ if configuration_num == 0
     q_max = 79;
     
     % setting for e
-%     e_min = -2;
-%     e_max = 2;
-
-    e_min = 0;
-    e_max = 0;
+    e_min = -2;
+    e_max = 2;
+% 
+%     e_min = 0;
+%     e_max = 0;
 
 
 elseif configuration_num == 1
@@ -59,6 +59,7 @@ end
 q = randi([q_min, q_max]);
 A = randi([0,q],A_row,A_col);
 e = randi([e_min,e_max],A_row,1);
+% e = [0;-1;-2;1;1;2;-1;-1];
 s = randi([0, q],A_col,1);
 
 return

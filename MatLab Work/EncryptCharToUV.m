@@ -7,6 +7,7 @@ function [uv_cells] = EncryptCharToUV(char,B,A,q)
         
     for i = 1:size_char
         pair_nums = randperm(A_rows, pairs);    % get random pairs
+%         pair_nums = [8 5];
         
         A_sample = A(pair_nums, :);
         B_sample = B(pair_nums, :);
