@@ -4,19 +4,28 @@ if configuration_num == 0
     % setting for A
     A_row = 8;
     A_col = 4;
+    
     % setting for q
     q_min = 79;
     q_max = 79;
+    
     % setting for e
-    e_min = -2;
-    e_max = 2;
+%     e_min = -2;
+%     e_max = 2;
+
+    e_min = 0;
+    e_max = 0;
+
+
 elseif configuration_num == 1
     % setting for A
     A_row = 256;
     A_col = 4;
+    
     % setting for q
     q_min = 1;
     q_max = 128;
+    
     % setting for e
     e_min = -1;
     e_max = 1;
@@ -34,9 +43,11 @@ elseif configuration_num == 3
     % setting for A
     A_row = 32768;
     A_col = 16;
+    
     % setting for q
     q_min = 16384;
     q_max = 65535;
+    
     % setting for e
     e_min = -16;
     e_max = 16;

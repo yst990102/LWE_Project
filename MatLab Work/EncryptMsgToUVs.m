@@ -4,9 +4,9 @@ function [uv_cells] = EncryptMsgToUVs(Msg,B,A,q)
     
     [A_rows, ~] = size(A);   % get n
     pairs = round(A_rows / 4);  % need n/4 pairs
+    pair_nums = randperm(A_rows, pairs);    % get random pairs
     
     for i = 1:size_Msg
-        pair_nums = randperm(A_rows, pairs);    % get random pairs
     
         A_sample = A(pair_nums, :);
         B_sample = B(pair_nums, :);
