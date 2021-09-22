@@ -1,11 +1,11 @@
-function [uv_cells] = EncryptMsgToUVs(Msg,B,A,q)
-    [~, size_Msg] = size(Msg);  % get size of msg
-    uv_cells = cell(1,size_Msg);    % pre-allocate memory
+function [uv_cells] = EncryptCharToUV(char,B,A,q)
+    [~, size_char] = size(char);  % get size of msg
+    uv_cells = cell(1,size_char);    % pre-allocate memory
     
     [A_rows, ~] = size(A);   % get n
     pairs = round(A_rows / 4);  % need n/4 pairs
         
-    for i = 1:size_Msg
+    for i = 1:size_char
         pair_nums = randperm(A_rows, pairs);    % get random pairs
         
         A_sample = A(pair_nums, :);
@@ -13,9 +13,9 @@ function [uv_cells] = EncryptMsgToUVs(Msg,B,A,q)
 
         u = mod(sum(A_sample),q);
     
-        if Msg(i) == '1'
+        if char(i) == '1'
             v = mod(sum(B_sample) - round(q/2),q);
-        else % Msg(i) == 0
+        else % char(i) == 0
             v = mod(sum(B_sample),q);
         end
         

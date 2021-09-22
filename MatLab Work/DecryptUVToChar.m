@@ -1,4 +1,4 @@
-function [M] = DecryptUVToMsg(uv_cell,q,s)
+function [M] = DecryptUVToChar(uv_cell,q,s)
     [~,bit_num] = size(uv_cell);
     M = zeros(1,bit_num);
     

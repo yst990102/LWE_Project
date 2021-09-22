@@ -11,12 +11,12 @@ B = mod(B + e, q);
 input_string = input("Enter a Msg:", 's');
 binary_string = StringToBinary(input_string, 8);
 
-[word_num, word_size] = size(binary_string);
-for j = 1:word_num
+[char_num, ~] = size(binary_string);
+for j = 1:char_num
     cur_string = binary_string(j,:);
-    uv_cell = EncryptMsgToUVs(cur_string,B,A,q);
+    uv_cell = EncryptCharToUV(cur_string,B,A,q);
     disp(uv_cell);
     
-    DecryptResult = DecryptUVToMsg(uv_cell,q,s);
+    DecryptResult = DecryptUVToChar(uv_cell,q,s);
     disp(DecryptResult);
 end
