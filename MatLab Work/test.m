@@ -6,9 +6,9 @@ for i = 1: A_row
     B(i,1) = A(i,:)*s;
 end
 
-B = mod(B + e, q);
+B = mod(B +e, q);
 
-binary_string = StringToBinary('AbcD', 8);
+binary_string = StringToBinary('AbcD', 8)
 uv_cells = EncryptCharToUV(binary_string,B,A,q);
 
 [word_num, word_size] = size(binary_string);

@@ -13,7 +13,7 @@ function [M] = DecryptUVToChar(uv_cell,q,s)
 %             M(i) = 1;
 %         end
 
-        if -round(q/4) < dec && dec < round(q/4)
+        if round(3*q/4) < dec || dec < round(q/4)
             M(i) = 0;
         else
             M(i) = 1;
