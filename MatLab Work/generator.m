@@ -58,7 +58,7 @@ end
 % q_range
 q_r = primes(q_max);
 q_r = q_r(q_r >= q_min);
-q = q_r(randperm(numel(q_r),1))
+q = q_r(randperm(numel(q_r),1));
 
 A = randi([0,q],A_row,A_col);
 e = randi([e_min,e_max],A_row,1);

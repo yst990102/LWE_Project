@@ -1,21 +1,20 @@
 [q,A,e,s] = generator(0);
 
 [A_row, A_col] = size(A);
-B = zeros(A_row,1);
-for i = 1: A_row
-    B(i,1) = A(i,:)*s;
-end
+B = mod(A*s +e, q);
 
-B = mod(B + e, q);
+bits_for_char = 8;
 
 input_string = input("Enter a Msg:", 's');
-binary_string = StringToBinary(input_string, 8)
+binary_string = StringToBinary(input_string, bits_for_char)
 
-[char_num, ~] = size(binary_string);
+[char_num, char_length] = size(binary_string);
+
+DecryptResult = zeros(char_num, char_length);
 for j = 1:char_num
-    cur_string = binary_string(j,:);
-    uv_cell = EncryptCharToUV(cur_string,B,A,q);
+    uv_cell = EncryptCharToUV(binary_string(j,:),B,A,q);
     
-    DecryptResult = DecryptUVToChar(uv_cell,q,s);
-    disp(DecryptResult);
+    DecryptResult(j,:) = DecryptUVToChar(uv_cell,q,s);
 end
+
+disp(DecryptResult);
