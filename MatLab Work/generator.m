@@ -55,12 +55,11 @@ else
     error('configuration_num need to be [1,2,3]');
 end 
 
-
-%q = randi([q_min, q_max]);
 % q_range
 q_r = primes(q_max);
 q_r = q_r(q_r >= q_min);
-q = q_r(randperm(numel(q_r),1));
+q = q_r(randperm(numel(q_r),1))
+
 A = randi([0,q],A_row,A_col);
 e = randi([e_min,e_max],A_row,1);
 s = randi([0, q],A_col,1);
