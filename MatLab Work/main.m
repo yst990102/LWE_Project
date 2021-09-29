@@ -5,7 +5,8 @@ B = mod(A*s +e, q);
 
 bits_for_char = 8;
 
-binary_string = StringToBinary("AbcD", bits_for_char)
+input_string = input("Enter a string:", 's');
+binary_string = StringToBinary(string(input_string), bits_for_char)
 
 [char_num, char_length] = size(binary_string);
 
