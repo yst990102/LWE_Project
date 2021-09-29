@@ -7,11 +7,6 @@ function [M] = DecryptUVToChar(uv_cell,q,s)
         v = cell2mat(uv_cell{i}(2));
         
         dec = mod(v - u*s, q);
-%         if dec < round(q/2)
-%             M(i) = 0;
-%         else
-%             M(i) = 1;
-%         end
 
         if round(3*q/4) < dec || dec < round(q/4)
             M(i) = 0;

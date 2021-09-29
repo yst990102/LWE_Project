@@ -11,7 +11,7 @@ for config_num = 0:3
 
         bits_for_char = 8;
 
-        binary_string = StringToBinary('AbcD', 8);
+        binary_string = StringToBinary("AbcD", 8);
         uv_cells = EncryptCharToUV(binary_string,B,A,q);
 
         [char_num, char_length] = size(binary_string);
