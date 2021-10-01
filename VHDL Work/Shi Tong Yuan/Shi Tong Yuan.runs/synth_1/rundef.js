@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log random_data_generator.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source random_data_generator.tcl" );
+         "-log Processor.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Processor.tcl" );
 
 
 

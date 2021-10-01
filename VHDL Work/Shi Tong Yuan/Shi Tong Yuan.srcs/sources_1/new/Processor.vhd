@@ -26,58 +26,27 @@ architecture Behavioral of Processor is
             clk : in std_logic);
     end component;
 
---    ====================== Configurations =======================    
---    ==== Configuration 01
-    signal size_A_rows_1 : integer := 256;
-    signal Size_A_cols_1 : integer := 4;
-    
-    signal q_min_1 : integer := 1;
-    signal q_max_1 : integer := 128;
-    
-    signal e_min_1 : integer := -1;
-    signal e_max_1 : integer := 1;
-    
-----    ==== Configuration 02
---    signal size_A_rows_2 : integer := 8192;
---    signal Size_A_cols_2 : integer := 8;
-    
---    signal q_min_2 : integer := 2048;
---    signal q_max_2 : integer := 8192;
-    
---    signal e_min_2 : integer := -4;
---    signal e_max_2 : integer := 4;
-    
-----    ==== Configuration 03
---    signal size_A_rows_3 : integer := 32768;
---    signal Size_A_cols_3 : integer := 16;
-    
---    signal q_min_3 : integer := 16384;
---    signal q_max_3 : integer := 65535;
-    
---    signal e_min_3 : integer := -16;
---    signal e_max_3 : integer := 16;
-
 --    ====================== Configuration Types ======================
 --    ==== Configuration 01 Type
-    type matrixS_1 is array (0 to size_A_cols_1, 0 to 1) of integer range e_min_1 to e_max_1;
-    type matrixA_1 is array (0 to size_A_rows_1, 0 to size_A_cols_1) of integer range q_min_1 to q_max_1;
-    type matrixB_1 is array (0 to size_A_rows_1, 0 to 1) of integer;
-    type matrixE_1 is array (0 to size_A_rows_1, 0 to 1) of integer range e_min_1 to e_max_1;
-    type matrixU_1 is array (0 to size_A_cols_1, 0 to 1) of integer range q_min_1 to q_max_1;
+    type matrixS_1 is array (0 to 4,   0 to 1) of integer range 1 to 128;
+    type matrixA_1 is array (0 to 256, 0 to 4) of integer range 1 to 128;
+    type matrixB_1 is array (0 to 256, 0 to 1) of integer range 1 to 128;
+    type matrixE_1 is array (0 to 256, 0 to 1) of integer range -1 to 1;
+    type matrixU_1 is array (0 to 4,   0 to 1) of integer range 1 to 128;
     
-----    ==== Configuration 02 Type
---    type matrixS_2 is array (0 to size_A_cols_2, 0 to 1) of integer range e_min_2 to e_max_2;
---    type matrixA_2 is array (0 to size_A_rows_2, 0 to size_A_cols_2) of integer range q_min_2 to q_max_2;
---    type matrixB_2 is array (0 to size_A_rows_2, 0 to 1) of integer;
---    type matrixE_2 is array (0 to size_A_rows_2, 0 to 1) of integer range e_min_2 to e_max_2;
---    type matrixU_2 is array (0 to size_A_cols_2, 0 to 1) of integer range q_min_2 to q_max_2;
+--    ==== Configuration 02 Type
+    type matrixS_2 is array (0 to 8,    0 to 1) of integer range 2048 to 8192;
+    type matrixA_2 is array (0 to 8192, 0 to 8) of integer range 2048 to 8192;
+    type matrixB_2 is array (0 to 8192, 0 to 1) of integer range 2048 to 8192;
+    type matrixE_2 is array (0 to 8192, 0 to 1) of integer range -4 to 4;
+    type matrixU_2 is array (0 to 8,    0 to 1) of integer range 2048 to 8192;
     
-----    ==== Configuration 03 Type
---    type matrixS_3 is array (0 to size_A_cols_3, 0 to 1) of integer range e_min_3 to e_max_3;
---    type matrixA_3 is array (0 to size_A_rows_3, 0 to size_A_cols_3) of integer range q_min_3 to q_max_3;
---    type matrixB_3 is array (0 to size_A_rows_3, 0 to 1) of integer;
---    type matrixE_3 is array (0 to size_A_rows_3, 0 to 1) of integer range e_min_3 to e_max_3;
---    type matrixU_3 is array (0 to size_A_cols_3, 0 to 1) of integer range q_min_3 to q_max_3;
+--    ==== Configuration 03 Type
+    type matrixS_3 is array (0 to 16,    0 to 1 ) of integer range 16384 to 65535;
+    type matrixA_3 is array (0 to 32768, 0 to 16) of integer range 16384 to 65535;
+    type matrixB_3 is array (0 to 32768, 0 to 1 ) of integer range 16384 to 65535;
+    type matrixE_3 is array (0 to 32768, 0 to 1 ) of integer range -16 to 16;
+    type matrixU_3 is array (0 to 16,    0 to 1 ) of integer range 16384 to 65535;
     
 --   ====================== Configuration Storage ======================
     signal S : matrixS_1;
@@ -90,7 +59,7 @@ architecture Behavioral of Processor is
     signal generate_B : std_logic;
     signal generate_E : std_logic;
 
-
+--   ====================== Other Self Test Signals ======================
     signal sig_clk : std_logic;
     signal sig_por: std_logic := '0';
     signal sig_random_flag : std_logic := '1';
