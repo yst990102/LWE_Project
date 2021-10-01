@@ -1,5 +1,2 @@
 INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/Processor.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'Processor'
-WARNING: [VRFC 10-3711] signal 'size_a_rows_1' is used in subtype-indication/type-definition [E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/Processor.vhd:61]
-WARNING: [VRFC 10-3711] signal 'size_a_rows_1' is used in subtype-indication/type-definition [E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/Processor.vhd:62]
-WARNING: [VRFC 10-3711] signal 'size_a_rows_1' is used in subtype-indication/type-definition [E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/Processor.vhd:63]

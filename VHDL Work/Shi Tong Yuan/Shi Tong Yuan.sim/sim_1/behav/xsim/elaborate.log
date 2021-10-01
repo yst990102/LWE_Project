@@ -3,9 +3,6 @@ Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
 Running: D:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 76fe657e41bb4ff2ae96d38964610467 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Processor_behav xil_defaultlib.Processor -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-3813] value in initialization depends on signal 'q_min_1' [E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/Processor.vhd:61]
-WARNING: [VRFC 10-3813] value in initialization depends on signal 'size_a_rows_1' [E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/Processor.vhd:62]
-WARNING: [VRFC 10-3813] value in initialization depends on signal 'size_a_rows_1' [E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/Processor.vhd:63]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
