@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log matrix_sum.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source matrix_sum.tcl
+EAStep vivado -log random_data_generator.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source random_data_generator.tcl

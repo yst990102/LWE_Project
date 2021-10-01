@@ -22,7 +22,8 @@ begin
     begin
         for i in 0 to 9 loop
             UNIFORM(seed1, seed2, rand);
-            int_rand <= INTEGER(trunc(rand*(real(q_max - q_min))));
+--            int_rand <= INTEGER(trunc(rand*(real(q_max - q_min))));
+            int_rand <= INTEGER(trunc(rand*(6144.0)));
             wait for 50 ps;
         end loop;
     end process;

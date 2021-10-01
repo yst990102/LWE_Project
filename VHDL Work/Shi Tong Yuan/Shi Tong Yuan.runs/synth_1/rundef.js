@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log matrix_sum.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source matrix_sum.tcl" );
+         "-log random_data_generator.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source random_data_generator.tcl" );
 
 
 
