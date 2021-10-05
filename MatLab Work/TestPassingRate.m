@@ -1,7 +1,7 @@
 test_nums = 1000;
 
 for config_num = 0:3
-    fprintf("-------Testing configuration %d------- \n", config_num);
+    fprintf("-------Testing Configuration %d-------\n", config_num);
     success_count = 0;
     time_encrypt = zeros(1,test_nums);
     time_decrypt = zeros(1,test_nums);
@@ -33,6 +33,21 @@ for config_num = 0:3
         success_count = success_count + CheckInputOutputMatch(binary_string, DecryptResult);
     end
 
-    fprintf("Total test cases: %d, success cases: %d, success rate: %.2f%%. \n",test_nums, success_count, (success_count / test_nums) * 100 );
-    fprintf("Total time taken: %.2fs \n", (sum(time_encrypt) + sum(time_decrypt)));
+    fprintf("\t---Stats---\n");
+    fprintf("\t\tTotal cases: %d\n", test_nums);
+    fprintf("\t\tSuccess count: %d\n", success_count);
+    fprintf("\t\tSuccess rate: %.2f%%\n",(success_count / test_nums) * 100);
+    
+    time_total = sum(time_encrypt) + sum(time_decrypt);
+    time_avg = time_total / test_nums;
+    
+    fprintf("\t---Total Times---\n");
+    fprintf("\t\tOverall: %.2fs\n", time_total);
+    fprintf("\t\tEncrypt: %.2fs (%.2f%%)\n", sum(time_encrypt), (sum(time_encrypt) / time_total) * 100);
+    fprintf("\t\tDecrypt: %.2fs (%.2f%%)\n", sum(time_decrypt), (sum(time_decrypt) / time_total) * 100);
+    
+    fprintf("\t---Average Times---\n");
+    fprintf("\t\tOverall: %.5fs\n", time_avg);
+    fprintf("\t\tEncrypt: %.5fs (%.2f%%)\n", mean(time_encrypt), (mean(time_encrypt) / time_avg) * 100);
+    fprintf("\t\tDecrypt: %.5fs (%.2f%%)\n", mean(time_decrypt), (mean(time_decrypt) / time_avg) * 100);
 end
