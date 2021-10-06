@@ -7,7 +7,7 @@ entity PC is
 end PC;
 
 architecture Behavioral of PC is
-    constant clk_period : time := 50ps;
+    constant clk_period : time := 20ps;
 begin
     clk_process: process
     begin

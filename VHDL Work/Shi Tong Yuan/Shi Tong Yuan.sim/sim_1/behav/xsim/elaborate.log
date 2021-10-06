@@ -13,6 +13,7 @@ Compiling package ieee.std_logic_1164
 Compiling package ieee.std_logic_arith
 Compiling package ieee.std_logic_unsigned
 Compiling package xil_defaultlib.packages
+Compiling package ieee.math_real
 Compiling architecture behavioral of entity xil_defaultlib.PC [pc_default]
 Compiling architecture rtl of entity xil_defaultlib.random_generator [\random_generator(data_width=17)...]
 Compiling architecture behavioral of entity xil_defaultlib.q_generator [q_generator_default]

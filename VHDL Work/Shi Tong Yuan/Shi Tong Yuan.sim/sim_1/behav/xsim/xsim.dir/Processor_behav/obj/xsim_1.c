@@ -59,22 +59,22 @@ IKI_DLLESPEC extern void execute_18(char*, char *);
 IKI_DLLESPEC extern void execute_15(char*, char *);
 IKI_DLLESPEC extern void execute_16(char*, char *);
 IKI_DLLESPEC extern void execute_17(char*, char *);
-IKI_DLLESPEC extern void execute_32(char*, char *);
-IKI_DLLESPEC extern void execute_34(char*, char *);
-IKI_DLLESPEC extern void execute_35(char*, char *);
-IKI_DLLESPEC extern void execute_36(char*, char *);
-IKI_DLLESPEC extern void execute_37(char*, char *);
-IKI_DLLESPEC extern void execute_39(char*, char *);
+IKI_DLLESPEC extern void execute_26(char*, char *);
+IKI_DLLESPEC extern void execute_28(char*, char *);
+IKI_DLLESPEC extern void execute_29(char*, char *);
+IKI_DLLESPEC extern void execute_30(char*, char *);
+IKI_DLLESPEC extern void execute_31(char*, char *);
+IKI_DLLESPEC extern void execute_33(char*, char *);
 IKI_DLLESPEC extern void vhdl_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
 IKI_DLLESPEC extern void transaction_9(char*, char*, unsigned, unsigned, unsigned);
-funcp funcTab[13] = {(funcp)execute_12, (funcp)execute_18, (funcp)execute_15, (funcp)execute_16, (funcp)execute_17, (funcp)execute_32, (funcp)execute_34, (funcp)execute_35, (funcp)execute_36, (funcp)execute_37, (funcp)execute_39, (funcp)vhdl_transfunc_eventcallback, (funcp)transaction_9};
+funcp funcTab[13] = {(funcp)execute_12, (funcp)execute_18, (funcp)execute_15, (funcp)execute_16, (funcp)execute_17, (funcp)execute_26, (funcp)execute_28, (funcp)execute_29, (funcp)execute_30, (funcp)execute_31, (funcp)execute_33, (funcp)vhdl_transfunc_eventcallback, (funcp)transaction_9};
 const int NumRelocateId= 13;
 
 void relocate(char *dp)
 {
 	iki_relocate(dp, "xsim.dir/Processor_behav/xsim.reloc",  (void **)funcTab, 13);
-	iki_vhdl_file_variable_register(dp + 16544);
-	iki_vhdl_file_variable_register(dp + 16600);
+	iki_vhdl_file_variable_register(dp + 13272);
+	iki_vhdl_file_variable_register(dp + 13328);
 
 
 	/*Populate the transaction function pointer field in the whole net structure */
