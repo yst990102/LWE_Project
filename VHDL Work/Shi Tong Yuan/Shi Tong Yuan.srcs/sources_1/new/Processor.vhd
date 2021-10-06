@@ -13,23 +13,6 @@ architecture Behavioral of Processor is
              clk : out std_logic);
     end component;
     
-    component random_generator_16 is
-    port (
-        por:                buffer  std_logic;
-        clk:                in  std_logic;
-        random_flag:        in  std_logic;
-        random_data:        out std_logic_vector (15 downto 0)
-    );
-    end component;
-    
-    component random_generator is
-        generic (data_width : natural);
-        port(
-            reset : in std_logic;
-            clk : in std_logic;
-            data_out : out integer);
-    end component;
-    
     component q_generator is
     port(
             config_num : in integer;
@@ -54,22 +37,12 @@ architecture Behavioral of Processor is
 
 --   ====================== Other Self Test Signals ======================
     signal sig_clk : std_logic;
-    
-    signal random_data : integer;
 
 begin
 
     program_counter : PC
     port map(
         clk => sig_clk);
-   
-    random_number: random_generator
-        generic map (data_width => 7 )
-        port map(
-            reset => '0',
-            clk => sig_clk,
-            data_out => random_data
-        );
     
     generate_q : q_generator
         port map(
