@@ -21,7 +21,7 @@ begin
     latch_it :  
     process(clk,reset)
     begin
-        if (reset = '0') and control = '1' then
+        if (reset = '1') and control = '1' then
             lfsr_reg <= (0 => '0', OTHERS =>'1');  --- random seed
             control <= '0';
         elsif (clk = '1' and clk'event) then

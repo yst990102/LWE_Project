@@ -22,21 +22,49 @@ architecture Behavioral of Processor is
         );
     end component;
     
+    component generate_A is
+        port (
+            generate_A    : in  std_logic ;
+            q             : in integer;
+            Matrix_A      : out matrixA_1
+        );
+    end component;
+    
+    component generate_s is
+        port(
+            config_num : in integer;
+            q : in integer;
+            s : out matrixS_1
+        );
+    end component;
+    
+    component generate_e is
+        port(
+            config_num : in integer;
+            q : in integer;
+            e : out matrixE_1
+        );
+    end component;
+    
 --   ====================== Configuration Storage ======================
     signal S : matrixS_1;
     signal A : matrixA_1;
     signal B : matrixB_1;
     signal E : matrixE_1;
-    signal q : integer;
 
-    
-    signal generate_S : std_logic;
-    signal generate_A : std_logic;
-    signal generate_B : std_logic;
-    signal generate_E : std_logic;
+
+    signal sig_generate_q : std_logic;
+    signal sig_generate_S : std_logic;
+    signal sig_generate_A : std_logic;
+    signal sig_generate_B : std_logic;
+    signal sig_generate_E : std_logic;
 
 --   ====================== Other Self Test Signals ======================
     signal sig_clk : std_logic;
+    
+    signal q_1 : integer;
+    signal q_2 : integer;
+    signal q_3 : integer;
 
 begin
 
@@ -44,12 +72,50 @@ begin
     port map(
         clk => sig_clk);
     
-    generate_q : q_generator
+    generate_q_1 : q_generator
+        port map(
+            config_num => 1,
+            reset => '1',
+            clk => sig_clk,
+            q => q_1
+        );
+        
+    generate_q_2 : q_generator
         port map(
             config_num => 2,
-            reset => '0',
+            reset => '1',
             clk => sig_clk,
-            q => q
+            q => q_2
+        );
+        
+    generate_q_3 : q_generator
+        port map(
+            config_num => 3,
+            reset => '1',
+            clk => sig_clk,
+            q => q_3
+        );
+        
+--    generate_Matrix_A : generate_A
+--        port map(
+--            generate_A => sig_generate_A,
+--            q => q,
+--            Matrix_A => A
+--        );
+
+    generate_Matrix_S : generate_s
+        port map(
+            config_num => 1,
+            q => q_1,
+            s => S        
+        );
+        
+        
+    generate_Matrix_E : generate_e
+        port map(
+            config_num => 1,
+            q => q_1,
+            e => E        
         );
 
     

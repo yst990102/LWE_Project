@@ -7,27 +7,28 @@ use work.packages.all;
 
 entity generate_A is
     port (
-        clk      : in  std_logic ;
-        reset    : in  std_logic ;
-        q : in integer;
-        Matrix_A : out matrixA_1
+        generate_A    : in  std_logic ;
+        q             : in integer;
+        Matrix_A      : out matrixA_1
     );
 end generate_A;
 
 architecture Behavioral of generate_A is
-    signal control : std_logic := '1';
+    signal output_matrix : matrixA_1;
 begin        
     random_matrix_A : 
     process
-        variable output : matrixA_1;
     begin
-        if (reset = '0') and control = '1' then
-            output := (others => (others => 0));
-            control <= '0';
-        elsif (clk = '1' and clk'event) then
-            output := (others => (others => q));
+        if generate_A = '1' then
+            output_matrix <= (others => (others => 0));
         end if;
         
-        Matrix_A <= output;
+        for row in matrixA_1'range(1) loop
+            for col in matrixA_1'range(2) loop
+                output_matrix(row, col) <= q;
+            end loop;
+        end loop;
     end process;
+    
+    Matrix_A <= output_matrix;
 end Behavioral;
