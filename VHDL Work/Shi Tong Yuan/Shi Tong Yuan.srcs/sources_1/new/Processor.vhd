@@ -61,10 +61,9 @@ architecture Behavioral of Processor is
 
 --   ====================== Other Self Test Signals ======================
     signal sig_clk : std_logic;
+    signal config_num : integer := 1;
     
-    signal q_1 : integer;
-    signal q_2 : integer;
-    signal q_3 : integer;
+    signal q : integer;
 
 begin
 
@@ -72,41 +71,25 @@ begin
     port map(
         clk => sig_clk);
     
-    generate_q_1 : q_generator
+    generate_q : q_generator
         port map(
             config_num => 1,
             reset => '1',
             clk => sig_clk,
-            q => q_1
+            q => q
         );
         
-    generate_q_2 : q_generator
+    generate_Matrix_A : generate_A
         port map(
-            config_num => 2,
-            reset => '1',
-            clk => sig_clk,
-            q => q_2
+            generate_A => sig_generate_A,
+            q => q,
+            Matrix_A => A
         );
-        
-    generate_q_3 : q_generator
-        port map(
-            config_num => 3,
-            reset => '1',
-            clk => sig_clk,
-            q => q_3
-        );
-        
---    generate_Matrix_A : generate_A
---        port map(
---            generate_A => sig_generate_A,
---            q => q,
---            Matrix_A => A
---        );
 
     generate_Matrix_S : generate_s
         port map(
             config_num => 1,
-            q => q_1,
+            q => q,
             s => S        
         );
         
@@ -114,7 +97,7 @@ begin
     generate_Matrix_E : generate_e
         port map(
             config_num => 1,
-            q => q_1,
+            q => q,
             e => E        
         );
 

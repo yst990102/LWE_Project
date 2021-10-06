@@ -14,10 +14,10 @@ architecture Behavioral of generate_e is
 begin
     process
     begin
---        for i in 0 to A_row_1 loop
---            e(i, 0) <= q;
---        end loop;
-    
+        for i in 0 to A_row_1-1 loop
+            e(i, 0) <= q;
+        end loop;
+        wait;
     end process;
     
 
