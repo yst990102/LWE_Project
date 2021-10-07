@@ -49,8 +49,9 @@ architecture Behavioral of Processor is
             Matrix_A       : in matrixA_1;
             Matrix_S       : in matrixS_1;
             Matrix_E       : in matrixE_1;
-            Matrix_B       : out matrixB_1;
-            state          : out std_logic
+            
+            store_B_row    : out integer;
+            store_B_ele    : out integer
         );
     end component;
     
@@ -76,6 +77,11 @@ architecture Behavioral of Processor is
     
     signal sig_store_E_row : integer;
     signal sig_store_E_element : integer;
+    
+    
+    
+    signal sig_store_B_row : integer;
+    signal sig_store_B_element : integer;
     
 --   ====================== Other Self Test Signals ======================
 
@@ -154,8 +160,24 @@ begin
             Matrix_A => A,
             Matrix_S => S,
             Matrix_E => E,
-            Matrix_B => B,
-            state => sig_is_B_generated
+            store_B_row => sig_store_B_row,
+            store_B_ele => sig_store_B_element
         );
-    
+        
+    store_B : process
+    begin
+        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' then
+            while sig_is_B_generated = '0' loop
+                wait for 20ps;
+                B(sig_store_B_row, 0) <= sig_store_B_element;
+                
+                if sig_store_B_row = A_row_1 - 1 then
+                    sig_is_B_generated <= '1';
+                end if;
+            end loop;
+            wait;
+        else
+            wait for 20ps;
+        end if;
+    end process;
 end Behavioral;

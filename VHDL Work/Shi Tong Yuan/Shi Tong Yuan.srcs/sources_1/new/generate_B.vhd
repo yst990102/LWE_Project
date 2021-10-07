@@ -14,8 +14,10 @@ entity generate_B is
         Matrix_A       : in matrixA_1;
         Matrix_S       : in matrixS_1;
         Matrix_E       : in matrixE_1;
-        Matrix_B       : out matrixB_1;
-        state          : out std_logic
+        
+        store_B_row    : out integer;
+        store_B_ele    : out integer
+        
     );
 end generate_B;
 
@@ -31,11 +33,12 @@ begin
                 for j in matrixA_1'range(2) loop
                     row_sum := row_sum + Matrix_A(i,j) * Matrix_S(j, 0);
                 end loop;
-                Matrix_B(i, 0) <= (row_sum  + Matrix_E(i, 0))mod q;
+                
+                store_B_row <= i;
+                store_B_ele <= (row_sum  + Matrix_E(i, 0))mod q;
                 wait for 20ps;
                 row_sum := 0;
             end loop;
-            state <= '1';
             wait;
         else
             wait for 20ps;
