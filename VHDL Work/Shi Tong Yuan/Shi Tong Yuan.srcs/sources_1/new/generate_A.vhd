@@ -2,41 +2,49 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
-use ieee.math_real.all;
 use work.packages.all;
 
 entity generate_A is
     port (
-        generate_A    : in  std_logic ;
+        clk     : in std_logic;
         q             : in integer;
-        Matrix_A      : out matrixA_1
+        Matrix_A      : out matrixA_1;
+        state : out std_logic
     );
 end generate_A;
 
 architecture Behavioral of generate_A is
-    function rand_int(min_val, max_val : integer) return integer is
-        variable r : real;
-        variable seed1, seed2 : integer := 5;
-    begin
-        uniform(seed1, seed2, r);
-        return integer(round(r * real(max_val - min_val + 1) + real(min_val) - 0.5));
-    end function;
-begin        
+    component random_generator is
+        generic (data_width : natural);
+        port(
+            seed : in integer;
+            reset : in std_logic;
+            clk : in std_logic;
+            data_out : out integer);
+    end component;
+    
+    signal random_result : integer;
+
+begin
+    random_number: random_generator
+        generic map (data_width => 17 )
+        port map(
+            seed => 121070,
+            reset => '1',
+            clk => clk,
+            data_out => random_result
+        );
+
     random_matrix_A : 
     process
-        variable r : real;
-        variable seed1, seed2 : integer := 9;
     begin
-        wait for 60ps; 
         for row in matrixA_1'range(1) loop
             for col in matrixA_1'range(2) loop
-                uniform(seed1, seed2, r);
-                Matrix_A(row, col) <= integer(round(r * real(q - 0 + 1) + real(0) - 0.5));
-                seed1 := seed1 + 1;
-                seed2 := seed2 + 2;
---                output_matrix(row, col) := rand_int(0, q);
+                Matrix_A(row,col) <= random_result mod(q - 0);
+                wait for 20ps;
             end loop;
         end loop;
+        state <= '1';
         wait;
     end process;
     

@@ -85,12 +85,11 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/PC.vhd}
   {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/packages.vhd}
   {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/generate_A.vhd}
+  {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/generate_B.vhd}
   {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/generate_e.vhd}
   {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/generate_s.vhd}
-  {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/q_generator.vhd}
   {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/random_generator.vhd}
   {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/Processor.vhd}
 }
