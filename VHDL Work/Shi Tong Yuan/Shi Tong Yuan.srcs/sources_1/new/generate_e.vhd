@@ -7,9 +7,9 @@ use work.packages.all;
 entity generate_e is
     port(
         clk     : in std_logic;
-        q : in integer;
-        Matrix_E : out matrixE_1;
-        state : out std_logic
+        q       : in integer;
+        store_E_row : out integer;
+        store_E_ele : out integer
     );
 end generate_e;
 
@@ -26,9 +26,9 @@ architecture Behavioral of generate_e is
     signal random_result : integer;
 begin
     random_number: random_generator
-        generic map (data_width => 17 )
+        generic map (data_width => 7 )
         port map(
-            seed => 111070,
+            seed => 210,
             reset => '1',
             clk => clk,
             data_out => random_result
@@ -36,11 +36,11 @@ begin
 
     process
     begin
-        for i in matrixE_1'range(1) loop
-            Matrix_E(i, 0) <= random_result mod (e_max_1 - e_min_1) + e_min_1;
+        for row in matrixE_1'range(1) loop
+            store_E_row <= row;
+            store_E_ele <= random_result mod (e_max_1 - e_min_1) + e_min_1;
             wait for 20ps;
         end loop;
-        state <= '1';
         wait;
     end process;
     

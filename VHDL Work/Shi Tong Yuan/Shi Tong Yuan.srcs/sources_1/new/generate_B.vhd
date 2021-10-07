@@ -20,6 +20,8 @@ entity generate_B is
 end generate_B;
 
 architecture Behavioral of generate_B is
+
+    signal temp_sum : integer;
 begin
     process
         variable row_sum : integer := 0;
@@ -27,11 +29,11 @@ begin
         if is_S_generated = '1' and is_A_generated = '1' and is_E_generated = '1' then
             for i in matrixB_1'range(1) loop
                 for j in matrixA_1'range(2) loop
-                    row_sum := row_sum + Matrix_A(i,j) * Matrix_S(j, 0) + Matrix_E(j, 0);
+                    row_sum := row_sum + Matrix_A(i,j) * Matrix_S(j, 0);
                 end loop;
-            
-                Matrix_B(i, 0) <= row_sum mod q;
+                Matrix_B(i, 0) <= (row_sum  + Matrix_E(i, 0))mod q;
                 wait for 20ps;
+                row_sum := 0;
             end loop;
             state <= '1';
             wait;

@@ -6,10 +6,10 @@ use work.packages.all;
 
 entity generate_s is
     port(
-        clk     : in std_logic;
-        q : in integer;
-        Matrix_S : out matrixS_1;
-        state : out std_logic
+        clk         : in std_logic;
+        q           : in integer;
+        store_S_row : out integer;
+        store_S_ele : out integer
     );
 end generate_s;
 
@@ -26,9 +26,9 @@ architecture Behavioral of generate_s is
     signal random_result : integer;
 begin
     random_number: random_generator
-        generic map (data_width => 17 )
+        generic map (data_width => 7 )
         port map(
-            seed => 131070,
+            seed => 230,
             reset => '1',
             clk => clk,
             data_out => random_result
@@ -36,11 +36,11 @@ begin
 
     process
     begin
-        for i in matrixS_1'range(1) loop
-            Matrix_S(i,0) <= random_result mod (q - 0);
+        for row in matrixS_1'range(1) loop
+            store_S_row <= row;
+            store_S_ele <= random_result mod (q - 0);
             wait for 20ps;
         end loop;
-        state <= '1';
         wait;
     end process;
 

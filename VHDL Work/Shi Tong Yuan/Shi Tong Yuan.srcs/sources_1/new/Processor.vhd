@@ -15,8 +15,9 @@ architecture Behavioral of Processor is
         port (
             clk           : in std_logic;
             q             : in integer;
-            Matrix_A      : out matrixA_1;
-            state         : out std_logic
+            store_row     : out integer;
+            store_col     : out integer;
+            store_ele     : out integer
         );
     end component;
     
@@ -24,8 +25,8 @@ architecture Behavioral of Processor is
         port(
             clk         : in std_logic;
             q           : in integer;
-            Matrix_S    : out matrixS_1;
-            state       : out std_logic
+            store_S_row : out integer;
+            store_S_ele : out integer
         );
     end component;
     
@@ -33,8 +34,8 @@ architecture Behavioral of Processor is
         port(
             clk     : in std_logic;
             q       : in integer;
-            Matrix_E       : out matrixE_1;
-            state   : out std_logic
+            store_E_row : out integer;
+            store_E_ele : out integer
         );
     end component;
     
@@ -60,12 +61,22 @@ architecture Behavioral of Processor is
     signal E : matrixE_1;
     signal q : integer := 113;
 
-    signal sig_is_S_generated : std_logic;
-    signal sig_is_A_generated : std_logic;
-    signal sig_is_E_generated : std_logic;
+    signal sig_is_S_generated : std_logic := '0';
+    signal sig_is_A_generated : std_logic := '0';
+    signal sig_is_E_generated : std_logic := '0';
     
-    signal sig_is_B_generated : std_logic;
-
+    signal sig_is_B_generated : std_logic := '0';
+    
+    signal sig_store_A_row : integer;
+    signal sig_store_A_col : integer;
+    signal sig_store_A_element : integer;
+    
+    signal sig_store_S_row : integer;
+    signal sig_store_S_element : integer;
+    
+    signal sig_store_E_row : integer;
+    signal sig_store_E_element : integer;
+    
 --   ====================== Other Self Test Signals ======================
 
 begin
@@ -73,25 +84,65 @@ begin
         port map(
             clk => clk,
             q => q,
-            Matrix_A => A,
-            state => sig_is_A_generated
+            store_row => sig_store_A_row,
+            store_col => sig_store_A_col,
+            store_ele => sig_store_A_element
         );
+    
+    store_A : process
+    begin
+        while sig_is_A_generated = '0' loop
+            wait for 20ps;
+            A(sig_store_A_row, sig_store_A_col) <= sig_store_A_element;
+            
+            if sig_store_A_row = A_row_1 -1 and sig_store_A_col = A_col_1 -1 then
+                sig_is_A_generated <= '1';
+            end if;
+        end loop;
+        wait;
+    end process;
 
     generate_Matrix_S : generate_s
         port map(
             clk => clk,
             q => q,
-            Matrix_S => S,
-            state => sig_is_S_generated
+            store_S_row => sig_store_S_row,
+            store_S_ele => sig_store_S_element
         );
+        
+    store_S : process
+    begin
+        while sig_is_S_generated = '0' loop
+            wait for 20ps;
+            S(sig_store_S_row, 0) <= sig_store_S_element;
+            
+            if sig_store_S_row = A_col_1 - 1 then
+                sig_is_S_generated <= '1';
+            end if;
+        end loop;
+        wait;
+    end process;
  
     generate_Matrix_E : generate_e
         port map(
             clk => clk,
             q => q,
-            Matrix_E => E,
-            state => sig_is_E_generated
+            store_E_row => sig_store_E_row,
+            store_E_ele => sig_store_E_element
         );
+        
+    store_E : process
+    begin
+        while sig_is_E_generated = '0' loop
+            wait for 20ps;
+            E(sig_store_E_row, 0) <= sig_store_E_element;
+            
+            if sig_store_E_row = A_row_1 - 1 then
+                sig_is_E_generated <= '1';
+            end if;
+        end loop;
+        wait;
+    end process;
     
     generate_Matrix_B : generate_B
         port map(
