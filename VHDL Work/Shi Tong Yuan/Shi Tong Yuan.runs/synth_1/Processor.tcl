@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7k160tfbg676-3
 
@@ -86,9 +85,13 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/16_random_generator.vhd}
   {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/PC.vhd}
-  {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/random_generator_8.vhd}
+  {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/packages.vhd}
+  {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/generate_A.vhd}
+  {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/generate_e.vhd}
+  {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/generate_s.vhd}
+  {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/q_generator.vhd}
+  {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/random_generator.vhd}
   {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/Processor.vhd}
 }
 OPTRACE "Adding files" END { }
