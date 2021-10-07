@@ -1,6 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use work.packages.all;
+use work.configuration_set.all;
 
 entity q_generator is
     port(

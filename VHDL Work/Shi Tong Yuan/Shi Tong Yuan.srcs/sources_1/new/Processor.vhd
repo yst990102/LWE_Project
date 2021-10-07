@@ -2,15 +2,18 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
-use work.packages.all;
+use work.configuration_set.all;
+use work.random_rows.all;
 
 entity Processor is
     port (
+        encode_string : in string(1 to 4);
         clk : in std_logic
     );
 end Processor;
 
 architecture Behavioral of Processor is    
+
     component generate_A is
         port (
             clk           : in std_logic;
@@ -55,6 +58,20 @@ architecture Behavioral of Processor is
         );
     end component;
     
+    component random_generator is
+        generic (data_width : natural);
+        port(
+            seed : in integer;
+            reset : in std_logic;
+            clk : in std_logic;
+            data_out : out integer);
+    end component;
+
+--============================== Char Load & To_Asciis =============================
+    type ascii_array is array (1 to 4) of unsigned(0 to 7); 
+    signal sig_ascii_array : ascii_array;
+--============================== Char Load & To_Asciis =============================
+    
 --   ====================== Configuration Storage ======================
     signal S : matrixS_1;
     signal A : matrixA_1;
@@ -77,15 +94,31 @@ architecture Behavioral of Processor is
     
     signal sig_store_E_row : integer;
     signal sig_store_E_element : integer;
-    
-    
-    
+        
     signal sig_store_B_row : integer;
     signal sig_store_B_element : integer;
+--   ====================== Configuration Storage ======================
     
+--============================== Generate n/4 random row number for 4 cahrs =============================    
+    signal row_num_random_result : integer;
+    signal sig_random_rows_store : random_rows_store;
+    signal sig_is_random_rows_finished : std_logic;
+--============================== Generate n/4 random row number for 4 cahrs =============================
 --   ====================== Other Self Test Signals ======================
 
 begin
+--============================== Char Load & To_Asciis =============================
+    string_to_asciis : process
+    begin
+        for i in 1 to 4 loop
+            sig_ascii_array(i) <= conv_unsigned(integer(character'pos(encode_string(i))), 8);
+            wait for 20ps;
+        end loop;
+        wait;
+    end process;
+--============================== Char Load & To_Asciis =============================
+
+--============================== Set Up =============================
     generate_Matrix_A : generate_A
         port map(
             clk => clk,
@@ -180,4 +213,35 @@ begin
             wait for 20ps;
         end if;
     end process;
+    
+--============================== Set Up =============================
+
+--============================== Generate n/4 random row number for 4 cahrs =============================
+    random_number: random_generator
+        generic map (data_width => 7 )
+        port map(
+            seed => 220,
+            reset => '1',
+            clk => clk,
+            data_out => row_num_random_result
+        );
+        
+    generate_random_rows : process
+    begin
+        if sig_is_B_generated = '1' then
+            for row in 1 to 4 loop
+                for col in 0 to (A_row_1 / 4 - 1) loop
+                    sig_random_rows_store(row, col) <= row_num_random_result;
+                    wait for 20ps;
+                end loop;
+            end loop;
+            sig_is_random_rows_finished <= '1';
+            wait;
+        else
+            wait for 20ps;
+        end if;
+    end process;
+--============================== Generate n/4 random row number for 4 cahrs =============================
+    
+    
 end Behavioral;

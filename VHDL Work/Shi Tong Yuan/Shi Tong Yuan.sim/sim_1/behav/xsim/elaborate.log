@@ -12,7 +12,8 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.std_logic_arith
 Compiling package ieee.std_logic_unsigned
-Compiling package xil_defaultlib.packages
+Compiling package xil_defaultlib.configuration_set
+Compiling package xil_defaultlib.random_rows
 Compiling architecture rtl of entity xil_defaultlib.random_generator [\random_generator(data_width=7)\]
 Compiling architecture behavioral of entity xil_defaultlib.generate_A [generate_a_default]
 Compiling architecture behavioral of entity xil_defaultlib.generate_s [generate_s_default]

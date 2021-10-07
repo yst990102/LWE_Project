@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-package packages is
+package configuration_set is
     constant q_min_1 : integer := 1;
     constant q_max_1 : integer := 128;
 --    constant q_min_2 : integer := 2048;
@@ -45,4 +45,8 @@ package packages is
 --    type matrixB_3 is array (0 to A_row_3 - 1,   0 to 1 - 1)       of integer range q_min_3 to q_max_3;
 --    type matrixE_3 is array (0 to A_row_3 - 1,   0 to 1 - 1)       of integer range e_min_3 to e_max_3;
 --    type matrixU_3 is array (0 to A_col_3 - 1,   0 to 1 - 1)       of integer range q_min_3 to q_max_3;
-end packages;
+end configuration_set;
+
+package random_rows is
+    type random_rows_store is array (1 to 4, 0 to 63) of integer;
+end random_rows;
