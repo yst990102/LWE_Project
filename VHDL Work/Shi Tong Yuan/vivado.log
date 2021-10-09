@@ -1,0 +1,155 @@
+#-----------------------------------------------------------
+# Vivado v2020.2.2 (64-bit)
+# SW Build 3118627 on Tue Feb  9 05:14:06 MST 2021
+# IP Build 3115676 on Tue Feb  9 10:48:11 MST 2021
+# Start of session at: Sat Oct  9 18:53:46 2021
+# Process ID: 21336
+# Current directory: E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent23380 E:\Github_repository\COMP3601\VHDL Work\Shi Tong Yuan\Shi Tong Yuan.xpr
+# Log file: E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/vivado.log
+# Journal file: E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.xpr}
+WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2020.2/data/ip'.
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Processor_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj Processor_TB_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/packages.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/Processor.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Processor'
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/generate_A.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'generate_A'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.sim/sim_1/behav/xsim'
+"xelab -wto 76fe657e41bb4ff2ae96d38964610467 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Processor_TB_behav xil_defaultlib.Processor_TB -log elaborate.log"
+Vivado Simulator v2020.2.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 76fe657e41bb4ff2ae96d38964610467 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Processor_TB_behav xil_defaultlib.Processor_TB -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package xil_defaultlib.configuration_set
+Compiling architecture rtl of entity xil_defaultlib.random_generator [\random_generator(data_width=7)\]
+Compiling architecture behavioral of entity xil_defaultlib.generate_A [generate_a_default]
+Compiling architecture behavioral of entity xil_defaultlib.generate_s [generate_s_default]
+Compiling architecture behavioral of entity xil_defaultlib.generate_e [generate_e_default]
+Compiling architecture behavioral of entity xil_defaultlib.generate_B [generate_b_default]
+Compiling architecture behavioral of entity xil_defaultlib.Processor [processor_default]
+Compiling architecture behavioral of entity xil_defaultlib.processor_tb
+Built simulation snapshot Processor_TB_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1025.402 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Processor_TB_behav -key {Behavioral:sim_1:Functional:Processor_TB} -tclbatch {Processor_TB.tcl} -view {{E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Processor_TB_behav 10-07.wcfg}} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator v2020.2.2
+Time resolution is 1 ps
+open_wave_config {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Processor_TB_behav 10-07.wcfg}
+source Processor_TB.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Processor_TB_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:14 . Memory (MB): peak = 1025.402 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Processor_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj Processor_TB_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.srcs/sources_1/new/Processor.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Processor'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.sim/sim_1/behav/xsim'
+"xelab -wto 76fe657e41bb4ff2ae96d38964610467 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Processor_TB_behav xil_defaultlib.Processor_TB -log elaborate.log"
+Vivado Simulator v2020.2.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 76fe657e41bb4ff2ae96d38964610467 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Processor_TB_behav xil_defaultlib.Processor_TB -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package xil_defaultlib.configuration_set
+Compiling architecture rtl of entity xil_defaultlib.random_generator [\random_generator(data_width=7)\]
+Compiling architecture behavioral of entity xil_defaultlib.generate_A [generate_a_default]
+Compiling architecture behavioral of entity xil_defaultlib.generate_s [generate_s_default]
+Compiling architecture behavioral of entity xil_defaultlib.generate_e [generate_e_default]
+Compiling architecture behavioral of entity xil_defaultlib.generate_B [generate_b_default]
+Compiling architecture behavioral of entity xil_defaultlib.Processor [processor_default]
+Compiling architecture behavioral of entity xil_defaultlib.processor_tb
+Built simulation snapshot Processor_TB_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 1025.402 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Shi Tong Yuan.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Processor_TB_behav -key {Behavioral:sim_1:Functional:Processor_TB} -tclbatch {Processor_TB.tcl} -view {{E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Processor_TB_behav 10-07.wcfg}} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator v2020.2.2
+Time resolution is 1 ps
+open_wave_config {E:/Github_repository/COMP3601/VHDL Work/Shi Tong Yuan/Processor_TB_behav 10-07.wcfg}
+source Processor_TB.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Processor_TB_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:12 . Memory (MB): peak = 1025.402 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Oct  9 18:56:00 2021...
