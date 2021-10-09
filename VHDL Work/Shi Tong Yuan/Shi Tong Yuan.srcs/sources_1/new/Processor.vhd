@@ -3,7 +3,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use work.configuration_set.all;
-use work.random_rows.all;
 
 entity Processor is
     port (
@@ -99,10 +98,24 @@ architecture Behavioral of Processor is
     signal sig_store_B_element : integer;
 --   ====================== Configuration Storage ======================
     
---============================== Generate n/4 random row number for 4 cahrs =============================    
-    signal row_num_random_result : integer;
-    signal sig_random_rows_store : random_rows_store;
-    signal sig_is_random_rows_finished : std_logic;
+--============================== Generate n/4 random row number for 4 cahrs =============================
+    type U_cell is array (0 to 7, 0 to A_col_1 - 1) of integer;
+    type U_storage is array (1 to 4) of U_cell;
+    signal U_cells : U_storage;
+    
+    type V_cell is array (0 to 7) of integer;
+    type V_storage is array(1 to 4) of V_cell;
+    signal V_cells : V_storage;
+    
+    signal row_num_random_result : integer;    
+    signal sig_is_U_generated : std_logic;
+    
+    signal sig_first_sum : integer;
+    signal sig_second_sum : integer;
+    signal sig_third_sum : integer;
+    signal sig_forth_sum : integer;
+    
+    signal sig_fifth_sum : integer;
 --============================== Generate n/4 random row number for 4 cahrs =============================
 --   ====================== Other Self Test Signals ======================
 
@@ -227,15 +240,47 @@ begin
         );
         
     generate_random_rows : process
+        variable encoding_ascii : unsigned(0 to 7);
+        variable first_ele, second_ele, third_ele, forth_ele : integer;
+        variable first_sum, second_sum, third_sum, forth_sum, fifth_sum : integer;
     begin
         if sig_is_B_generated = '1' then
             for row in 1 to 4 loop
-                for col in 0 to (A_row_1 / 4 - 1) loop
-                    sig_random_rows_store(row, col) <= row_num_random_result;
-                    wait for 20ps;
+                encoding_ascii := sig_ascii_array(row);
+
+                for i in encoding_ascii'range(1) loop
+                    first_sum := 0;
+                    second_sum := 0;
+                    third_sum := 0;
+                    forth_sum := 0;
+                    fifth_sum := 0;
+                    for col in 0 to (A_row_1 / 4 - 1) loop
+                        first_sum := first_sum + A(row_num_random_result, 0);
+                        second_sum := second_sum + A(row_num_random_result, 1);
+                        third_sum := third_sum + A(row_num_random_result, 2);
+                        forth_sum := forth_sum + A(row_num_random_result, 3);
+                        
+                        sig_first_sum <= first_sum;
+                        sig_second_sum <= second_sum;
+                        sig_third_sum <= third_sum;
+                        sig_forth_sum <= forth_sum;
+                        
+                        fifth_sum := fifth_sum + B(row_num_random_result, 0);
+                        
+                        sig_fifth_sum <= fifth_sum;
+                        wait for 20ps;
+                    end loop;
+                    
+                    U_cells(row)(i,0) <= first_sum mod q;
+                    U_cells(row)(i,1) <= second_sum mod q;
+                    U_cells(row)(i,2) <= third_sum mod q;
+                    U_cells(row)(i,3) <= forth_sum mod q;
+                    
+                    V_cells(row)(i) <= (fifth_sum - (q/2) * i) mod q;
                 end loop;
+                
             end loop;
-            sig_is_random_rows_finished <= '1';
+            sig_is_U_generated <= '1';
             wait;
         else
             wait for 20ps;

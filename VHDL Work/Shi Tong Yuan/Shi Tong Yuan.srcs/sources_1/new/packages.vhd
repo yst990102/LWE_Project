@@ -45,8 +45,5 @@ package configuration_set is
 --    type matrixB_3 is array (0 to A_row_3 - 1,   0 to 1 - 1)       of integer range q_min_3 to q_max_3;
 --    type matrixE_3 is array (0 to A_row_3 - 1,   0 to 1 - 1)       of integer range e_min_3 to e_max_3;
 --    type matrixU_3 is array (0 to A_col_3 - 1,   0 to 1 - 1)       of integer range q_min_3 to q_max_3;
-end configuration_set;
 
-package random_rows is
-    type random_rows_store is array (1 to 4, 0 to 63) of integer;
-end random_rows;
+end configuration_set;

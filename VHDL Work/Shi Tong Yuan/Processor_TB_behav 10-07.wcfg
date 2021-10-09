@@ -7,20 +7,19 @@
          <top_modules>
             <top_module name="Processor_TB" />
             <top_module name="configuration_set" />
-            <top_module name="random_rows" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="146fs"></ZoomEndTime>
-      <Cursor1Time time="59fs"></Cursor1Time>
+      <ZoomEndTime time="17fs"></ZoomEndTime>
+      <Cursor1Time time="27fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="174"></NameColumnWidth>
-      <ValueColumnWidth column_width="136"></ValueColumnWidth>
+      <ValueColumnWidth column_width="100"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="24" />
+   <WVObjectSize size="30" />
    <wvobject fp_name="/Processor_TB/UUT/encode_string" type="array">
       <obj_property name="ElementShortName">encode_string[1:4]</obj_property>
       <obj_property name="ObjectShortName">encode_string[1:4]</obj_property>
@@ -64,6 +63,10 @@
    <wvobject fp_name="/Processor_TB/UUT/sig_is_B_generated" type="logic">
       <obj_property name="ElementShortName">sig_is_B_generated</obj_property>
       <obj_property name="ObjectShortName">sig_is_B_generated</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/sig_is_U_generated" type="logic">
+      <obj_property name="ElementShortName">sig_is_U_generated</obj_property>
+      <obj_property name="ObjectShortName">sig_is_U_generated</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_store_A_row" type="other">
       <obj_property name="ElementShortName">sig_store_A_row</obj_property>
@@ -110,12 +113,33 @@
       <obj_property name="ElementShortName">row_num_random_result</obj_property>
       <obj_property name="ObjectShortName">row_num_random_result</obj_property>
    </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_random_rows_store" type="array">
-      <obj_property name="ElementShortName">sig_random_rows_store[1:4,0:63]</obj_property>
-      <obj_property name="ObjectShortName">sig_random_rows_store[1:4,0:63]</obj_property>
+   <wvobject fp_name="/Processor_TB/UUT/sig_first_sum" type="other">
+      <obj_property name="ElementShortName">sig_first_sum</obj_property>
+      <obj_property name="ObjectShortName">sig_first_sum</obj_property>
    </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_is_random_rows_finished" type="logic">
-      <obj_property name="ElementShortName">sig_is_random_rows_finished</obj_property>
-      <obj_property name="ObjectShortName">sig_is_random_rows_finished</obj_property>
+   <wvobject fp_name="/Processor_TB/UUT/sig_second_sum" type="other">
+      <obj_property name="ElementShortName">sig_second_sum</obj_property>
+      <obj_property name="ObjectShortName">sig_second_sum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/sig_third_sum" type="other">
+      <obj_property name="ElementShortName">sig_third_sum</obj_property>
+      <obj_property name="ObjectShortName">sig_third_sum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/sig_forth_sum" type="other">
+      <obj_property name="ElementShortName">sig_forth_sum</obj_property>
+      <obj_property name="ObjectShortName">sig_forth_sum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/U_cells" type="array">
+      <obj_property name="ElementShortName">U_cells[1:4][0:7][0:3]</obj_property>
+      <obj_property name="ObjectShortName">U_cells[1:4][0:7][0:3]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/sig_fifth_sum" type="other">
+      <obj_property name="ElementShortName">sig_fifth_sum</obj_property>
+      <obj_property name="ObjectShortName">sig_fifth_sum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/V_cells" type="array">
+      <obj_property name="ElementShortName">V_cells[1:4][0:7]</obj_property>
+      <obj_property name="ObjectShortName">V_cells[1:4][0:7]</obj_property>
    </wvobject>
 </wave_config>
