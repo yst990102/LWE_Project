@@ -1,7 +1,7 @@
 Vivado Simulator v2020.2.2
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 7cfad730da2240c88178d1def861b8c8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Processor_TB_behav xil_defaultlib.Processor_TB -log elaborate.log 
-Using 2 slave threads.
+Running: D:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 7cfad730da2240c88178d1def861b8c8 --incr --debug typical --relax --mt 16 -L xil_defaultlib -L secureip --snapshot Processor_TB_behav xil_defaultlib.Processor_TB -log elaborate.log 
+Using 16 slave threads.
 Starting static elaboration
 Completed static elaboration
 Starting simulation data flow analysis
@@ -17,7 +17,6 @@ Compiling architecture rtl of entity xil_defaultlib.random_generator [\random_ge
 Compiling architecture behavioral of entity xil_defaultlib.generate_A [generate_a_default]
 Compiling architecture behavioral of entity xil_defaultlib.generate_s [generate_s_default]
 Compiling architecture behavioral of entity xil_defaultlib.generate_e [generate_e_default]
-Compiling architecture behavioral of entity xil_defaultlib.generate_B [generate_b_default]
 Compiling architecture behavioral of entity xil_defaultlib.Processor [processor_default]
 Compiling architecture behavioral of entity xil_defaultlib.processor_tb
 Built simulation snapshot Processor_TB_behav
