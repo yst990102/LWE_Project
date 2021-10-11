@@ -1,0 +1,8 @@
+
+*** Running vivado
+    with args -log Processor.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Processor.tcl
+
+
+
+*** Halting run - EA reset detected ***
+

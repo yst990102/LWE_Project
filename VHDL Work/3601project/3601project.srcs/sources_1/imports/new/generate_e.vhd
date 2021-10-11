@@ -39,7 +39,8 @@ begin
         for row in matrixE_1'range(1) loop
             store_E_row <= row;
             store_E_ele <= random_result mod (e_max_1 - e_min_1) + e_min_1;
-            wait for 20ps;
+--            wait for 20ps;
+            wait until clk'event and clk = '0';
         end loop;
         wait;
     end process;

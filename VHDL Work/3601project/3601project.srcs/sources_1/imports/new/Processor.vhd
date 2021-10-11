@@ -125,7 +125,8 @@ begin
     begin
         for i in 1 to 4 loop
             sig_ascii_array(i) <= conv_unsigned(integer(character'pos(encode_string(i))), 8);
-            wait for 20ps;
+--            wait for 20ps;
+            wait until clk'event and clk = '0';
         end loop;
         wait;
     end process;
@@ -144,7 +145,8 @@ begin
     store_A : process
     begin
         while sig_is_A_generated = '0' loop
-            wait for 20ps;
+--            wait for 20ps;
+            wait until clk'event and clk = '0';
             A(sig_store_A_row, sig_store_A_col) <= sig_store_A_element;
             
             if sig_store_A_row = A_row_1 -1 and sig_store_A_col = A_col_1 -1 then
@@ -165,7 +167,8 @@ begin
     store_S : process
     begin
         while sig_is_S_generated = '0' loop
-            wait for 20ps;
+--            wait for 20ps;
+            wait until clk'event and clk = '0';
             S(sig_store_S_row) <= sig_store_S_element;
             
             if sig_store_S_row = A_col_1 - 1 then
@@ -186,7 +189,8 @@ begin
     store_E : process
     begin
         while sig_is_E_generated = '0' loop
-            wait for 20ps;
+--            wait for 20ps;
+            wait until clk'event and clk = '0';
             E(sig_store_E_row) <= sig_store_E_element;
             
             if sig_store_E_row = A_row_1 - 1 then
@@ -214,7 +218,8 @@ begin
     begin
         if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' then
             while sig_is_B_generated = '0' loop
-                wait for 20ps;
+--                wait for 20ps;
+                wait until clk'event and clk = '0';
                 B(sig_store_B_row) <= sig_store_B_element;
                 
                 if sig_store_B_row = A_row_1 - 1 then
@@ -223,7 +228,8 @@ begin
             end loop;
             wait;
         else
-            wait for 20ps;
+--            wait for 20ps;
+            wait until clk'event and clk = '0';
         end if;
     end process;
     
@@ -268,7 +274,8 @@ begin
                         fifth_sum := fifth_sum + B(row_num_random_result);
                         
                         sig_fifth_sum <= fifth_sum;
-                        wait for 20ps;
+--                        wait for 20ps;
+                        wait until clk'event and clk = '0';
                     end loop;
                     
                     U_cells(row)(i,0) <= first_sum mod q;
@@ -283,7 +290,8 @@ begin
             sig_is_U_generated <= '1';
             wait;
         else
-            wait for 20ps;
+--            wait for 20ps;
+            wait until clk'event and clk = '0';
         end if;
     end process;
 --============================== Generate n/4 random row number for 4 cahrs =============================

@@ -36,12 +36,14 @@ begin
                 
                 store_B_row <= i;
                 store_B_ele <= (row_sum  + Matrix_E(i))mod q;
-                wait for 20ps;
+--                wait for 20ps;
+                wait until clk'event and clk = '0';
                 row_sum := 0;
             end loop;
             wait;
         else
-            wait for 20ps;
+--            wait for 20ps;
+            wait until clk'event and clk = '0';
         end if;
     end process;
 

@@ -39,7 +39,8 @@ begin
         for row in matrixS_1'range(1) loop
             store_S_row <= row;
             store_S_ele <= random_result mod (q - 0);
-            wait for 20ps;
+--            wait for 20ps;
+            wait until clk'event and clk = '0';
         end loop;
         wait;
     end process;

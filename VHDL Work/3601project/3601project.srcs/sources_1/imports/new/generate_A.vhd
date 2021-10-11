@@ -44,7 +44,8 @@ begin
                     store_row <= row;
                     store_col <= col;
                     store_ele <= random_result mod(q - 0);
-                wait for 20ps;
+--                wait for 20ps;
+                wait until clk'event and clk = '0';
             end loop;
         end loop;
         wait;
