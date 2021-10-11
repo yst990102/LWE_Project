@@ -144,15 +144,25 @@ begin
     
     store_A : process
     begin
-        while sig_is_A_generated = '0' loop
---            wait for 20ps;
-            wait until clk'event and clk = '0';
-            A(sig_store_A_row, sig_store_A_col) <= sig_store_A_element;
+--        while sig_is_A_generated = '0' loop
+----            wait for 20ps;
+--            wait until clk'event and clk = '0';
+--            A(sig_store_A_row, sig_store_A_col) <= sig_store_A_element;
             
-            if sig_store_A_row = A_row_1 -1 and sig_store_A_col = A_col_1 -1 then
-                sig_is_A_generated <= '1';
-            end if;
+--            if sig_store_A_row = A_row_1 -1 and sig_store_A_col = A_col_1 -1 then
+--                sig_is_A_generated <= '1';
+--            end if;
+--        end loop;
+--        wait;
+--================================================
+        for row in matrixA_1'range(1) loop
+            for col in matrixA_1'range(2) loop
+                wait until clk'event and clk = '0';
+                A(sig_store_A_row, sig_store_A_col) <= sig_store_A_element;
+--                wait for 20ps;
+            end loop;
         end loop;
+        sig_is_A_generated <= '1';
         wait;
     end process;
 
@@ -166,15 +176,23 @@ begin
         
     store_S : process
     begin
-        while sig_is_S_generated = '0' loop
---            wait for 20ps;
+--        while sig_is_S_generated = '0' loop
+----            wait for 20ps;
+--            wait until clk'event and clk = '0';
+--            S(sig_store_S_row) <= sig_store_S_element;
+            
+--            if sig_store_S_row = A_col_1 - 1 then
+--                sig_is_S_generated <= '1';
+--            end if;
+--        end loop;
+--        wait;
+--================================================
+        for row in matrixS_1'range(1) loop
             wait until clk'event and clk = '0';
             S(sig_store_S_row) <= sig_store_S_element;
-            
-            if sig_store_S_row = A_col_1 - 1 then
-                sig_is_S_generated <= '1';
-            end if;
+--            wait for 20ps;
         end loop;
+        sig_is_S_generated <= '1';
         wait;
     end process;
  
@@ -188,16 +206,25 @@ begin
         
     store_E : process
     begin
-        while sig_is_E_generated = '0' loop
---            wait for 20ps;
+--        while sig_is_E_generated = '0' loop
+----            wait for 20ps;
+--            wait until clk'event and clk = '0';
+--            E(sig_store_E_row) <= sig_store_E_element;
+            
+--            if sig_store_E_row = A_row_1 - 1 then
+--                sig_is_E_generated <= '1';
+--            end if;
+--        end loop;
+--        wait;
+--================================================
+        for row in matrixE_1'range(1) loop
             wait until clk'event and clk = '0';
             E(sig_store_E_row) <= sig_store_E_element;
-            
-            if sig_store_E_row = A_row_1 - 1 then
-                sig_is_E_generated <= '1';
-            end if;
+--            wait for 20ps;
         end loop;
+        sig_is_E_generated <= '1';
         wait;
+
     end process;
     
     generate_Matrix_B : generate_B
@@ -216,16 +243,29 @@ begin
         
     store_B : process
     begin
-        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' then
-            while sig_is_B_generated = '0' loop
---                wait for 20ps;
-                wait until clk'event and clk = '0';
-                B(sig_store_B_row) <= sig_store_B_element;
+--        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' then
+--            while sig_is_B_generated = '0' loop
+----                wait for 20ps;
+--                wait until clk'event and clk = '0';
+--                B(sig_store_B_row) <= sig_store_B_element;
                 
-                if sig_store_B_row = A_row_1 - 1 then
-                    sig_is_B_generated <= '1';
-                end if;
+--                if sig_store_B_row = A_row_1 - 1 then
+--                    sig_is_B_generated <= '1';
+--                end if;
+--            end loop;
+--            wait;
+--        else
+----            wait for 20ps;
+--            wait until clk'event and clk = '0';
+--        end if;
+--================================================
+        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' then
+            for i in matrixB_1'range(1) loop
+                wait until clk'event and clk = '0';
+--                wait for 20ps;
+                B(sig_store_B_row) <= sig_store_B_element;
             end loop;
+            sig_is_B_generated <= '1';
             wait;
         else
 --            wait for 20ps;
