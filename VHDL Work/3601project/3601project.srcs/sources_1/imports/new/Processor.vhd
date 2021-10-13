@@ -58,6 +58,21 @@ architecture Behavioral of Processor is
         );
     end component;
     
+    component generate_UV is
+        port (
+            is_B_generated      : in std_logic;
+            clk                 : in std_logic;
+            q                   : in integer;
+            ascii_bits_array    : in ascii_array;
+            Matrix_A            : in matrixA_1;
+            Matrix_B            : in matrixB_1;
+            
+            U_cells             : out U_storage;
+            V_cells             : out V_storage;
+            is_UV_generated      : out std_logic
+        );
+    end component;
+    
     component random_generator is
         generic (data_width : natural);
         port(
@@ -68,7 +83,6 @@ architecture Behavioral of Processor is
     end component;
 
 --============================== Char Load & To_Asciis =============================
-    type ascii_array is array (1 to 4) of unsigned(0 to 7); 
     signal sig_ascii_array : ascii_array := (others => "00000000");
 --============================== Char Load & To_Asciis =============================
     
@@ -82,7 +96,6 @@ architecture Behavioral of Processor is
     signal sig_is_S_generated : std_logic := '0';
     signal sig_is_A_generated : std_logic := '0';
     signal sig_is_E_generated : std_logic := '0';
-    
     signal sig_is_B_generated : std_logic := '0';
     
     signal sig_store_A_row : integer := 0;
@@ -100,23 +113,12 @@ architecture Behavioral of Processor is
 --   ====================== Configuration Storage ======================
     
 --============================== Generate n/4 random row number for 4 cahrs =============================
-    type U_cell is array (0 to 7, 0 to A_col_1 - 1) of integer;
-    type U_storage is array (1 to 4) of U_cell;
     signal U_cells : U_storage := (others => (others => (others => 0)));
-    
-    type V_cell is array (0 to 7) of integer;
-    type V_storage is array(1 to 4) of V_cell;
     signal V_cells : V_storage := (others => (others => 0));
+     
+    signal sig_is_UV_generated : std_logic := '0';
     
-    signal row_num_random_result : integer := 0;    
-    signal sig_is_U_generated : std_logic := '0';
-    
-    signal sig_first_sum : integer := 0;
-    signal sig_second_sum : integer := 0;
-    signal sig_third_sum : integer := 0;
-    signal sig_forth_sum : integer := 0;
-    
-    signal sig_fifth_sum : integer := 0;
+
 --============================== Generate n/4 random row number for 4 cahrs =============================
 --   ====================== Other Self Test Signals ======================
 
@@ -155,7 +157,7 @@ begin
 --            end if;
 --        end loop;
 --        wait;
---================================================
+--      ================================================
         for row in matrixA_1'range(1) loop
             for col in matrixA_1'range(2) loop
                 wait until clk'event and clk = '0';
@@ -187,7 +189,7 @@ begin
 --            end if;
 --        end loop;
 --        wait;
---================================================
+--      ================================================
         for row in matrixS_1'range(1) loop
             wait until clk'event and clk = '0';
             S(sig_store_S_row) <= sig_store_S_element;
@@ -217,7 +219,7 @@ begin
 --            end if;
 --        end loop;
 --        wait;
---================================================
+--      ================================================
         for row in matrixE_1'range(1) loop
             wait until clk'event and clk = '0';
             E(sig_store_E_row) <= sig_store_E_element;
@@ -228,113 +230,68 @@ begin
 
     end process;
     
---    generate_Matrix_B : generate_B
---        port map(
---            is_S_generated => sig_is_S_generated,
---            is_A_generated => sig_is_A_generated,
---            is_E_generated => sig_is_E_generated,
---            clk => clk,
---            q => q, 
---            Matrix_A => A,
---            Matrix_S => S,
---            Matrix_E => E,
---            store_B_row => sig_store_B_row,
---            store_B_ele => sig_store_B_element
---        );
+    generate_Matrix_B : generate_B
+        port map(
+            is_S_generated => sig_is_S_generated,
+            is_A_generated => sig_is_A_generated,
+            is_E_generated => sig_is_E_generated,
+            clk => clk,
+            q => q, 
+            Matrix_A => A,
+            Matrix_S => S,
+            Matrix_E => E,
+            store_B_row => sig_store_B_row,
+            store_B_ele => sig_store_B_element
+        );
         
---    store_B : process
---    begin
-----        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' then
-----            while sig_is_B_generated = '0' loop
-------                wait for 20ps;
-----                wait until clk'event and clk = '0';
-----                B(sig_store_B_row) <= sig_store_B_element;
-                
-----                if sig_store_B_row = A_row_1 - 1 then
-----                    sig_is_B_generated <= '1';
-----                end if;
-----            end loop;
-----            wait;
-----        else
-------            wait for 20ps;
-----            wait until clk'event and clk = '0';
-----        end if;
-----================================================
+    store_B : process
+    begin
 --        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' then
---            for i in matrixB_1'range(1) loop
---                wait until clk'event and clk = '0';
+--            while sig_is_B_generated = '0' loop
 ----                wait for 20ps;
+--                wait until clk'event and clk = '0';
 --                B(sig_store_B_row) <= sig_store_B_element;
+                
+--                if sig_store_B_row = A_row_1 - 1 then
+--                    sig_is_B_generated <= '1';
+--                end if;
 --            end loop;
---            sig_is_B_generated <= '1';
 --            wait;
 --        else
 ----            wait for 20ps;
 --            wait until clk'event and clk = '0';
 --        end if;
---    end process;
+--      ================================================
+        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' then
+            for i in matrixB_1'range(1) loop
+                wait until clk'event and clk = '0';
+--                wait for 20ps;
+                B(sig_store_B_row) <= sig_store_B_element;
+            end loop;
+            sig_is_B_generated <= '1';
+            wait;
+        else
+--            wait for 20ps;
+            wait until clk'event and clk = '0';
+        end if;
+    end process;
     
 ----============================== Set Up =============================
 
 ----============================== Generate n/4 random row number for 4 cahrs =============================
---    random_number: random_generator
---        generic map (data_width => 7 )
---        port map(
---            seed => 220,
---            reset => '1',
---            clk => clk,
---            data_out => row_num_random_result
---        );
-        
---    generate_random_rows : process
---        variable encoding_ascii : unsigned(0 to 7);
---        variable first_ele, second_ele, third_ele, forth_ele : integer;
---        variable first_sum, second_sum, third_sum, forth_sum, fifth_sum : integer;
---    begin
---        if sig_is_B_generated = '1' then
---            for row in 1 to 4 loop
---                encoding_ascii := sig_ascii_array(row);
-
---                for i in encoding_ascii'range(1) loop
---                    first_sum := 0;
---                    second_sum := 0;
---                    third_sum := 0;
---                    forth_sum := 0;
---                    fifth_sum := 0;
---                    for col in 0 to (A_row_1 / 4 - 1) loop
---                        first_sum := first_sum + A(row_num_random_result, 0);
---                        second_sum := second_sum + A(row_num_random_result, 1);
---                        third_sum := third_sum + A(row_num_random_result, 2);
---                        forth_sum := forth_sum + A(row_num_random_result, 3);
-                        
---                        sig_first_sum <= first_sum;
---                        sig_second_sum <= second_sum;
---                        sig_third_sum <= third_sum;
---                        sig_forth_sum <= forth_sum;
-                        
---                        fifth_sum := fifth_sum + B(row_num_random_result);
-                        
---                        sig_fifth_sum <= fifth_sum;
-----                        wait for 20ps;
---                        wait until clk'event and clk = '0';
---                    end loop;
-                    
---                    U_cells(row)(i,0) <= first_sum mod q;
---                    U_cells(row)(i,1) <= second_sum mod q;
---                    U_cells(row)(i,2) <= third_sum mod q;
---                    U_cells(row)(i,3) <= forth_sum mod q;
-                    
---                    V_cells(row)(i) <= (fifth_sum - (q/2) * i) mod q;
---                end loop;
-                
---            end loop;
---            sig_is_U_generated <= '1';
---            wait;
---        else
-----            wait for 20ps;
---            wait until clk'event and clk = '0';
---        end if;
---    end process;
+    generate_Cells_UV : generate_UV
+        port map(
+            is_B_generated => sig_is_B_generated,
+            clk => clk,
+            q => q,
+            ascii_bits_array => sig_ascii_array,
+            Matrix_A => A,
+            Matrix_B => B,
+            
+            U_cells => U_cells,
+            V_cells => V_cells,
+            is_UV_generated => sig_is_UV_generated
+        );
 ----============================== Generate n/4 random row number for 4 cahrs =============================
     
     result <= encode_string;

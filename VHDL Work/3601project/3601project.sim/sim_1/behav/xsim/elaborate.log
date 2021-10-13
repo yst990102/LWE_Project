@@ -1,22 +1,15 @@
 Vivado Simulator v2020.2.2
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 7cfad730da2240c88178d1def861b8c8 --incr --debug typical --relax --mt 16 -L xil_defaultlib -L secureip --snapshot Processor_TB_behav xil_defaultlib.Processor_TB -log elaborate.log 
-Using 16 slave threads.
+Running: D:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 7cfad730da2240c88178d1def861b8c8 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Processor_TB_behav xil_defaultlib.Processor_TB -log elaborate.log 
+Using 2 slave threads.
 Starting static elaboration
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling package xil_defaultlib.configuration_set
-Compiling architecture rtl of entity xil_defaultlib.random_generator [\random_generator(data_width=7)\]
-Compiling architecture behavioral of entity xil_defaultlib.generate_A [generate_a_default]
-Compiling architecture behavioral of entity xil_defaultlib.generate_s [generate_s_default]
-Compiling architecture behavioral of entity xil_defaultlib.generate_e [generate_e_default]
-Compiling architecture behavioral of entity xil_defaultlib.Processor [processor_default]
-Compiling architecture behavioral of entity xil_defaultlib.processor_tb
-Built simulation snapshot Processor_TB_behav
+ERROR: [VRFC 10-3006] 'E:/Github_repository/COMP3601/VHDL Work/3601project/3601project.sim/sim_1/behav/xsim/xsim.dir/xil_defaultlib/generate_s.vdb' needs to be re-saved since 'xil_defaultlib.configuration_set' changed
+ERROR: [VRFC 10-3032] 'xil_defaultlib.generate_s' failed to restore
+ERROR: [VRFC 10-3006] 'E:/Github_repository/COMP3601/VHDL Work/3601project/3601project.sim/sim_1/behav/xsim/xsim.dir/xil_defaultlib/generate_s.vdb' needs to be re-saved since 'xil_defaultlib.configuration_set' changed
+ERROR: [VRFC 10-3032] 'xil_defaultlib.generate_s' failed to restore
+ERROR: [VRFC 10-3006] 'E:/Github_repository/COMP3601/VHDL Work/3601project/3601project.sim/sim_1/behav/xsim/xsim.dir/xil_defaultlib/generate_s.vdb' needs to be re-saved since 'xil_defaultlib.configuration_set' changed
+ERROR: [VRFC 10-3032] 'xil_defaultlib.generate_s' failed to restore
+ERROR: [VRFC 10-3006] 'E:/Github_repository/COMP3601/VHDL Work/3601project/3601project.sim/sim_1/behav/xsim/xsim.dir/xil_defaultlib/generate_s.vdb' needs to be re-saved since 'xil_defaultlib.configuration_set' changed
+ERROR: [VRFC 10-3032] 'xil_defaultlib.generate_s' failed to restore
+WARNING: [VRFC 10-4940] 'generate_s' remains a black box since it has no binding entity [E:/Github_repository/COMP3601/VHDL Work/3601project/3601project.srcs/sources_1/imports/new/Processor.vhd:172]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit processor_tb in library work failed.

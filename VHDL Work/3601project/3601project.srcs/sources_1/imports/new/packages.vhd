@@ -4,6 +4,8 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 package configuration_set is
+    type ascii_array is array (1 to 4) of unsigned(0 to 7); 
+
     constant q_min_1 : integer := 1;
     constant q_max_1 : integer := 128;
 --    constant q_min_2 : integer := 2048;
@@ -45,5 +47,11 @@ package configuration_set is
 --    type matrixB_3 is array (0 to A_row_3 - 1,   0 to 1 - 1)       of integer range q_min_3 to q_max_3;
 --    type matrixE_3 is array (0 to A_row_3 - 1,   0 to 1 - 1)       of integer range e_min_3 to e_max_3;
 --    type matrixU_3 is array (0 to A_col_3 - 1,   0 to 1 - 1)       of integer range q_min_3 to q_max_3;
+
+    type U_cell is array (0 to 7, 0 to A_col_1 - 1) of integer;
+    type U_storage is array (1 to 4) of U_cell;
+    
+    type V_cell is array (0 to 7) of integer;
+    type V_storage is array(1 to 4) of V_cell;
 
 end configuration_set;
