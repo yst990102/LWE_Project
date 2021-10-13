@@ -316,17 +316,16 @@ begin
                 for j in 0 to 7 loop
                     -- input
                     for k in 0 to A_row_1 / 4 - 1 loop
-                        sig_RowA_in_UV(0) <= A(sig_random_row_num, 0);
-                        sig_RowA_in_UV(1) <= A(sig_random_row_num, 1);
-                        sig_RowA_in_UV(2) <= A(sig_random_row_num, 2);
-                        sig_RowA_in_UV(3) <= A(sig_random_row_num, 3);
-                        
+                        for h in RowA_1'range(1) loop
+                            sig_RowA_in_UV(h) <= A(sig_random_row_num, h);
+                        end loop;                        
+        
                         sig_RowB_in_UV <= B(sig_random_row_num);
                         wait until clk'event and clk='0';
                     end loop;
                     
                     -- output
-                    wait until clk'event and clk='0';
+                    wait until clk'event and clk='1';
                     for h in RowU_1'range(1) loop
                         U_cells(i)(j, h) <= sig_RowU_out_UV(h);
                     end loop;

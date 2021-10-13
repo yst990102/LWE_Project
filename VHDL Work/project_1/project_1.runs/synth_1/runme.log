@@ -16,12 +16,12 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7k160t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k160t'
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 13784
+INFO: [Synth 8-7075] Helper process launched with PID 23372
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1026.305 ; gain = 0.000
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1027.641 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'Processor' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:15]
-INFO: [Synth 8-3491] module 'generate_A' declared at 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_A.vhd:7' bound to instance 'generate_Matrix_A' of component 'generate_A' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:152]
+INFO: [Synth 8-3491] module 'generate_A' declared at 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_A.vhd:7' bound to instance 'generate_Matrix_A' of component 'generate_A' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:159]
 INFO: [Synth 8-638] synthesizing module 'generate_A' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_A.vhd:17]
 	Parameter data_width bound to: 7 - type: integer 
 INFO: [Synth 8-3491] module 'random_generator' declared at 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/random_generator.vhd:5' bound to instance 'random_number' of component 'random_generator' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_A.vhd:30]
@@ -31,34 +31,48 @@ WARNING: [Synth 8-614] signal 'run' is read in the process but is not in the sen
 WARNING: [Synth 8-614] signal 'seed' is read in the process but is not in the sensitivity list [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/random_generator.vhd:22]
 INFO: [Synth 8-256] done synthesizing module 'random_generator' (1#1) [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/random_generator.vhd:15]
 INFO: [Synth 8-256] done synthesizing module 'generate_A' (2#1) [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_A.vhd:17]
-INFO: [Synth 8-3491] module 'generate_s' declared at 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_s.vhd:7' bound to instance 'generate_Matrix_S' of component 'generate_s' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:185]
+INFO: [Synth 8-3491] module 'generate_s' declared at 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_s.vhd:7' bound to instance 'generate_Matrix_S' of component 'generate_s' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:192]
 INFO: [Synth 8-638] synthesizing module 'generate_s' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_s.vhd:16]
 	Parameter data_width bound to: 7 - type: integer 
 INFO: [Synth 8-3491] module 'random_generator' declared at 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/random_generator.vhd:5' bound to instance 'random_number' of component 'random_generator' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_s.vhd:28]
 INFO: [Synth 8-256] done synthesizing module 'generate_s' (3#1) [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_s.vhd:16]
-INFO: [Synth 8-3491] module 'generate_e' declared at 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_e.vhd:7' bound to instance 'generate_Matrix_E' of component 'generate_e' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:215]
+INFO: [Synth 8-3491] module 'generate_e' declared at 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_e.vhd:7' bound to instance 'generate_Matrix_E' of component 'generate_e' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:222]
 INFO: [Synth 8-638] synthesizing module 'generate_e' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_e.vhd:16]
 	Parameter data_width bound to: 7 - type: integer 
 INFO: [Synth 8-3491] module 'random_generator' declared at 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/random_generator.vhd:5' bound to instance 'random_number' of component 'random_generator' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_e.vhd:28]
 INFO: [Synth 8-256] done synthesizing module 'generate_e' (4#1) [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_e.vhd:16]
-INFO: [Synth 8-256] done synthesizing module 'Processor' (5#1) [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:15]
+INFO: [Synth 8-3491] module 'generate_B' declared at 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_B.vhd:7' bound to instance 'generate_Matrix_B' of component 'generate_B' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:253]
+INFO: [Synth 8-638] synthesizing module 'generate_B' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_B.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'generate_B' (5#1) [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_B.vhd:28]
+INFO: [Synth 8-3491] module 'generate_UV' declared at 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_UV.vhd:7' bound to instance 'generate_Cells_UV' of component 'generate_UV' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:342]
+INFO: [Synth 8-638] synthesizing module 'generate_UV' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_UV.vhd:28]
+	Parameter data_width bound to: 7 - type: integer 
+INFO: [Synth 8-3491] module 'random_generator' declared at 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/random_generator.vhd:5' bound to instance 'random_number' of component 'random_generator' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_UV.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'generate_UV' (6#1) [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_UV.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'Processor' (7#1) [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:15]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:05:19 ; elapsed = 00:05:25 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished Synthesize : Time (s): cpu = 00:06:04 ; elapsed = 00:06:07 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:05:20 ; elapsed = 00:05:25 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished Constraint Validation : Time (s): cpu = 00:06:05 ; elapsed = 00:06:09 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k160tffv676-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:05:20 ; elapsed = 00:05:25 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished Loading Part and Timing Information : Time (s): cpu = 00:06:05 ; elapsed = 00:06:09 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7k160tffv676-3
 WARNING: [Synth 8-327] inferring latch for variable 'run_reg' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/random_generator.vhd:25]
+WARNING: [Synth 8-327] inferring latch for variable 'uv_row_num_reg' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_UV.vhd:67]
+WARNING: [Synth 8-327] inferring latch for variable 'RowU_out_reg[0]' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_UV.vhd:111]
+WARNING: [Synth 8-327] inferring latch for variable 'RowU_out_reg[1]' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_UV.vhd:111]
+WARNING: [Synth 8-327] inferring latch for variable 'RowU_out_reg[2]' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_UV.vhd:111]
+WARNING: [Synth 8-327] inferring latch for variable 'RowU_out_reg[3]' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_UV.vhd:111]
+WARNING: [Synth 8-327] inferring latch for variable 'RowV_out_reg' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_UV.vhd:116]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_is_B_generated_reg' [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:290]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:05:20 ; elapsed = 00:05:26 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:06:41 ; elapsed = 00:06:42 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -66,19 +80,26 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   3 Input   32 Bit       Adders := 2     
-	   2 Input   31 Bit       Adders := 4     
+	   2 Input   32 Bit       Adders := 316   
+	   3 Input   32 Bit       Adders := 9     
+	   5 Input   32 Bit       Adders := 1     
+	   2 Input   31 Bit       Adders := 12    
 	   2 Input    3 Bit       Adders := 1     
 +---XORs : 
-	   2 Input      1 Bit         XORs := 3     
+	   2 Input      1 Bit         XORs := 4     
 +---Registers : 
-	               32 Bit    Registers := 6     
-	                7 Bit    Registers := 3     
+	               32 Bit    Registers := 593   
+	                8 Bit    Registers := 4     
+	                7 Bit    Registers := 4     
 	                3 Bit    Registers := 1     
++---Multipliers : 
+	               4x32  Multipliers := 1     
+	              32x32  Multipliers := 4     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 12    
-	   2 Input   31 Bit        Muxes := 6     
-	   2 Input    7 Bit        Muxes := 6     
+	   2 Input   32 Bit        Muxes := 318   
+	   2 Input   31 Bit        Muxes := 16    
+	   2 Input    7 Bit        Muxes := 8     
+	   2 Input    1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -95,21 +116,460 @@ No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[0]' (LD) to 'uv_row_num_reg[1]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[1]' (LD) to 'uv_row_num_reg[2]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\uv_row_num_reg[2] )
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[3]' (LD) to 'uv_row_num_reg[4]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[4]' (LD) to 'uv_row_num_reg[5]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[5]' (LD) to 'uv_row_num_reg[6]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[6]' (LD) to 'uv_row_num_reg[7]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[7]' (LD) to 'uv_row_num_reg[8]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[8]' (LD) to 'uv_row_num_reg[9]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[9]' (LD) to 'uv_row_num_reg[10]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[10]' (LD) to 'uv_row_num_reg[11]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[11]' (LD) to 'uv_row_num_reg[12]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[12]' (LD) to 'uv_row_num_reg[13]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[13]' (LD) to 'uv_row_num_reg[14]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[14]' (LD) to 'uv_row_num_reg[15]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[15]' (LD) to 'uv_row_num_reg[16]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[16]' (LD) to 'uv_row_num_reg[17]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[17]' (LD) to 'uv_row_num_reg[18]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[18]' (LD) to 'uv_row_num_reg[19]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[19]' (LD) to 'uv_row_num_reg[20]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[20]' (LD) to 'uv_row_num_reg[21]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[21]' (LD) to 'uv_row_num_reg[22]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[22]' (LD) to 'uv_row_num_reg[23]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[23]' (LD) to 'uv_row_num_reg[24]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[24]' (LD) to 'uv_row_num_reg[25]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[25]' (LD) to 'uv_row_num_reg[26]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[26]' (LD) to 'uv_row_num_reg[27]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[27]' (LD) to 'uv_row_num_reg[28]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[28]' (LD) to 'uv_row_num_reg[29]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[29]' (LD) to 'uv_row_num_reg[30]'
+INFO: [Synth 8-3886] merging instance 'uv_row_num_reg[30]' (LD) to 'uv_row_num_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\uv_row_num_reg[31] )
+WARNING: [Synth 8-7129] Port seed[31] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[30] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[29] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[28] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[27] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[26] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[25] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[24] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[23] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[22] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[21] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[20] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[19] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[18] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[17] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[16] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[15] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[14] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[13] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[12] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[11] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[10] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[9] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[8] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[7] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[31] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[30] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[29] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[28] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[27] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[26] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[25] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[24] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[23] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[22] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[21] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[20] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[19] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[18] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[17] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[16] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[15] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[14] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[13] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[12] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[11] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[10] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[9] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[8] in module random_generator__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[7] in module random_generator__2 is either unconnected or has no load
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_ele_reg[31] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_col_reg[31] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[5] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[6] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_A/[255].[3].store_row_reg[31] )
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[17]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[20]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[21]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[24]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[25]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[28]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[13]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[14]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[14]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[15]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[16]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[18]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[18]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[19]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[19]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[20]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[20]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[22]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[22]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[23]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[23]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[24]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[24]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[26]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[26]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[27]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[27]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[28]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[28]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[29]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_A/[255].[3].store_ele_reg[29]' (FDR_1) to 'generate_Matrix_A/[255].[3].store_ele_reg[30]'
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_B.vhd:49]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_B.vhd:49]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_B.vhd:49]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_B.vhd:49]
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+WARNING: [Synth 8-7129] Port seed[31] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[30] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[29] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[28] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[27] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[26] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[25] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[24] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[23] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[22] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[21] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[20] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[19] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[18] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[17] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[16] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[15] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[14] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[13] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[12] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[11] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[10] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[9] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[8] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[7] in module random_generator__3 is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (random_number/run_reg) is unused and will be removed from module generate_s.
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_E/[255].store_E_ele_reg[0]' (FD_1) to 'generate_Matrix_E/[255].store_E_ele_reg[1]'
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_E/[255].store_E_ele_reg[1]' (FD_1) to 'generate_Matrix_E/[255].store_E_ele_reg[2]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[5] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[6] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\generate_Matrix_E/[255].store_E_row_reg[31] )
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][0]' (FD_1) to '[255].E_reg[255][1]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][1]' (FD_1) to '[255].E_reg[255][2]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][2]' (FD_1) to '[255].E_reg[255][3]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][3]' (FD_1) to '[255].E_reg[255][4]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][4]' (FD_1) to '[255].E_reg[255][5]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][5]' (FD_1) to '[255].E_reg[255][6]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][6]' (FD_1) to '[255].E_reg[255][7]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][7]' (FD_1) to '[255].E_reg[255][8]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][8]' (FD_1) to '[255].E_reg[255][9]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][9]' (FD_1) to '[255].E_reg[255][10]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][10]' (FD_1) to '[255].E_reg[255][11]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][11]' (FD_1) to '[255].E_reg[255][12]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][12]' (FD_1) to '[255].E_reg[255][13]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][13]' (FD_1) to '[255].E_reg[255][14]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][14]' (FD_1) to '[255].E_reg[255][15]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][15]' (FD_1) to '[255].E_reg[255][16]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][16]' (FD_1) to '[255].E_reg[255][17]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][17]' (FD_1) to '[255].E_reg[255][18]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][18]' (FD_1) to '[255].E_reg[255][19]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][19]' (FD_1) to '[255].E_reg[255][20]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][20]' (FD_1) to '[255].E_reg[255][21]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][21]' (FD_1) to '[255].E_reg[255][22]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][22]' (FD_1) to '[255].E_reg[255][23]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][23]' (FD_1) to '[255].E_reg[255][24]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][24]' (FD_1) to '[255].E_reg[255][25]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][25]' (FD_1) to '[255].E_reg[255][26]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][26]' (FD_1) to '[255].E_reg[255][27]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][27]' (FD_1) to '[255].E_reg[255][28]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][28]' (FD_1) to '[255].E_reg[255][29]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][29]' (FD_1) to '[255].E_reg[255][30]'
+INFO: [Synth 8-3886] merging instance '[255].E_reg[255][30]' (FD_1) to '[255].E_reg[255][31]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:05:25 ; elapsed = 00:05:33 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:07:41 ; elapsed = 00:08:02 . Memory (MB): peak = 7608.164 ; gain = 6580.523
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping	Report (see note below)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|generate_B  | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B  | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:05:25 ; elapsed = 00:05:33 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished Timing Optimization : Time (s): cpu = 00:07:43 ; elapsed = 00:08:04 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-4765] Removing register instance (\[255].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[255].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[255].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[255].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[254].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[254].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[254].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[254].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[253].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[253].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[253].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[253].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[252].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[252].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[252].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[252].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[251].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[251].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[251].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[251].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[250].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[250].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[250].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[250].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[249].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[249].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[249].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[249].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[248].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[248].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[248].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[248].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[247].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[247].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[247].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[247].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[246].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[246].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[246].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[246].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[245].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[245].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[245].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[245].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[244].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[244].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[244].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[244].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[243].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[243].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[243].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[243].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[242].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[242].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[242].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[242].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[241].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[241].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[241].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[241].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[240].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[240].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[240].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[240].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[239].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[239].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[239].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[239].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[238].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[238].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[238].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[238].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[237].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[237].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[237].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[237].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[236].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[236].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[236].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[236].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[235].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[235].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[235].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[235].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[234].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[234].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[234].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[234].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[233].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[233].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[233].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[233].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[232].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[232].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[232].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[232].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[231].[3].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[231].[2].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[231].[1].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Synth 8-4765] Removing register instance (\[231].[0].A_reg[255,3][31] ) from module (Processor__GCB4_tempName) as it is equivalent to (\[0].[0].A_reg[255,3][31] ) and driving same net [E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd:184]
+INFO: [Common 17-14] Message 'Synth 8-4765' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-4765' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-4765' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:05:25 ; elapsed = 00:05:33 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished Technology Mapping : Time (s): cpu = 00:07:55 ; elapsed = 00:08:16 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -127,37 +587,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:05:28 ; elapsed = 00:05:36 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished IO Insertion : Time (s): cpu = 00:07:57 ; elapsed = 00:08:19 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:05:28 ; elapsed = 00:05:36 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished Renaming Generated Instances : Time (s): cpu = 00:07:57 ; elapsed = 00:08:19 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:05:28 ; elapsed = 00:05:36 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:07:57 ; elapsed = 00:08:19 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:05:28 ; elapsed = 00:05:36 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished Renaming Generated Ports : Time (s): cpu = 00:07:57 ; elapsed = 00:08:19 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:05:28 ; elapsed = 00:05:36 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished Handling Custom Attributes : Time (s): cpu = 00:07:57 ; elapsed = 00:08:19 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:05:28 ; elapsed = 00:05:36 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished Renaming Generated Nets : Time (s): cpu = 00:07:57 ; elapsed = 00:08:19 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -184,23 +644,23 @@ Report Instance Areas:
 |1     |top      |       |    64|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:05:28 ; elapsed = 00:05:36 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Finished Writing Synthesis Report : Time (s): cpu = 00:07:57 ; elapsed = 00:08:19 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:05:28 ; elapsed = 00:05:36 . Memory (MB): peak = 7316.594 ; gain = 6290.289
-Synthesis Optimization Complete : Time (s): cpu = 00:05:28 ; elapsed = 00:05:36 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+Synthesis finished with 0 errors, 0 critical warnings and 86 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:07:57 ; elapsed = 00:08:20 . Memory (MB): peak = 7608.164 ; gain = 6580.523
+Synthesis Optimization Complete : Time (s): cpu = 00:07:57 ; elapsed = 00:08:20 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 7316.594 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 7608.164 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7316.594 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7608.164 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-26 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+318 Infos, 86 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:05:38 ; elapsed = 00:05:47 . Memory (MB): peak = 7316.594 ; gain = 6290.289
+synth_design: Time (s): cpu = 00:08:12 ; elapsed = 00:08:36 . Memory (MB): peak = 7608.164 ; gain = 6580.523
 INFO: [Common 17-1381] The checkpoint 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.runs/synth_1/Processor.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Processor_utilization_synth.rpt -pb Processor_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Oct 13 12:36:47 2021...
+INFO: [Common 17-206] Exiting Vivado at Wed Oct 13 18:30:59 2021...

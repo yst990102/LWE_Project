@@ -3,11 +3,11 @@ v2020.2.2
 Feb  9 2021
 06:17:39
 E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sim_1/imports/new/Processor_TB.vhd,1634103870,vhdl,,,,processor_tb,,,,,,,,
-E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd,1634106546,vhdl,,,,processor,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd,1634121397,vhdl,,,,processor,,,,,,,,
 E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_A.vhd,1633970671,vhdl,,,,generate_a,,,,,,,,
 E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_B.vhd,1634106661,vhdl,,,,generate_b,,,,,,,,
 E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_UV.vhd,1634084977,vhdl,,,,generate_uv,,,,,,,,
 E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_e.vhd,1633967257,vhdl,,,,generate_e,,,,,,,,
 E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_s.vhd,1633967257,vhdl,,,,generate_s,,,,,,,,
-E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/packages.vhd,1634082466,vhdl,E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_B.vhd,,,configuration_set,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/packages.vhd,1634082466,vhdl,E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd,,,configuration_set,,,,,,,,
 E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/random_generator.vhd,1633606278,vhdl,,,,random_generator,,,,,,,,

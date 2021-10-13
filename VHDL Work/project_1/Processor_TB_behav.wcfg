@@ -12,11 +12,11 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="6fs"></ZoomEndTime>
-      <Cursor1Time time="20fs"></Cursor1Time>
+      <ZoomEndTime time="5fs"></ZoomEndTime>
+      <Cursor1Time time="1fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="172"></NameColumnWidth>
+      <NameColumnWidth column_width="168"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="33" />
@@ -107,6 +107,7 @@
    <wvobject fp_name="/Processor_TB/UUT/sig_RowE_in_B" type="other">
       <obj_property name="ElementShortName">sig_RowE_in_B</obj_property>
       <obj_property name="ObjectShortName">sig_RowE_in_B</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_store_B_row" type="other">
       <obj_property name="ElementShortName">sig_store_B_row</obj_property>
