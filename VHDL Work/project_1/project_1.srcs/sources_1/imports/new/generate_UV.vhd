@@ -19,6 +19,7 @@ entity generate_UV is
         uv_row_num          : out integer;
 --        U_cells             : out U_storage;
 --        V_cells             : out V_storage;
+        output_generated    : out std_logic;
         RowU_out            : out RowU_1;
         RowV_out            : out integer
 --        is_UV_generated      : out std_logic
@@ -99,6 +100,8 @@ begin
 
 --                        wait for 20ps;
                         wait until clk'event and clk = '0';
+                        
+                        output_generated <= '0';
                     end loop;
                     
 --                    U_cells(row)(i,0) <= first_sum mod q;
@@ -114,6 +117,9 @@ begin
                     RowU_out(3) <= forth_sum mod q;
                     
                     RowV_out <= (fifth_sum - (q/2) * i) mod q;
+
+                    output_generated <= '1';
+                    
                 end loop;
                 
             end loop;

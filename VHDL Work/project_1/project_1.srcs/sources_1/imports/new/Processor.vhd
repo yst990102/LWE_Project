@@ -77,6 +77,7 @@ architecture Behavioral of Processor is
             uv_row_num          : out integer;
 --            U_cells             : out U_storage;
 --            V_cells             : out V_storage;
+            output_generated        : out std_logic;
             RowU_out            : out RowU_1;
             RowV_out            : out integer
 --            is_UV_generated     : out std_logic
@@ -128,6 +129,7 @@ architecture Behavioral of Processor is
 --============================== Generate n/4 random row number for 4 cahrs =============================
     signal sig_random_row_num : integer := 0;
     signal sig_uv_row_num : integer := 0;
+    signal sig_output_generated : std_logic := '0';
 
     signal sig_RowA_in_UV : RowA_1 := (others => 0);
     signal sig_RowB_in_UV : integer := 0;
@@ -144,7 +146,7 @@ architecture Behavioral of Processor is
 
 begin
 --============================== Char Load & To_Asciis =============================
-    string_to_asciis : process
+    string_to_asciis : process      -- synthesizable now
     begin
         for i in 1 to 4 loop
             sig_ascii_array(i) <= conv_unsigned(integer(character'pos(encode_string(i))), 8);
@@ -156,8 +158,8 @@ begin
 --============================== Char Load & To_Asciis =============================
 
 --============================== Set Up =============================
-    generate_Matrix_A : generate_A
-        port map(
+    generate_Matrix_A : generate_A      -- synthesizable now
+        port map(   
             clk => clk,
             q => q,
             store_row => sig_store_A_row,
@@ -165,7 +167,7 @@ begin
             store_ele => sig_store_A_element
         );
     
-    store_A : process
+    store_A : process       -- synthesizable now
     begin
 --        while sig_is_A_generated = '0' loop
 ----            wait for 20ps;
@@ -189,7 +191,7 @@ begin
         wait;
     end process;
 
-    generate_Matrix_S : generate_s
+    generate_Matrix_S : generate_s      -- synthesizable now
         port map(
             clk => clk,
             q => q,
@@ -197,7 +199,7 @@ begin
             store_S_ele => sig_store_S_element
         );
         
-    store_S : process
+    store_S : process       -- synthesizable now
     begin
 --        while sig_is_S_generated = '0' loop
 ----            wait for 20ps;
@@ -219,7 +221,7 @@ begin
         wait;
     end process;
  
-    generate_Matrix_E : generate_e
+    generate_Matrix_E : generate_e      -- synthesizable now
         port map(
             clk => clk,
             q => q,
@@ -227,7 +229,7 @@ begin
             store_E_ele => sig_store_E_element
         );
         
-    store_E : process
+    store_E : process       -- synthesizable now
     begin
 --        while sig_is_E_generated = '0' loop
 ----            wait for 20ps;
@@ -250,7 +252,7 @@ begin
 
     end process;
     
-    generate_Matrix_B : generate_B
+    generate_Matrix_B : generate_B      -- synthesizable now
         port map(
             is_S_generated => sig_is_S_generated,
             is_A_generated => sig_is_A_generated,
@@ -269,7 +271,7 @@ begin
             store_B_ele => sig_store_B_element
         );
         
-    store_B : process
+    store_B : process       -- synthesizable now
     begin
 --        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' then
 --            while sig_is_B_generated = '0' loop
@@ -309,37 +311,85 @@ begin
 ----============================== Set Up =============================
 
 ----============================== Generate n/4 random row number for 4 cahrs =============================
-    storage_UV : process
+    storage_UV_output : process         -- synthesizable now
+        variable i : integer := 1;
+        variable j : integer := 0;
+        variable count : integer := 0;
     begin
-        if sig_is_B_generated = '1' then
-            for i in ascii_array'range(1) loop
-                for j in 0 to 7 loop
-                    -- input
-                    for k in 0 to A_row_1 / 4 - 1 loop
-                        for h in RowA_1'range(1) loop
-                            sig_RowA_in_UV(h) <= A(sig_random_row_num, h);
-                        end loop;                        
-        
-                        sig_RowB_in_UV <= B(sig_random_row_num);
-                        wait until clk'event and clk='0';
-                    end loop;
-                    
-                    -- output
-                    wait until clk'event and clk='1';
-                    for h in RowU_1'range(1) loop
-                        U_cells(i)(j, h) <= sig_RowU_out_UV(h);
-                    end loop;
-                    V_cells(i,j) <= sig_RowV_out_UV;
-                end loop;
-            end loop;
-            sig_is_UV_generated <= '1';
-            wait;
+        if sig_output_generated = '1' then
+            if count < 32 then
+                U_cells(i)(j, 0) <= sig_RowU_out_UV(0);
+                U_cells(i)(j, 1) <= sig_RowU_out_UV(1);
+                U_cells(i)(j, 2) <= sig_RowU_out_UV(2);
+                U_cells(i)(j, 3) <= sig_RowU_out_UV(3);
+                
+                V_cells(i,j) <= sig_RowV_out_UV;
+                count := count + 1;
+                j := j + 1;
+                if j = 8 then
+                    j := 0;
+                    i := i + 1;
+                end if;
+            end if;
+            wait until clk'event and clk='1';
         else
-            wait until clk'event and clk='0';
+            wait until clk'event and clk='1';
         end if;
     end process;
+        
+    storage_UV_input : process
+        variable i : integer := 1;
+        variable j : integer := 0;
+        variable k : integer := 0;
+    begin
+--        if sig_is_B_generated = '1' then
+--            for i in ascii_array'range(1) loop
+--                for j in 0 to 7 loop
+--                    -- input
+--                    for k in 0 to A_row_1 / 4 - 1 loop
+--                        sig_RowA_in_UV(0) <= A(sig_random_row_num, 0);
+--                        sig_RowA_in_UV(1) <= A(sig_random_row_num, 1);
+--                        sig_RowA_in_UV(2) <= A(sig_random_row_num, 2);
+--                        sig_RowA_in_UV(3) <= A(sig_random_row_num, 3);
+                               
+--                        sig_RowB_in_UV <= B(sig_random_row_num);
+--                        wait until clk'event and clk='0';
+--                    end loop;
+--                end loop;
+--            end loop;
+--            wait;
+--        else
+--            wait until clk'event and clk='0';
+--        end if;
+
+        if sig_is_B_generated = '1' then
+            if i < 5 then
+                if j < 8 then
+                    if k < A_row_1 / 4 - 1 then
+                        sig_RowA_in_UV(0) <= A(sig_random_row_num, 0);
+                        sig_RowA_in_UV(1) <= A(sig_random_row_num, 1);
+                        sig_RowA_in_UV(2) <= A(sig_random_row_num, 2);
+                        sig_RowA_in_UV(3) <= A(sig_random_row_num, 3);
+                               
+                        sig_RowB_in_UV <= B(sig_random_row_num);
+                        k := k + 1;
+                    elsif k = A_row_1 / 4 - 1 then
+                        k := 0;
+                        j := j + 1;
+                    end if;
+                elsif j = 8 then
+                    j := 0;
+                    i := i + 1;
+                end if;
+            elsif i = 5 then
+                sig_is_UV_generated <= '1';
+                wait;
+            end if;
+        end if;
+        wait until clk'event and clk='0';
+    end process;
     
-    generate_Cells_UV : generate_UV
+    generate_Cells_UV : generate_UV             -- synthesizable now
         port map(
             is_B_generated => sig_is_B_generated,
             clk => clk,
@@ -354,6 +404,7 @@ begin
             uv_row_num => sig_uv_row_num,
 --            U_cells => U_cells,
 --            V_cells => V_cells,
+            output_generated => sig_output_generated,
             RowU_out => sig_RowU_out_UV,
             RowV_out => sig_RowV_out_UV
 --            is_UV_generated => sig_is_UV_generated
