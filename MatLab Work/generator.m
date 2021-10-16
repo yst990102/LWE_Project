@@ -62,7 +62,8 @@ q_r = q_r(q_r >= q_min);
 q = q_r(randperm(numel(q_r),1));
 
 A = randi([0,q],A_row,A_col);
-e = randi([e_min,e_max],A_row,1);
+% e = randi([e_min,e_max],A_row,1);
+e = round(normrnd(0,0.341,A_row,1));
 s = randi([0, q],A_col,1);
 
 return

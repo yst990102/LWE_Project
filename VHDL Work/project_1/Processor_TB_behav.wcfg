@@ -11,31 +11,37 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="670.001 ns"></ZoomEndTime>
-      <Cursor1Time time="127.500 ns"></Cursor1Time>
+      <ZoomStartTime time="65.094 ns"></ZoomStartTime>
+      <ZoomEndTime time="78.575 ns"></ZoomEndTime>
+      <Cursor1Time time="66.914 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="226"></NameColumnWidth>
-      <ValueColumnWidth column_width="102"></ValueColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="39" />
-   <wvobject fp_name="/Processor_TB/UUT/encode_string" type="array">
-      <obj_property name="ElementShortName">encode_string[1:4]</obj_property>
-      <obj_property name="ObjectShortName">encode_string[1:4]</obj_property>
-   </wvobject>
+   <WVObjectSize size="44" />
    <wvobject fp_name="/Processor_TB/UUT/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/encode_string" type="array">
+      <obj_property name="ElementShortName">encode_string[1:4]</obj_property>
+      <obj_property name="ObjectShortName">encode_string[1:4]</obj_property>
+   </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/result" type="array">
       <obj_property name="ElementShortName">result[1:4]</obj_property>
       <obj_property name="ObjectShortName">result[1:4]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_ascii_array" type="array">
       <obj_property name="ElementShortName">sig_ascii_array[1:4][0:7]</obj_property>
       <obj_property name="ObjectShortName">sig_ascii_array[1:4][0:7]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/sig_dec_ascii_array" type="array">
+      <obj_property name="ElementShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
+      <obj_property name="ObjectShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/S" type="array">
       <obj_property name="ElementShortName">S[0:3]</obj_property>
@@ -149,6 +155,26 @@
       <obj_property name="ElementShortName">sig_RowB_in_UV</obj_property>
       <obj_property name="ObjectShortName">sig_RowB_in_UV</obj_property>
    </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Cells_UV/sig_first_sum" type="other">
+      <obj_property name="ElementShortName">sig_first_sum</obj_property>
+      <obj_property name="ObjectShortName">sig_first_sum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Cells_UV/sig_second_sum" type="other">
+      <obj_property name="ElementShortName">sig_second_sum</obj_property>
+      <obj_property name="ObjectShortName">sig_second_sum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Cells_UV/sig_third_sum" type="other">
+      <obj_property name="ElementShortName">sig_third_sum</obj_property>
+      <obj_property name="ObjectShortName">sig_third_sum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Cells_UV/sig_forth_sum" type="other">
+      <obj_property name="ElementShortName">sig_forth_sum</obj_property>
+      <obj_property name="ObjectShortName">sig_forth_sum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Cells_UV/sig_fifth_sum" type="other">
+      <obj_property name="ElementShortName">sig_fifth_sum</obj_property>
+      <obj_property name="ObjectShortName">sig_fifth_sum</obj_property>
+   </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_RowU_out_UV" type="array">
       <obj_property name="ElementShortName">sig_RowU_out_UV[0:3]</obj_property>
       <obj_property name="ObjectShortName">sig_RowU_out_UV[0:3]</obj_property>
@@ -172,10 +198,5 @@
    <wvobject fp_name="/Processor_TB/UUT/quar_q" type="other">
       <obj_property name="ElementShortName">quar_q</obj_property>
       <obj_property name="ObjectShortName">quar_q</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_dec_ascii_array" type="array">
-      <obj_property name="ElementShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
-      <obj_property name="ObjectShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
 </wave_config>

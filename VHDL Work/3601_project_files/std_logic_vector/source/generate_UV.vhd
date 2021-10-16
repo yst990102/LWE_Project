@@ -59,8 +59,14 @@ begin
         variable encoding_ascii : std_logic_vector(0 to 7);
         variable first_ele, second_ele, third_ele, forth_ele : integer;
         variable first_sum, second_sum, third_sum, forth_sum, fifth_sum : integer;
+        variable half_q : integer := 0;
     begin
         if is_B_generated = '1' then
+            case q mod 2 is
+                when 0 => half_q := q / 2;
+                when others => half_q := (q + 1) / 2;
+            end case;
+        
             for row in 1 to 4 loop
                 encoding_ascii := ascii_bits_array(row);
 
@@ -116,8 +122,11 @@ begin
                     RowU_out(2) <= third_sum mod q;
                     RowU_out(3) <= forth_sum mod q;
                     
-                    RowV_out <= (fifth_sum - (q/2) * i) mod q;
-
+                    if encoding_ascii(i) = '0' then
+                        RowV_out <= (fifth_sum ) mod q;
+                    else
+                        RowV_out <= (fifth_sum - half_q) mod q;
+                    end if;
                     output_generated <= '1';
                     
                 end loop;
