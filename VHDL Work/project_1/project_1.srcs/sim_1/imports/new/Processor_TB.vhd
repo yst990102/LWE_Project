@@ -14,7 +14,7 @@ architecture Behavioral of Processor_TB is
         );
     end component;
     
-    constant clk_period : time := 200ps;
+    constant clk_period : time := 20ps;
     
     signal clk : std_logic;
     signal final_result : string(1 to 4);

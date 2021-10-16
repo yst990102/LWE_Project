@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1450001fs"></ZoomEndTime>
-      <Cursor1Time time="2fs"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="847.501 ns"></ZoomEndTime>
+      <Cursor1Time time="191.500 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="160"></NameColumnWidth>
-      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+      <NameColumnWidth column_width="156"></NameColumnWidth>
+      <ValueColumnWidth column_width="74"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="34" />
+   <WVObjectSize size="35" />
    <wvobject fp_name="/Processor_TB/UUT/encode_string" type="array">
       <obj_property name="ElementShortName">encode_string[1:4]</obj_property>
       <obj_property name="ObjectShortName">encode_string[1:4]</obj_property>
@@ -31,6 +31,8 @@
    <wvobject fp_name="/Processor_TB/UUT/result" type="array">
       <obj_property name="ElementShortName">result[1:4]</obj_property>
       <obj_property name="ObjectShortName">result[1:4]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_ascii_array" type="array">
       <obj_property name="ElementShortName">sig_ascii_array[1:4][0:7]</obj_property>
@@ -156,5 +158,10 @@
    <wvobject fp_name="/Processor_TB/UUT/sig_output_generated" type="logic">
       <obj_property name="ElementShortName">sig_output_generated</obj_property>
       <obj_property name="ObjectShortName">sig_output_generated</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/sig_result" type="array">
+      <obj_property name="ElementShortName">sig_result[1:1]</obj_property>
+      <obj_property name="ObjectShortName">sig_result[1:1]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
 </wave_config>
