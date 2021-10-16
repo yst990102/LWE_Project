@@ -1,14 +1,16 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
-"../../../../project_1.srcs/sources_1/imports/new/packages.vhd" \
-"../../../../project_1.srcs/sources_1/imports/new/Processor.vhd" \
-"../../../../project_1.srcs/sources_1/imports/new/generate_A.vhd" \
-"../../../../project_1.srcs/sources_1/imports/new/generate_B.vhd" \
-"../../../../project_1.srcs/sources_1/imports/new/generate_UV.vhd" \
-"../../../../project_1.srcs/sources_1/imports/new/generate_e.vhd" \
-"../../../../project_1.srcs/sources_1/imports/new/generate_s.vhd" \
-"../../../../project_1.srcs/sources_1/imports/new/random_generator.vhd" \
-"../../../../project_1.srcs/sim_1/imports/new/Processor_TB.vhd" \
+"../../../../../3601_project_files/std_logic_vector/source/packages.vhd" \
+"../../../../../3601_project_files/std_logic_vector/source/Processor.vhd" \
+"../../../../../3601_project_files/std_logic_vector/source/ascii_array_to_chars.vhd" \
+"../../../../../3601_project_files/std_logic_vector/source/chars_to_ascii_array.vhd" \
+"../../../../../3601_project_files/std_logic_vector/source/generate_A.vhd" \
+"../../../../../3601_project_files/std_logic_vector/source/generate_B.vhd" \
+"../../../../../3601_project_files/std_logic_vector/source/generate_UV.vhd" \
+"../../../../../3601_project_files/std_logic_vector/source/generate_e.vhd" \
+"../../../../../3601_project_files/std_logic_vector/source/generate_s.vhd" \
+"../../../../../3601_project_files/std_logic_vector/source/random_generator.vhd" \
+"../../../../../3601_project_files/std_logic_vector/sim/Processor_TB.vhd" \
 
 # Do not sort compile order
 nosort

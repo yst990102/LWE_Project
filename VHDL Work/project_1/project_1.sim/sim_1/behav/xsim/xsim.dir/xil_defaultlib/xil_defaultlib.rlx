@@ -2,12 +2,14 @@
 2020.2
 Jun 10 2021
 20:04:57
-E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sim_1/imports/new/Processor_TB.vhd,1634288695,vhdl,,,,processor_tb,,,,,,,,
-E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd,1634360700,vhdl,,,,processor,,,,,,,,
-E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_A.vhd,1633970671,vhdl,,,,generate_a,,,,,,,,
-E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_B.vhd,1634106661,vhdl,,,,generate_b,,,,,,,,
-E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_UV.vhd,1634139711,vhdl,,,,generate_uv,,,,,,,,
-E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_e.vhd,1633967257,vhdl,,,,generate_e,,,,,,,,
-E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/generate_s.vhd,1633967257,vhdl,,,,generate_s,,,,,,,,
-E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/packages.vhd,1634082466,vhdl,E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/Processor.vhd,,,configuration_set,,,,,,,,
-E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.srcs/sources_1/imports/new/random_generator.vhd,1633606278,vhdl,,,,random_generator,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/sim/Processor_TB.vhd,1634391759,vhdl,,,,processor_tb,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd,1634384549,vhdl,,,,processor,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/ascii_array_to_chars.vhd,1634391401,vhdl,,,,ascii_array_to_chars,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/chars_to_ascii_array.vhd,1634377794,vhdl,,,,chars_to_ascii_array,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_A.vhd,1633970671,vhdl,,,,generate_a,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd,1634106661,vhdl,,,,generate_b,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd,1634377842,vhdl,,,,generate_uv,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_e.vhd,1633967257,vhdl,,,,generate_e,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_s.vhd,1633967257,vhdl,,,,generate_s,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/packages.vhd,1634377690,vhdl,E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/sim/Processor_TB.vhd,,,configuration_set,,,,,,,,
+E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/random_generator.vhd,1634383370,vhdl,,,,random_generator,,,,,,,,
