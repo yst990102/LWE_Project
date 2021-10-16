@@ -45,19 +45,11 @@ begin
     begin
         if sig_is_dec_generated = '1' then
             ascii_val := conv_integer(unsigned(ascii_array_in(i)));
---            case ascii_val is
---                when 65 => char_out := 'A';
---                when 66 => char_out := 'B';
---                when 67 => char_out := 'C';
---                when 68 => char_out := 'D';
---                when 97 => char_out := 'a';
---                when 98 => char_out := 'b';
---                when 99 => char_out := 'c';
---                when 100 => char_out := 'd';
---                when others => char_out := '|';
---            end case;
---            decode_chars(i) <= char_out;
-            decode_chars(i) <= ascii_char_list01(ascii_val);
+            if ascii_val >= 65 and ascii_val <= 122 then
+                decode_chars(i) <= ascii_char_list01(ascii_val);
+            else
+                decode_chars(i) <= NUL;
+            end if;
             i := i + 1;
                 
             if i = 5 then

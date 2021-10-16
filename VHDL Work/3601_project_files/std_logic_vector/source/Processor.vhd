@@ -143,7 +143,7 @@ architecture Behavioral of Processor is
 --============================== Generate n/4 random row number for 4 cahrs =============================
     signal sig_random_row_num : integer := 0;
     signal sig_uv_row_num : integer := 0;
-    signal sig_output_generated : std_logic := '0';
+    signal sig_UV_output_generated : std_logic := '0';
 
     signal sig_RowA_in_UV : RowA_1 := (others => 0);
     signal sig_RowB_in_UV : integer := 0;
@@ -156,6 +156,11 @@ architecture Behavioral of Processor is
 
     signal sig_is_UV_generated : std_logic := '0';
 --============================== Generate n/4 random row number for 4 cahrs =============================
+    signal sig_dec_ascii_array : ascii_array := (others=>(others=>'0'));
+    signal sig_is_dec_finished : std_logic := '0';
+    signal three_quar_q : integer := 0;
+    signal quar_q : integer := 0;
+
     signal sig_is_result_released : std_logic := '0';
 --   ====================== Other Self Test Signals ======================
 
@@ -267,13 +272,13 @@ begin
     
 ----============================== Set Up =============================
 
-----============================== Generate n/4 random row number for 4 cahrs =============================
+----============================== Generate n/4 random row number for 4 cahrs , set UV cells =============================
     storage_UV_output : process         -- synthesizable now
         variable i : integer := 1;
         variable j : integer := 0;
         variable count : integer := 0;
     begin
-        if sig_output_generated = '1' then
+        if sig_UV_output_generated = '1' then
             if count < 32 then
                 U_cells(i)(j, 0) <= sig_RowU_out_UV(0);
                 U_cells(i)(j, 1) <= sig_RowU_out_UV(1);
@@ -358,18 +363,68 @@ begin
             random_row_num => sig_random_row_num,
             uv_row_num => sig_uv_row_num,
 
-            output_generated => sig_output_generated,
+            output_generated => sig_UV_output_generated,
             RowU_out => sig_RowU_out_UV,
             RowV_out => sig_RowV_out_UV
         );
-----============================== Generate n/4 random row number for 4 cahrs =============================
+----============================== Generate n/4 random row number for 4 cahrs , set UV cells =============================
+
+--=================== decryption to dec_ascii_array =====================
+    generate_dec : process
+        variable RowU_0 : integer := 0;
+        variable RowU_1 : integer := 0;
+        variable RowU_2 : integer := 0;
+        variable RowU_3 : integer := 0;
+        variable RowV   : integer := 0;
+        variable tmp   : integer := 0;
+    begin
+        if sig_is_UV_generated = '1' then
+            case (3*q mod 4) is
+                when 0 => three_quar_q <= (3*q/4);
+                when 1 => three_quar_q <= (3*q - 1)/4;
+                when 2 => three_quar_q <= (3*q + 2)/4;
+                when others => three_quar_q <= (3*q + 1)/4;
+            end case;
+            
+            case (q mod 4) is
+                when 0 => quar_q <= (q/4);
+                when 1 => quar_q <= (q - 1)/4;
+                when 2 => quar_q <= (q + 2)/4;
+                when others => quar_q <= (q + 1)/4;
+            end case;
+        
+            for i in ascii_array'range loop
+                for j in 0 to 7 loop
+                    RowU_0 := U_cells(i)(j,0);
+                    RowU_1 := U_cells(i)(j,1);
+                    RowU_2 := U_cells(i)(j,2);
+                    RowU_3 := U_cells(i)(j,3);
+                    RowV := V_cells(i,j);
+                    
+                    tmp := (RowV - (RowU_0 * S(0) + RowU_1 * S(1) + RowU_2 * S(2) + RowU_3 * S(3))) mod q;
+
+                    if tmp > three_quar_q or tmp < quar_q then
+                        sig_dec_ascii_array(i)(j) <= '0';
+                    else
+                        sig_dec_ascii_array(i)(j) <= '1';
+                    end if;
+                    wait until clk'event and clk='0';
+                end loop;
+            end loop;
+            sig_is_dec_finished <= '1';
+            wait;
+        else
+            wait until clk'event and clk='0';
+        end if;
+    end process;
+--=================== decryption to dec_ascii_array =====================
     
 --================== final stage : convert ascii array to chars ===========================
     ascii_to_chars : ascii_array_to_chars
         port map(
             clk => clk,
-            sig_is_dec_generated => sig_is_UV_generated,
-            ascii_array_in => sig_ascii_array,
+            sig_is_dec_generated => sig_is_dec_finished,
+            ascii_array_in => sig_dec_ascii_array,
             
             decode_chars => result,
             sig_result_release => sig_is_result_released

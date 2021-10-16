@@ -26,7 +26,7 @@ architecture Behavioral of generate_e is
     signal random_result : integer;
 begin
     random_number: random_generator
-        generic map (data_width => 7 )
+        generic map (data_width => 8 )
         port map(
             seed => 210,
             reset => '1',

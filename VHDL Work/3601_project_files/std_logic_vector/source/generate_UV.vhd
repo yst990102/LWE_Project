@@ -47,7 +47,7 @@ begin
     random_row_num <= row_num_random_result;
     
     random_number: random_generator
-        generic map (data_width => 7 )
+        generic map (data_width => 8 )
         port map(
             seed => 220,
             reset => '1',
