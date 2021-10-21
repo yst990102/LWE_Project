@@ -11,10 +11,6 @@ entity generate_B is
         is_E_generated : in std_logic;
         clk            : in std_logic;
         q              : in integer;
---        Matrix_A       : in matrixA_1;
---        Matrix_S       : in matrixS_1;
---        Matrix_E       : in matrixE_1;
-        
         RowA_in        : in RowA_1;
         Matrix_S       : in matrixS_1;
         RowE_in        : in integer;
@@ -27,6 +23,8 @@ end generate_B;
 
 architecture Behavioral of generate_B is
 
+    signal row_stored : integer := 0;
+    signal ele_stored : integer := 0;
     signal temp_sum : integer;
 begin
     process
@@ -35,29 +33,21 @@ begin
         if is_S_generated = '1' and is_A_generated = '1' and is_E_generated = '1' then
             for i in matrixB_1'range(1) loop
                 wait until clk'event and clk = '1';
---                row_sum := 0;
---                for j in matrixA_1'range(2) loop
---                    row_sum := row_sum + Matrix_A(i,j) * Matrix_S(j);
---                end loop;
-                
---                store_B_row <= i;
---                store_B_ele <= (row_sum  + Matrix_E(i))mod q;
-----                wait for 20ps;
-
                 row_sum := 0;
                 for j in RowA_1'range(1) loop
                     row_sum := row_sum + RowA_in(j) * Matrix_S(j);
                 end loop;
                 
-                store_B_row <= i;
-                store_B_ele <= (row_sum  + RowE_in)mod q;
---                wait for 20ps;
+                row_stored <= i;
+                ele_stored <= (row_sum  + RowE_in)mod q;
             end loop;
             wait;
         else
---            wait for 20ps;
             wait until clk'event and clk = '0';
         end if;
     end process;
+    
+    store_B_row <= row_stored;
+    store_B_ele <= ele_stored;
 
 end Behavioral;

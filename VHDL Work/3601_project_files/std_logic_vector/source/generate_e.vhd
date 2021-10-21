@@ -8,6 +8,7 @@ entity generate_e is
     port(
         clk     : in std_logic;
         q       : in integer;
+        
         store_E_row : out integer;
         store_E_ele : out integer
     );
@@ -23,6 +24,8 @@ architecture Behavioral of generate_e is
             data_out : out integer);
     end component;
     
+    signal row_stored : integer := 0;
+    signal ele_stored : integer := 0;
     signal random_result : integer;
 begin
     random_number: random_generator
@@ -37,13 +40,14 @@ begin
     process
     begin
         for row in matrixE_1'range(1) loop
-            store_E_row <= row;
-            store_E_ele <= random_result mod (e_max_1 - e_min_1 + 1) + e_min_1;
---            wait for 20ps;
+            row_stored <= row;
+            ele_stored <= random_result mod (e_max_1 - e_min_1 + 1) + e_min_1;
             wait until clk'event and clk = '0';
         end loop;
         wait;
     end process;
     
+    store_E_row <= row_stored;
+    store_E_ele <= ele_stored;
 
 end Behavioral;

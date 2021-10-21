@@ -10,6 +10,7 @@ architecture Behavioral of Processor_TB is
         port (
             encode_string : in string(1 to 4);
             clk : in std_logic := '0';
+            sig_reset : in std_logic;
             result : out string(1 to 4)
         );
     end component;
@@ -17,22 +18,34 @@ architecture Behavioral of Processor_TB is
     constant clk_period : time := 20ps;
     
     signal clk : std_logic := '0';
-    signal final_result : string(1 to 4) := (others => nul);
+    signal final_result : string(1 to 4);
+
+    signal test_string : string(1 to 4);
+    signal reset : std_logic;
 begin
 
     clk_generate : process
     begin
+        clk <= '0';
         wait for clk_period/2;
         clk <= '1';
         wait for clk_period/2;
-        clk <= '0';
     end process; 
     
     UUT : Processor
         port map(
             encode_string => "AbcD",
             clk => clk,
+            sig_reset => reset,
             result => final_result
         );
+
+    main_testing : process
+    begin
+        reset <= '1';
+        wait for 2 * clk_period;
+        reset <= '0';
+        wait for 2 sec;
+    end process;
 
 end Behavioral;

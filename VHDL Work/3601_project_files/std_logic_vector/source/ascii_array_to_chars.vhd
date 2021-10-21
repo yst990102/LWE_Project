@@ -9,7 +9,7 @@ entity ascii_array_to_chars is
         sig_is_dec_generated  : in std_logic;
         ascii_array_in        : in ascii_array;
         
-        decode_chars          : out string(1 to 4);
+        decode_string         : out string(1 to 4);
         sig_result_release    : out std_logic
     );
 end ascii_array_to_chars;
@@ -35,7 +35,9 @@ architecture Behavioral of ascii_array_to_chars is
         'e','f','g','h','i','j','k','l','m','n',
         'o','p','q','r','s','t','u','v','w','x',
         'y','z');
-
+    
+    signal final_string : string(1 to 4) := (others => NUL);
+    signal is_result_released : std_logic := '0';
 begin
 
     asciis_to_string : process
@@ -46,14 +48,12 @@ begin
         if sig_is_dec_generated = '1' then
             ascii_val := conv_integer(unsigned(ascii_array_in(i)));
             if ascii_val >= 65 and ascii_val <= 122 then
-                decode_chars(i) <= ascii_char_list01(ascii_val);
-            else
-                decode_chars(i) <= NUL;
+                final_string(i) <= ascii_char_list01(ascii_val);
             end if;
             i := i + 1;
                 
             if i = 5 then
-                sig_result_release <= '1';
+                is_result_released <= '1';
                 wait;
             end if;
             wait until clk'event and clk = '0';
@@ -62,6 +62,9 @@ begin
         end if;
         
     end process;
+    
+    decode_string <= final_string;
+    sig_result_release <= is_result_released;
     
 end Behavioral;
 

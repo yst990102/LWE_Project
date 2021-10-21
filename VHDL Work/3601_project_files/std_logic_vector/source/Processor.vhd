@@ -8,6 +8,7 @@ entity Processor is
     port (
         encode_string : in string(1 to 4);
         clk : in std_logic;
+        sig_reset : in std_logic;
         result : out string(1 to 4)
     );
 end Processor;
@@ -29,7 +30,7 @@ architecture Behavioral of Processor is
             sig_is_dec_generated  : in std_logic;
             ascii_array_in        : in ascii_array;
             
-            decode_chars          : out string(1 to 4);
+            decode_string         : out string(1 to 4);
             sig_result_release    : out std_logic
         );
     end component;
@@ -38,9 +39,9 @@ architecture Behavioral of Processor is
         port (
             clk           : in std_logic;
             q             : in integer;
-            store_row     : out integer;
-            store_col     : out integer;
-            store_ele     : out integer
+            store_A_row     : out integer;
+            store_A_col     : out integer;
+            store_A_ele     : out integer
         );
     end component;
     
@@ -105,6 +106,10 @@ architecture Behavioral of Processor is
             clk : in std_logic;
             data_out : out integer);
     end component;
+-- ============================== statements =================================
+--    type t_state is (reseting, generating_ASE, generating_B, generating_UV, decrypting, finished);
+--    signal State : t_state;
+-- ============================== statements =================================
 
 --============================== Char Load & To_Asciis =============================
     signal sig_ascii_array : ascii_array := (others=>(others=>'0'));
@@ -142,13 +147,13 @@ architecture Behavioral of Processor is
     
 --============================== Generate n/4 random row number for 4 cahrs =============================
     signal sig_random_row_num : integer := 0;
-    signal sig_uv_row_num : integer := 0;
+    signal sig_UV_row_num : integer := 0;
     signal sig_UV_output_generated : std_logic := '0';
 
     signal sig_RowA_in_UV : RowA_1 := (others => 0);
     signal sig_RowB_in_UV : integer := 0;
     
-    signal sig_RowU_out_UV : RowU_1 := (0 to A_col_1 - 1 => 0);
+    signal sig_RowU_out_UV : RowU_1 := (others => 0);
     signal sig_RowV_out_UV : integer := 0;
 
     signal U_cells : U_storage := (others => (others => (others => 0)));
@@ -156,7 +161,7 @@ architecture Behavioral of Processor is
 
     signal sig_is_UV_generated : std_logic := '0';
 --============================== Generate n/4 random row number for 4 cahrs =============================
-    signal sig_dec_ascii_array : ascii_array := (others=>(others=>'0'));
+    signal sig_dec_ascii_array : ascii_array := (others => (others => '0'));
     signal sig_is_dec_finished : std_logic := '0';
     signal three_quar_q : integer := 0;
     signal quar_q : integer := 0;
@@ -165,6 +170,40 @@ architecture Behavioral of Processor is
 --   ====================== Other Self Test Signals ======================
 
 begin
+--    state_transfer : Process
+--    begin
+--        if clk'event and clk = '0' then
+--            if sig_reset = '1' then
+--                State <= reseting;
+--            else
+--                case State is
+--                    when reseting =>
+--                        if sig_is_chars_loaded = '1' then
+--                            State <= generating_ASE;
+--                        end if;
+--                    when generating_ASE =>
+--                        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' then
+--                            State <= generating_B;
+--                        end if;
+--                    when generating_B =>
+--                        if sig_is_B_generated = '1' then
+--                            State <= generating_UV;
+--                        end if;
+--                    when generating_UV =>
+--                        if sig_is_UV_generated = '1' then
+--                            State <= decrypting;
+--                        end if;
+--                    when decrypting => 
+--                        if sig_is_dec_finished = '1' then
+--                            State <= finished;
+--                        end if;
+--                    when finished =>
+--                        State <= finished;
+--                end case;
+--            end if;
+--        end if;
+--    end process;
+
 --============================== Char Load & To_Asciis =============================
     chars_to_asciis : chars_to_ascii_array      -- synthesizable now
     port map(
@@ -181,9 +220,9 @@ begin
         port map(   
             clk => clk,
             q => q,
-            store_row => sig_store_A_row,
-            store_col => sig_store_A_col,
-            store_ele => sig_store_A_element
+            store_A_row => sig_store_A_row,
+            store_A_col => sig_store_A_col,
+            store_A_ele => sig_store_A_element
         );
     
     store_A : process       -- synthesizable now
@@ -232,7 +271,6 @@ begin
         end loop;
         sig_is_E_generated <= '1';
         wait;
-
     end process;
     
     generate_Matrix_B : generate_B      -- synthesizable now
@@ -255,7 +293,6 @@ begin
     begin
         if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' and sig_is_B_generated = '0' then
             for i in matrixB_1'range(1) loop
-                
                 for j in matrixA_1'range(2) loop
                     sig_RowA_in_B(j) <= A(i,j);
                 end loop;
@@ -299,7 +336,7 @@ begin
         end if;
     end process;
         
-    storage_UV_input : process
+    storage_UV_input : process          -- synthesizable now
         variable i : integer := 1;
         variable j : integer := 0;
         variable k : integer := 0;
@@ -361,7 +398,7 @@ begin
             RowB_in => sig_RowB_in_UV,
 
             random_row_num => sig_random_row_num,
-            uv_row_num => sig_uv_row_num,
+            uv_row_num => sig_UV_row_num,
 
             output_generated => sig_UV_output_generated,
             RowU_out => sig_RowU_out_UV,
@@ -426,7 +463,7 @@ begin
             sig_is_dec_generated => sig_is_dec_finished,
             ascii_array_in => sig_dec_ascii_array,
             
-            decode_chars => result,
+            decode_string => result,
             sig_result_release => sig_is_result_released
         );
 --================== final stage : convert ascii array to chars ===========================

@@ -15,15 +15,20 @@ entity chars_to_ascii_array is
 end chars_to_ascii_array;
 
 architecture Behavioral of chars_to_ascii_array is
-
+    signal ascii_array : ascii_array := (others=>(others=>'0'));
+    signal is_chars_loaded : std_logic := '0';
 begin
     string_to_asciis : process      -- synthesizable now
     begin
         for i in ascii_array'range loop
-            ascii_array_out(i) <= conv_std_logic_vector(integer(character'pos(encode_chars(i))), 8);
+            ascii_array(i) <= conv_std_logic_vector(integer(character'pos(encode_chars(i))), 8);
             wait until clk'event and clk = '0';
         end loop;
-        sig_chars_loaded <= '1';
+        is_chars_loaded <= '1';
         wait;
     end process;
+    
+    ascii_array_out <= ascii_array;
+    sig_chars_loaded <= is_chars_loaded;
+
 end Behavioral;
