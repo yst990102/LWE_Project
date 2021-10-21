@@ -216,6 +216,7 @@ begin
 --============================== Char Load & To_Asciis =============================
 
 --============================== Set Up =============================
+--======================= Matrix A =============================
     generate_Matrix_A : generate_A      -- synthesizable now
         port map(   
             clk => clk,
@@ -226,17 +227,36 @@ begin
         );
     
     store_A : process       -- synthesizable now
+        variable row : integer := 0;
+        variable col : integer := 0;
     begin
-        for row in matrixA_1'range(1) loop
-            for col in matrixA_1'range(2) loop
+        if row < A_row_1 then
+            if col < A_col_1 then
                 wait until clk'event and clk = '0';
                 A(sig_store_A_row, sig_store_A_col) <= sig_store_A_element;
-            end loop;
-        end loop;
-        sig_is_A_generated <= '1';
-        wait;
+                col := col + 1;
+            end if;
+            if col = A_col_1 then
+                col := 0;
+                row := row + 1;
+            end if;
+        else
+            sig_is_A_generated <= '1';
+            wait;
+        end if;
+    
+--        for row in matrixA_1'range(1) loop
+--            for col in matrixA_1'range(2) loop
+--                wait until clk'event and clk = '0';
+--                A(sig_store_A_row, sig_store_A_col) <= sig_store_A_element;
+--            end loop;
+--        end loop;
+--        sig_is_A_generated <= '1';
+--        wait;
     end process;
+--======================= Matrix A =============================
 
+--======================= Matrix S =============================
     generate_Matrix_S : generate_s      -- synthesizable now
         port map(
             clk => clk,
@@ -246,15 +266,27 @@ begin
         );
         
     store_S : process       -- synthesizable now
+        variable row : integer := 0;
     begin
-        for row in matrixS_1'range(1) loop
+        if row < A_col_1 then
             wait until clk'event and clk = '0';
             S(sig_store_S_row) <= sig_store_S_element;
-        end loop;
-        sig_is_S_generated <= '1';
-        wait;
+            row := row + 1;
+        else
+            sig_is_S_generated <= '1';
+            wait;
+        end if;
+    
+--        for row in matrixS_1'range(1) loop
+--            wait until clk'event and clk = '0';
+--            S(sig_store_S_row) <= sig_store_S_element;
+--        end loop;
+--        sig_is_S_generated <= '1';
+--        wait;
     end process;
+--======================= Matrix S =============================
  
+--======================= Matrix E =============================
     generate_Matrix_E : generate_e      -- synthesizable now
         port map(
             clk => clk,
@@ -264,15 +296,27 @@ begin
         );
         
     store_E : process       -- synthesizable now
+        variable row : integer := 0;
     begin
-        for row in matrixE_1'range(1) loop
+        if row < A_row_1 then
             wait until clk'event and clk = '0';
             E(sig_store_E_row) <= sig_store_E_element;
-        end loop;
-        sig_is_E_generated <= '1';
-        wait;
-    end process;
+            row := row + 1;
+        else
+            sig_is_E_generated <= '1';
+            wait;
+        end if;
     
+--        for row in matrixE_1'range(1) loop
+--            wait until clk'event and clk = '0';
+--            E(sig_store_E_row) <= sig_store_E_element;
+--        end loop;
+--        sig_is_E_generated <= '1';
+--        wait;
+    end process;
+--======================= Matrix E =============================
+ 
+--======================= Matrix B =============================
     generate_Matrix_B : generate_B      -- synthesizable now
         port map(
             is_S_generated => sig_is_S_generated,
@@ -292,7 +336,7 @@ begin
     store_B : process       -- synthesizable now
     begin
         if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' and sig_is_B_generated = '0' then
-            for i in matrixB_1'range(1) loop
+            for i in matrixA_1'range(1) loop
                 for j in matrixA_1'range(2) loop
                     sig_RowA_in_B(j) <= A(i,j);
                 end loop;
@@ -306,11 +350,11 @@ begin
             wait until clk'event and clk = '0';
         end if;
     end process;
-    
+--======================= Matrix B =============================
 ----============================== Set Up =============================
 
 ----============================== Generate n/4 random row number for 4 cahrs , set UV cells =============================
-    storage_UV_output : process         -- synthesizable now
+    UV_output : process         -- synthesizable now
         variable i : integer := 1;
         variable j : integer := 0;
         variable count : integer := 0;
@@ -336,31 +380,11 @@ begin
         end if;
     end process;
         
-    storage_UV_input : process          -- synthesizable now
+    UV_input : process          -- synthesizable now
         variable i : integer := 1;
         variable j : integer := 0;
         variable k : integer := 0;
     begin
---        if sig_is_B_generated = '1' then
---            for i in ascii_array'range(1) loop
---                for j in 0 to 7 loop
---                    -- input
---                    for k in 0 to A_row_1 / 4 - 1 loop
---                        sig_RowA_in_UV(0) <= A(sig_random_row_num, 0);
---                        sig_RowA_in_UV(1) <= A(sig_random_row_num, 1);
---                        sig_RowA_in_UV(2) <= A(sig_random_row_num, 2);
---                        sig_RowA_in_UV(3) <= A(sig_random_row_num, 3);
-                               
---                        sig_RowB_in_UV <= B(sig_random_row_num);
---                        wait until clk'event and clk='0';
---                    end loop;
---                end loop;
---            end loop;
---            wait;
---        else
---            wait until clk'event and clk='0';
---        end if;
-
         if sig_is_B_generated = '1' then
             if i < 5 then
                 if j < 8 then
@@ -407,11 +431,8 @@ begin
 ----============================== Generate n/4 random row number for 4 cahrs , set UV cells =============================
 
 --=================== decryption to dec_ascii_array =====================
-    generate_dec : process
-        variable RowU_0 : integer := 0;
-        variable RowU_1 : integer := 0;
-        variable RowU_2 : integer := 0;
-        variable RowU_3 : integer := 0;
+    decryption : process
+        variable RowU_0, RowU_1, RowU_2, RowU_3 : integer := 0;
         variable RowV   : integer := 0;
         variable tmp   : integer := 0;
     begin

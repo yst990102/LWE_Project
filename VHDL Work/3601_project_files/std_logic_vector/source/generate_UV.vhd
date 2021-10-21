@@ -36,12 +36,18 @@ architecture Behavioral of generate_UV is
     signal is_output_generated : std_logic := '0';
     signal output_U : RowU_1 := (others => 0);
     signal output_V : integer := 0;
+    
+    signal half_q : integer := 0;
 begin
     random_row_num <= row_num_random_result;
     uv_row_num <= row_num;
     output_generated <= is_output_generated;
     RowU_out <= output_U;
     RowV_out <= output_V;
+    
+    with q mod 2 select
+        half_q <= q / 2 when 0,
+                  (q + 1) / 2 when others;
     
     random_number: random_generator
         generic map (data_width => 8 )
@@ -56,58 +62,129 @@ begin
         variable encoding_ascii : std_logic_vector(0 to 7);
         variable first_ele, second_ele, third_ele, forth_ele : integer;
         variable first_sum, second_sum, third_sum, forth_sum, fifth_sum : integer;
-        variable half_q : integer := 0;
+        
+        variable row : integer := 1;
+        variable skip_1 : std_logic := '0';
+        variable i : integer := 0;
+        variable skip_2 : std_logic := '0';
+        variable col : integer := 0;
+        
     begin
         if is_B_generated = '1' then
-            case q mod 2 is
-                when 0 => half_q := q / 2;
-                when others => half_q := (q + 1) / 2;
-            end case;
         
-            for row in 1 to 4 loop
-                encoding_ascii := ascii_bits_array(row);
+            if row < 5 then
+                if skip_1 = '0' then
+                    encoding_ascii := ascii_bits_array(row);
+                    skip_1 := '1';
+                end if;
 
-                for i in encoding_ascii'range(1) loop
-                    row_num <= i;
-                    
-                    first_sum := 0;
-                    second_sum := 0;
-                    third_sum := 0;
-                    forth_sum := 0;
-                    fifth_sum := 0;
-                    
-                    for col in 0 to (A_row_1 / 4 - 1) loop
+                if i < 8 then
+                    if skip_2 = '0' then
+                        row_num <= i;
                         
+                        first_sum := 0;
+                        second_sum := 0;
+                        third_sum := 0;
+                        forth_sum := 0;
+                        fifth_sum := 0;
+                        skip_2 := '1';
+                    end if;
+                    
+                    if col < A_row_1 / 4 then
                         first_sum := first_sum + RowA_in(0);
                         second_sum := second_sum + RowA_in(1);
                         third_sum := third_sum + RowA_in(2);
                         forth_sum := forth_sum + RowA_in(3);
                         fifth_sum := fifth_sum + RowB_in;
-
                         wait until clk'event and clk = '0';
-                        
                         is_output_generated <= '0';
-                    end loop;
-
-                    output_U(0) <=  first_sum mod q;
-                    output_U(1) <= second_sum mod q;
-                    output_U(2) <= third_sum mod q;
-                    output_U(3) <= forth_sum mod q;
-                    
-                    if encoding_ascii(i) = '0' then
-                        output_V <= (fifth_sum ) mod q;
-                    else
-                        output_V <= (fifth_sum - half_q) mod q;
+                        
+                        col := col + 1;
                     end if;
-                    is_output_generated <= '1';
                     
-                end loop;
+                    if col = A_row_1 / 4 then
+                        output_U(0) <= first_sum mod q;
+                        output_U(1) <= second_sum mod q;
+                        output_U(2) <= third_sum mod q;
+                        output_U(3) <= forth_sum mod q;
+                        
+                        if encoding_ascii(i) = '0' then
+                            output_V <= (fifth_sum ) mod q;
+                        else
+                            output_V <= (fifth_sum - half_q) mod q;
+                        end if;
+                        is_output_generated <= '1';
+                    
+                        col := 0;
+                        i := i + 1;
+                        skip_2 := '0';
+                    end if;
+                end if;
                 
-            end loop;
-            wait;
+                if i = 8 then
+                    i := 0;
+                    skip_1 := '0';
+                    row := row + 1;
+                end if;
+            else
+                wait;
+            end if;
         else
             wait until clk'event and clk = '0';
         end if;
+    
+    
+    
+--        if is_B_generated = '1' then
+--            case q mod 2 is
+--                when 0 => half_q := q / 2;
+--                when others => half_q := (q + 1) / 2;
+--            end case;
+        
+--            for row in 1 to 4 loop
+--                encoding_ascii := ascii_bits_array(row);
+
+--                for i in encoding_ascii'range(1) loop
+--                    row_num <= i;
+                    
+--                    first_sum := 0;
+--                    second_sum := 0;
+--                    third_sum := 0;
+--                    forth_sum := 0;
+--                    fifth_sum := 0;
+                    
+--                    for col in 0 to (A_row_1 / 4 - 1) loop
+                        
+--                        first_sum := first_sum + RowA_in(0);
+--                        second_sum := second_sum + RowA_in(1);
+--                        third_sum := third_sum + RowA_in(2);
+--                        forth_sum := forth_sum + RowA_in(3);
+--                        fifth_sum := fifth_sum + RowB_in;
+
+--                        wait until clk'event and clk = '0';
+                        
+--                        is_output_generated <= '0';
+--                    end loop;
+
+--                    output_U(0) <=  first_sum mod q;
+--                    output_U(1) <= second_sum mod q;
+--                    output_U(2) <= third_sum mod q;
+--                    output_U(3) <= forth_sum mod q;
+                    
+--                    if encoding_ascii(i) = '0' then
+--                        output_V <= (fifth_sum ) mod q;
+--                    else
+--                        output_V <= (fifth_sum - half_q) mod q;
+--                    end if;
+--                    is_output_generated <= '1';
+                    
+--                end loop;
+                
+--            end loop;
+--            wait;
+--        else
+--            wait until clk'event and clk = '0';
+--        end if;
     end process;
     
     

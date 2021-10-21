@@ -41,16 +41,34 @@ begin
 
     random_matrix_A : 
     process
+        variable row : integer := 0;
+        variable col : integer := 0;
     begin
-        for row in matrixA_1'range(1) loop
-            for col in matrixA_1'range(2) loop
-                    row_stored <= row;
-                    col_stored <= col;
-                    ele_stored <= random_result mod(q - 0);
+        if row < A_row_1 then
+            if col < A_col_1 then
+                row_stored <= row;
+                col_stored <= col;
+                ele_stored <= random_result mod(q - 0);
                 wait until clk'event and clk = '0';
-            end loop;
-        end loop;
-        wait;
+            end if;
+            if col = A_col_1 then
+                col := 0;
+                row := row + 1;
+            end if;
+        else
+            wait;
+        end if;
+    
+    
+--        for row in matrixA_1'range(1) loop
+--            for col in matrixA_1'range(2) loop
+--                row_stored <= row;
+--                col_stored <= col;
+--                ele_stored <= random_result mod(q - 0);
+--                wait until clk'event and clk = '0';
+--            end loop;
+--        end loop;
+--        wait;
     end process;
     
     store_A_row <= row_stored;

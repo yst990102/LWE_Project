@@ -38,13 +38,23 @@ begin
         );
 
     process
+        variable row : integer := 0;
     begin
-        for row in matrixE_1'range(1) loop
+        if row < A_row_1 then
             row_stored <= row;
             ele_stored <= random_result mod (e_max_1 - e_min_1 + 1) + e_min_1;
             wait until clk'event and clk = '0';
-        end loop;
-        wait;
+            row := row + 1;
+        else
+            wait;
+        end if;
+        
+--        for row in matrixE_1'range(1) loop
+--            row_stored <= row;
+--            ele_stored <= random_result mod (e_max_1 - e_min_1 + 1) + e_min_1;
+--            wait until clk'event and clk = '0';
+--        end loop;
+--        wait;
     end process;
     
     store_E_row <= row_stored;
