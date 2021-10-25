@@ -46,13 +46,13 @@ begin
         variable char_out : character;
     begin
         if sig_is_dec_generated = '1' then
-            ascii_val := conv_integer(unsigned(ascii_array_in(i)));
-            if ascii_val >= 65 and ascii_val <= 122 then
-                final_string(i) <= ascii_char_list01(ascii_val);
-            end if;
-            i := i + 1;
-                
-            if i = 5 then
+            if i < 5 then
+                ascii_val := conv_integer(unsigned(ascii_array_in(i)));
+                if ascii_val >= 65 and ascii_val <= 122 then
+                    final_string(i) <= ascii_char_list01(ascii_val);
+                end if;
+                i := i + 1;
+            else
                 is_result_released <= '1';
                 wait;
             end if;

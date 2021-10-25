@@ -215,7 +215,7 @@ begin
     );
 --============================== Char Load & To_Asciis =============================
 
---============================== Set Up =============================
+--============================== Set Up =============================            
 --======================= Matrix A =============================
     generate_Matrix_A : generate_A      -- synthesizable now
         port map(   
@@ -334,21 +334,43 @@ begin
         );
         
     store_B : process       -- synthesizable now
+        variable i : integer := 0;
+        variable j : integer := 0;
     begin
         if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' and sig_is_B_generated = '0' then
-            for i in matrixA_1'range(1) loop
-                for j in matrixA_1'range(2) loop
+            if i < A_row_1 then
+                if j < A_col_1 then
                     sig_RowA_in_B(j) <= A(i,j);
-                end loop;
-                sig_RowE_in_B <= E(i); 
-                wait until clk'event and clk = '0';
-                B(sig_store_B_row) <= sig_store_B_element;
-            end loop;
-            sig_is_B_generated <= '1';
-            wait;
+                    j := j + 1;
+                else
+                    sig_RowE_in_B <= E(i);
+                    wait until clk'event and clk = '0';
+                    B(sig_store_B_row) <= sig_store_B_element;
+                    j := 0;
+                    i := i + 1;
+                end if;
+            else
+                sig_is_B_generated <= '1';
+                wait;
+            end if;
         else
             wait until clk'event and clk = '0';
         end if;
+
+--        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' and sig_is_B_generated = '0' then
+--            for i in matrixA_1'range(1) loop
+--                for j in matrixA_1'range(2) loop
+--                    sig_RowA_in_B(j) <= A(i,j);
+--                end loop;
+--                sig_RowE_in_B <= E(i); 
+--                wait until clk'event and clk = '0';
+--                B(sig_store_B_row) <= sig_store_B_element;
+--            end loop;
+--            sig_is_B_generated <= '1';
+--            wait;
+--        else
+--            wait until clk'event and clk = '0';
+--        end if;
     end process;
 --======================= Matrix B =============================
 ----============================== Set Up =============================
@@ -360,7 +382,7 @@ begin
         variable count : integer := 0;
     begin
         if sig_UV_output_generated = '1' then
-            if count < 32 then
+            if count < A_col_1 * 8 then
                 U_cells(i)(j, 0) <= sig_RowU_out_UV(0);
                 U_cells(i)(j, 1) <= sig_RowU_out_UV(1);
                 U_cells(i)(j, 2) <= sig_RowU_out_UV(2);
@@ -429,30 +451,30 @@ begin
             RowV_out => sig_RowV_out_UV
         );
 ----============================== Generate n/4 random row number for 4 cahrs , set UV cells =============================
+    with (3*q mod 4) select
+        three_quar_q <= (3*q/4) when 0,
+                        (3*q - 1)/4 when 1,
+                        (3*q + 2)/4 when 2,
+                        (3*q + 1)/4 when others;
+
+    with (q mod 4) select
+        quar_q <= (q/4) when 0,
+                  (q - 1)/4 when 1,
+                  (q + 2)/4 when 2,
+                  (q + 1)/4 when others;
 
 --=================== decryption to dec_ascii_array =====================
     decryption : process
         variable RowU_0, RowU_1, RowU_2, RowU_3 : integer := 0;
         variable RowV   : integer := 0;
         variable tmp   : integer := 0;
-    begin
-        if sig_is_UV_generated = '1' then
-            case (3*q mod 4) is
-                when 0 => three_quar_q <= (3*q/4);
-                when 1 => three_quar_q <= (3*q - 1)/4;
-                when 2 => three_quar_q <= (3*q + 2)/4;
-                when others => three_quar_q <= (3*q + 1)/4;
-            end case;
-            
-            case (q mod 4) is
-                when 0 => quar_q <= (q/4);
-                when 1 => quar_q <= (q - 1)/4;
-                when 2 => quar_q <= (q + 2)/4;
-                when others => quar_q <= (q + 1)/4;
-            end case;
         
-            for i in ascii_array'range loop
-                for j in 0 to 7 loop
+        variable i : integer := 1;
+        variable j : integer := 0;
+    begin
+        if sig_is_UV_generated = '1' then        
+            if i < 5 then
+                if j < 8 then
                     RowU_0 := U_cells(i)(j,0);
                     RowU_1 := U_cells(i)(j,1);
                     RowU_2 := U_cells(i)(j,2);
@@ -467,13 +489,44 @@ begin
                         sig_dec_ascii_array(i)(j) <= '1';
                     end if;
                     wait until clk'event and clk='0';
-                end loop;
-            end loop;
-            sig_is_dec_finished <= '1';
-            wait;
+                    j := j + 1;
+                else
+                    j := 0;
+                    i := i + 1;
+                end if;
+            else
+                sig_is_dec_finished <= '1';
+                wait;
+            end if;
         else
             wait until clk'event and clk='0';
         end if;
+
+
+--        if sig_is_UV_generated = '1' then        
+--            for i in ascii_array'range loop
+--                for j in 0 to 7 loop
+--                    RowU_0 := U_cells(i)(j,0);
+--                    RowU_1 := U_cells(i)(j,1);
+--                    RowU_2 := U_cells(i)(j,2);
+--                    RowU_3 := U_cells(i)(j,3);
+--                    RowV := V_cells(i,j);
+                    
+--                    tmp := (RowV - (RowU_0 * S(0) + RowU_1 * S(1) + RowU_2 * S(2) + RowU_3 * S(3))) mod q;
+
+--                    if tmp > three_quar_q or tmp < quar_q then
+--                        sig_dec_ascii_array(i)(j) <= '0';
+--                    else
+--                        sig_dec_ascii_array(i)(j) <= '1';
+--                    end if;
+--                    wait until clk'event and clk='0';
+--                end loop;
+--            end loop;
+--            sig_is_dec_finished <= '1';
+--            wait;
+--        else
+--            wait until clk'event and clk='0';
+--        end if;
     end process;
 --=================== decryption to dec_ascii_array =====================
     
