@@ -50,8 +50,8 @@ begin
                 col_stored <= col;
                 ele_stored <= random_result mod(q - 0);
                 wait until clk'event and clk = '0';
-            end if;
-            if col = A_col_1 then
+                col := col + 1;
+            else
                 col := 0;
                 row := row + 1;
             end if;

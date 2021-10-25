@@ -9,6 +9,7 @@ entity Processor is
         encode_string : in string(1 to 4);
         clk : in std_logic;
         sig_reset : in std_logic;
+
         result : out string(1 to 4)
     );
 end Processor;
@@ -235,8 +236,7 @@ begin
                 wait until clk'event and clk = '0';
                 A(sig_store_A_row, sig_store_A_col) <= sig_store_A_element;
                 col := col + 1;
-            end if;
-            if col = A_col_1 then
+            else
                 col := 0;
                 row := row + 1;
             end if;
