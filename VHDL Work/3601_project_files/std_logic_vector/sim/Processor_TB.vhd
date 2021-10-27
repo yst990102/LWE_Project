@@ -9,8 +9,9 @@ architecture Behavioral of Processor_TB is
     component Processor is
         port (
             encode_string : in string(1 to string_length);
-            clk : in std_logic := '0';
-            sig_reset : in std_logic;
+            clk : in std_logic;
+            config_num : in integer;
+            
             result : out string(1 to string_length)
         );
     end component;
@@ -36,7 +37,7 @@ begin
         port map(
             encode_string => "AbcD",
             clk => clk,
-            sig_reset => reset,
+            config_num => 2,
             result => final_result
         );
 

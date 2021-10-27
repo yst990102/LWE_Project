@@ -6,8 +6,11 @@ use work.configuration_set.all;
 
 entity generate_A is
     port (
+        is_q_generated : in std_logic;
         clk           : in std_logic;
         q             : in integer;
+        A_row         : in integer;
+        A_col         : in integer;
         
         store_A_row     : out integer;
         store_A_col     : out integer;
@@ -29,9 +32,10 @@ architecture Behavioral of generate_A is
     signal col_stored : integer := 0;
     signal ele_stored : integer := 0;    
     signal random_result : integer;
+
 begin
     random_number: random_generator
-        generic map (data_width => 8 )
+        generic map (data_width => 17 )
         port map(
             seed => 250,
             reset => '1',
@@ -44,31 +48,26 @@ begin
         variable row : integer := 0;
         variable col : integer := 0;
     begin
-        if row < A_row_1 then
-            if col < A_col_1 then
-                row_stored <= row;
-                col_stored <= col;
-                ele_stored <= random_result mod(q - 0);
-                wait until clk'event and clk = '0';
-                col := col + 1;
+        if is_q_generated = '1' then        
+            if row < A_row then
+                if col < A_col then
+                    row_stored <= row;
+                    col_stored <= col;
+                    
+                    ele_stored <= random_result mod(q + 1);
+                    
+                    wait until clk'event and clk = '0';
+                    col := col + 1;
+                else
+                    col := 0;
+                    row := row + 1;
+                end if;
             else
-                col := 0;
-                row := row + 1;
+                wait;
             end if;
         else
-            wait;
+            wait until clk'event and clk = '0';
         end if;
-    
-    
---        for row in matrixA_1'range(1) loop
---            for col in matrixA_1'range(2) loop
---                row_stored <= row;
---                col_stored <= col;
---                ele_stored <= random_result mod(q - 0);
---                wait until clk'event and clk = '0';
---            end loop;
---        end loop;
---        wait;
     end process;
     
     store_A_row <= row_stored;

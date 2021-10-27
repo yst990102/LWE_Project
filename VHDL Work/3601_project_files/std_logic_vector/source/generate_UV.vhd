@@ -9,14 +9,16 @@ entity generate_UV is
         is_B_generated      : in std_logic;
         clk                 : in std_logic;
         q                   : in integer;
+        A_row               : in integer;
+        A_col               : in integer;
         ascii_bits_array    : in ascii_array;
-        RowA_in             : in RowA_1;
+        RowA_in             : in RowA_3;
         RowB_in             : in integer;
         
         random_row_num      : out integer;
         uv_row_num          : out integer;
         output_generated    : out std_logic;
-        RowU_out            : out RowU_1;
+        RowU_out            : out RowU_3;
         RowV_out            : out integer
     );
 end generate_UV;
@@ -34,7 +36,7 @@ architecture Behavioral of generate_UV is
     signal row_num_random_result : integer := 0;
     signal row_num : integer := 0;
     signal is_output_generated : std_logic := '0';
-    signal output_U : RowU_1 := (others => 0);
+    signal output_U : RowU_3 := (others => 0);
     signal output_V : integer := 0;
     
     signal half_q : integer := 0;
@@ -59,59 +61,62 @@ begin
         );
         
     generate_random_rows : process
-        variable encoding_ascii : std_logic_vector(0 to 7);
-        variable first_ele, second_ele, third_ele, forth_ele : integer;
-        variable first_sum, second_sum, third_sum, forth_sum, fifth_sum : integer;
+        variable encoding_ascii : std_logic_vector(0 to ascii_length - 1);
+
+        variable sum_U00, sum_U01, sum_U02, sum_U03 : integer;
+        variable sum_U04, sum_U05, sum_U06, sum_U07 : integer;
+        variable sum_U08, sum_U09, sum_U10, sum_U11 : integer;
+        variable sum_U12, sum_U13, sum_U14, sum_U15 : integer;
+
+        variable sum_V : integer;
         
         variable row : integer := 1;
         variable skip_1 : std_logic := '0';
         variable i : integer := 0;
         variable skip_2 : std_logic := '0';
         variable col : integer := 0;
-        
-    begin
+    begin        
         if is_B_generated = '1' then
-        
-            if row < 5 then
+            if row < (string_length + 1) then
                 if skip_1 = '0' then
                     encoding_ascii := ascii_bits_array(row);
                     skip_1 := '1';
                 end if;
 
-                if i < 8 then
+                if i < ascii_length then
                     if skip_2 = '0' then
                         row_num <= i;
                         
-                        first_sum := 0;
-                        second_sum := 0;
-                        third_sum := 0;
-                        forth_sum := 0;
-                        fifth_sum := 0;
+                        sum_U00 := 0; sum_U01 := 0; sum_U02 := 0; sum_U03 := 0;
+                        sum_U04 := 0; sum_U05 := 0; sum_U06 := 0; sum_U07 := 0;
+                        sum_U08 := 0; sum_U09 := 0; sum_U10 := 0; sum_U11 := 0;
+                        sum_U12 := 0; sum_U13 := 0; sum_U14 := 0; sum_U15 := 0;
+
+                        sum_V := 0;
                         skip_2 := '1';
                     end if;
                     
-                    if col < A_row_1 / 4 then
-                        first_sum := first_sum + RowA_in(0);
-                        second_sum := second_sum + RowA_in(1);
-                        third_sum := third_sum + RowA_in(2);
-                        forth_sum := forth_sum + RowA_in(3);
-                        fifth_sum := fifth_sum + RowB_in;
+                    if col < A_row / 4 then
+                        sum_U00 := sum_U00 + RowA_in(0);    sum_U01 := sum_U01 + RowA_in(1);    sum_U02 := sum_U02 + RowA_in(2);    sum_U03 := sum_U03 + RowA_in(3);
+                        sum_U04 := sum_U04 + RowA_in(4);    sum_U05 := sum_U05 + RowA_in(5);    sum_U06 := sum_U06 + RowA_in(6);    sum_U07 := sum_U07 + RowA_in(7);
+                        sum_U08 := sum_U08 + RowA_in(8);    sum_U09 := sum_U09 + RowA_in(9);    sum_U10 := sum_U10 + RowA_in(9);    sum_U11 := sum_U11 + RowA_in(11);
+                        sum_U12 := sum_U12 + RowA_in(12);   sum_U13 := sum_U13 + RowA_in(13);   sum_U14 := sum_U14 + RowA_in(13);   sum_U15 := sum_U15 + RowA_in(15);                        
+                        
+                        sum_V := sum_V + RowB_in;
                         wait until clk'event and clk = '0';
                         is_output_generated <= '0';
                         
                         col := col + 1;
-                    end if;
-                    
-                    if col = A_row_1 / 4 then
-                        output_U(0) <= first_sum mod q;
-                        output_U(1) <= second_sum mod q;
-                        output_U(2) <= third_sum mod q;
-                        output_U(3) <= forth_sum mod q;
+                    else
+                        output_U(0) <= sum_U00 mod q;   output_U(1) <= sum_U01 mod q;   output_U(2) <= sum_U02 mod q;   output_U(3) <= sum_U03 mod q;
+                        output_U(4) <= sum_U04 mod q;   output_U(5) <= sum_U05 mod q;   output_U(6) <= sum_U06 mod q;   output_U(7) <= sum_U07 mod q;
+                        output_U(8) <= sum_U08 mod q;   output_U(9) <= sum_U09 mod q;   output_U(10) <= sum_U10 mod q;  output_U(11) <= sum_U11 mod q;
+                        output_U(12) <= sum_U12 mod q;  output_U(13) <= sum_U13 mod q;  output_U(14) <= sum_U14 mod q;  output_U(15) <= sum_U15 mod q;
                         
                         if encoding_ascii(i) = '0' then
-                            output_V <= (fifth_sum ) mod q;
+                            output_V <= (sum_V ) mod q;
                         else
-                            output_V <= (fifth_sum - half_q) mod q;
+                            output_V <= (sum_V - half_q) mod q;
                         end if;
                         is_output_generated <= '1';
                     
@@ -119,9 +124,7 @@ begin
                         i := i + 1;
                         skip_2 := '0';
                     end if;
-                end if;
-                
-                if i = 8 then
+                else
                     i := 0;
                     skip_1 := '0';
                     row := row + 1;
@@ -132,59 +135,6 @@ begin
         else
             wait until clk'event and clk = '0';
         end if;
-    
-    
-    
---        if is_B_generated = '1' then
---            case q mod 2 is
---                when 0 => half_q := q / 2;
---                when others => half_q := (q + 1) / 2;
---            end case;
-        
---            for row in 1 to 4 loop
---                encoding_ascii := ascii_bits_array(row);
-
---                for i in encoding_ascii'range(1) loop
---                    row_num <= i;
-                    
---                    first_sum := 0;
---                    second_sum := 0;
---                    third_sum := 0;
---                    forth_sum := 0;
---                    fifth_sum := 0;
-                    
---                    for col in 0 to (A_row_1 / 4 - 1) loop
-                        
---                        first_sum := first_sum + RowA_in(0);
---                        second_sum := second_sum + RowA_in(1);
---                        third_sum := third_sum + RowA_in(2);
---                        forth_sum := forth_sum + RowA_in(3);
---                        fifth_sum := fifth_sum + RowB_in;
-
---                        wait until clk'event and clk = '0';
-                        
---                        is_output_generated <= '0';
---                    end loop;
-
---                    output_U(0) <=  first_sum mod q;
---                    output_U(1) <= second_sum mod q;
---                    output_U(2) <= third_sum mod q;
---                    output_U(3) <= forth_sum mod q;
-                    
---                    if encoding_ascii(i) = '0' then
---                        output_V <= (fifth_sum ) mod q;
---                    else
---                        output_V <= (fifth_sum - half_q) mod q;
---                    end if;
---                    is_output_generated <= '1';
-                    
---                end loop;
-                
---            end loop;
---            wait;
---        else
---            wait until clk'event and clk = '0';
---        end if;
     end process;
     
     

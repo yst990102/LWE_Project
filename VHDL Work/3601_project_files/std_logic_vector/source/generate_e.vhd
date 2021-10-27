@@ -6,8 +6,11 @@ use work.configuration_set.all;
 
 entity generate_e is
     port(
-        clk     : in std_logic;
-        q       : in integer;
+        is_q_generated : in std_logic;
+        clk           : in std_logic;
+        q             : in integer;
+        config_num    : in integer;
+        A_row         : in integer;
         
         store_E_row : out integer;
         store_E_ele : out integer
@@ -29,7 +32,7 @@ architecture Behavioral of generate_e is
     signal random_result : integer;
 begin
     random_number: random_generator
-        generic map (data_width => 8 )
+        generic map (data_width => 17 )
         port map(
             seed => 210,
             reset => '1',
@@ -40,21 +43,26 @@ begin
     process
         variable row : integer := 0;
     begin
-        if row < A_row_1 then
-            row_stored <= row;
-            ele_stored <= random_result mod (e_max_1 - e_min_1 + 1) + e_min_1;
-            wait until clk'event and clk = '0';
-            row := row + 1;
+        if is_q_generated = '1' then            
+            if row < A_row then
+                row_stored <= row;
+                
+                if config_num =  1 then
+                    ele_stored <= random_result mod (e_max_1 - e_min_1 + 1) + e_min_1;
+                elsif config_num = 2 then
+                    ele_stored <= random_result mod (e_max_2 - e_min_2 + 1) + e_min_2;
+                else
+                    ele_stored <= random_result mod (e_max_3 - e_min_3 + 1) + e_min_3;
+                end if;
+                
+                wait until clk'event and clk = '0';
+                row := row + 1;
+            else
+                wait;
+            end if;
         else
-            wait;
+            wait until clk'event and clk = '0';
         end if;
-        
---        for row in matrixE_1'range(1) loop
---            row_stored <= row;
---            ele_stored <= random_result mod (e_max_1 - e_min_1 + 1) + e_min_1;
---            wait until clk'event and clk = '0';
---        end loop;
---        wait;
     end process;
     
     store_E_row <= row_stored;

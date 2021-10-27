@@ -37,6 +37,8 @@ package configuration_set is
     type matrixE_1 is array (0 to A_row_1 - 1)       of integer;
     
     type RowA_1 is array (0 to A_col_1 - 1) of integer;
+    type RowA_2 is array (0 to A_col_2 - 1) of integer;
+    type RowA_3 is array (0 to A_col_3 - 1) of integer;
     
 ----    ==== Configuration 02 Type
     type matrixS_2 is array (0 to A_col_2 - 1)       of integer;
@@ -50,10 +52,17 @@ package configuration_set is
     type matrixB_3 is array (0 to A_row_3 - 1)       of integer;
     type matrixE_3 is array (0 to A_row_3 - 1)       of integer;
 
-    type U_cell is array (0 to 7, 0 to A_col_1 - 1) of integer;
-    type U_storage is array (1 to 4) of U_cell;
+    type U_cell_1 is array (0 to ascii_length - 1, 0 to A_col_1 - 1) of integer;
+    type U_cell_2 is array (0 to ascii_length - 1, 0 to A_col_2 - 1) of integer;
+    type U_cell_3 is array (0 to ascii_length - 1, 0 to A_col_3 - 1) of integer;
+    
+    type U_storage_1 is array (1 to string_length) of U_cell_1;
+    type U_storage_2 is array (1 to string_length) of U_cell_2;
+    type U_storage_3 is array (1 to string_length) of U_cell_3;
     
     type RowU_1 is array (0 to A_col_1 - 1) of integer;
+    type RowU_2 is array (0 to A_col_2 - 1) of integer;
+    type RowU_3 is array (0 to A_col_3 - 1) of integer;
         
     type V_storage is array(1 to 4,0 to 7) of integer;
 

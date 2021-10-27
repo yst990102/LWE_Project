@@ -6,8 +6,10 @@ use work.configuration_set.all;
 
 entity generate_s is
     port(
+        is_q_generated : in std_logic;
         clk         : in std_logic;
         q           : in integer;
+        A_col         : in integer;
         
         store_S_row : out integer;
         store_S_ele : out integer
@@ -29,7 +31,7 @@ architecture Behavioral of generate_s is
     signal random_result : integer;
 begin
     random_number: random_generator
-        generic map (data_width => 8 )
+        generic map (data_width => 17 )
         port map(
             seed => 230,
             reset => '1',
@@ -38,23 +40,20 @@ begin
         );
 
     process
-        variable row : integer := 0;
+        variable col : integer := 0;
     begin
-        if row < A_row_1 then
-            row_stored <= row;
-            ele_stored <= random_result mod (q - 0);
-            wait until clk'event and clk = '0';
-            row := row + 1;
+        if is_q_generated = '1' then            
+            if col < A_col then
+                row_stored <= col;
+                ele_stored <= random_result mod (q + 1);
+                wait until clk'event and clk = '0';
+                col := col + 1;
+            else
+                wait;
+            end if;
         else
-            wait;
+            wait until clk'event and clk = '0';
         end if;
-    
---        for row in matrixS_1'range(1) loop
---            row_stored <= row;
---            ele_stored <= random_result mod (q - 0);
---            wait until clk'event and clk = '0';
---        end loop;
---        wait;
     end process;
     
     store_S_row <= row_stored;
