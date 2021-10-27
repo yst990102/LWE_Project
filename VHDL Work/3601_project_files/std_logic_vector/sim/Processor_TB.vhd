@@ -8,19 +8,19 @@ end Processor_TB;
 architecture Behavioral of Processor_TB is
     component Processor is
         port (
-            encode_string : in string(1 to 4);
+            encode_string : in string(1 to string_length);
             clk : in std_logic := '0';
             sig_reset : in std_logic;
-            result : out string(1 to 4)
+            result : out string(1 to string_length)
         );
     end component;
     
     constant clk_period : time := 20ps;
     
     signal clk : std_logic := '0';
-    signal final_result : string(1 to 4);
+    signal final_result : string(1 to string_length);
 
-    signal test_string : string(1 to 4);
+    signal test_string : string(1 to string_length);
     signal reset : std_logic;
 begin
 

@@ -2,8 +2,8 @@
 # Webtalk v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Mon Oct 25 08:11:00 2021
-# Process ID: 6696
+# Start of session at: Wed Oct 27 22:17:47 2021
+# Process ID: 16268
 # Current directory: E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.sim/sim_1/behav/xsim
 # Command line: wbtcv.exe -mode batch -source E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/Processor_TB_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.sim/sim_1/behav/xsim/webtalk.log
@@ -11,4 +11,4 @@
 #-----------------------------------------------------------
 source E:/Github_repository/COMP3601/VHDL -notrace
 couldn't read file "E:/Github_repository/COMP3601/VHDL": permission denied
-INFO: [Common 17-206] Exiting Webtalk at Mon Oct 25 08:11:00 2021...
+INFO: [Common 17-206] Exiting Webtalk at Wed Oct 27 22:17:47 2021...

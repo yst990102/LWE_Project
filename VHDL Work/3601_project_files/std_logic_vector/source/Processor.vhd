@@ -6,11 +6,11 @@ use work.configuration_set.all;
 
 entity Processor is
     port (
-        encode_string : in string(1 to 4);
+        encode_string : in string(1 to string_length);
         clk : in std_logic;
         sig_reset : in std_logic;
 
-        result : out string(1 to 4)
+        result : out string(1 to string_length)
     );
 end Processor;
 
@@ -18,7 +18,7 @@ architecture Behavioral of Processor is
     component chars_to_ascii_array is
         Port ( 
             clk                 : in std_logic;
-            encode_chars        : in string(1 to 4);
+            encode_chars        : in string(1 to string_length);
             
             ascii_array_out     : out ascii_array;
             sig_chars_loaded    : out std_logic
@@ -31,7 +31,7 @@ architecture Behavioral of Processor is
             sig_is_dec_generated  : in std_logic;
             ascii_array_in        : in ascii_array;
             
-            decode_string         : out string(1 to 4);
+            decode_string         : out string(1 to string_length);
             sig_result_release    : out std_logic
         );
     end component;
@@ -171,40 +171,6 @@ architecture Behavioral of Processor is
 --   ====================== Other Self Test Signals ======================
 
 begin
---    state_transfer : Process
---    begin
---        if clk'event and clk = '0' then
---            if sig_reset = '1' then
---                State <= reseting;
---            else
---                case State is
---                    when reseting =>
---                        if sig_is_chars_loaded = '1' then
---                            State <= generating_ASE;
---                        end if;
---                    when generating_ASE =>
---                        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' then
---                            State <= generating_B;
---                        end if;
---                    when generating_B =>
---                        if sig_is_B_generated = '1' then
---                            State <= generating_UV;
---                        end if;
---                    when generating_UV =>
---                        if sig_is_UV_generated = '1' then
---                            State <= decrypting;
---                        end if;
---                    when decrypting => 
---                        if sig_is_dec_finished = '1' then
---                            State <= finished;
---                        end if;
---                    when finished =>
---                        State <= finished;
---                end case;
---            end if;
---        end if;
---    end process;
-
 --============================== Char Load & To_Asciis =============================
     chars_to_asciis : chars_to_ascii_array      -- synthesizable now
     port map(
@@ -244,15 +210,6 @@ begin
             sig_is_A_generated <= '1';
             wait;
         end if;
-    
---        for row in matrixA_1'range(1) loop
---            for col in matrixA_1'range(2) loop
---                wait until clk'event and clk = '0';
---                A(sig_store_A_row, sig_store_A_col) <= sig_store_A_element;
---            end loop;
---        end loop;
---        sig_is_A_generated <= '1';
---        wait;
     end process;
 --======================= Matrix A =============================
 
@@ -276,13 +233,6 @@ begin
             sig_is_S_generated <= '1';
             wait;
         end if;
-    
---        for row in matrixS_1'range(1) loop
---            wait until clk'event and clk = '0';
---            S(sig_store_S_row) <= sig_store_S_element;
---        end loop;
---        sig_is_S_generated <= '1';
---        wait;
     end process;
 --======================= Matrix S =============================
  
@@ -306,13 +256,6 @@ begin
             sig_is_E_generated <= '1';
             wait;
         end if;
-    
---        for row in matrixE_1'range(1) loop
---            wait until clk'event and clk = '0';
---            E(sig_store_E_row) <= sig_store_E_element;
---        end loop;
---        sig_is_E_generated <= '1';
---        wait;
     end process;
 --======================= Matrix E =============================
  
@@ -356,21 +299,6 @@ begin
         else
             wait until clk'event and clk = '0';
         end if;
-
---        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' and sig_is_B_generated = '0' then
---            for i in matrixA_1'range(1) loop
---                for j in matrixA_1'range(2) loop
---                    sig_RowA_in_B(j) <= A(i,j);
---                end loop;
---                sig_RowE_in_B <= E(i); 
---                wait until clk'event and clk = '0';
---                B(sig_store_B_row) <= sig_store_B_element;
---            end loop;
---            sig_is_B_generated <= '1';
---            wait;
---        else
---            wait until clk'event and clk = '0';
---        end if;
     end process;
 --======================= Matrix B =============================
 ----============================== Set Up =============================
@@ -382,21 +310,23 @@ begin
         variable count : integer := 0;
     begin
         if sig_UV_output_generated = '1' then
-            if count < A_col_1 * 8 then
-                U_cells(i)(j, 0) <= sig_RowU_out_UV(0);
-                U_cells(i)(j, 1) <= sig_RowU_out_UV(1);
-                U_cells(i)(j, 2) <= sig_RowU_out_UV(2);
-                U_cells(i)(j, 3) <= sig_RowU_out_UV(3);
-                
-                V_cells(i,j) <= sig_RowV_out_UV;
-                count := count + 1;
-                j := j + 1;
-                if j = 8 then
+            if i < (string_length + 1) then
+                if j < ascii_length then
+                    U_cells(i)(j, 0) <= sig_RowU_out_UV(0);
+                    U_cells(i)(j, 1) <= sig_RowU_out_UV(1);
+                    U_cells(i)(j, 2) <= sig_RowU_out_UV(2);
+                    U_cells(i)(j, 3) <= sig_RowU_out_UV(3);
+                    
+                    V_cells(i,j) <= sig_RowV_out_UV;
+                    j := j + 1;
+                    wait until clk'event and clk='1';
+                else
                     j := 0;
                     i := i + 1;
                 end if;
+            else
+                wait;
             end if;
-            wait until clk'event and clk='1';
         else
             wait until clk'event and clk='1';
         end if;
@@ -408,8 +338,8 @@ begin
         variable k : integer := 0;
     begin
         if sig_is_B_generated = '1' then
-            if i < 5 then
-                if j < 8 then
+            if i < (string_length + 1) then
+                if j < ascii_length then
                     if k < A_row_1 / 4 - 1 then
                         sig_RowA_in_UV(0) <= A(sig_random_row_num, 0);
                         sig_RowA_in_UV(1) <= A(sig_random_row_num, 1);
@@ -418,15 +348,15 @@ begin
                                
                         sig_RowB_in_UV <= B(sig_random_row_num);
                         k := k + 1;
-                    elsif k = A_row_1 / 4 - 1 then
+                    else
                         k := 0;
                         j := j + 1;
                     end if;
-                elsif j = 8 then
+                else
                     j := 0;
                     i := i + 1;
                 end if;
-            elsif i = 5 then
+            else
                 sig_is_UV_generated <= '1';
                 wait;
             end if;
@@ -473,8 +403,8 @@ begin
         variable j : integer := 0;
     begin
         if sig_is_UV_generated = '1' then        
-            if i < 5 then
-                if j < 8 then
+            if i < (string_length + 1) then
+                if j < ascii_length then
                     RowU_0 := U_cells(i)(j,0);
                     RowU_1 := U_cells(i)(j,1);
                     RowU_2 := U_cells(i)(j,2);
@@ -501,32 +431,6 @@ begin
         else
             wait until clk'event and clk='0';
         end if;
-
-
---        if sig_is_UV_generated = '1' then        
---            for i in ascii_array'range loop
---                for j in 0 to 7 loop
---                    RowU_0 := U_cells(i)(j,0);
---                    RowU_1 := U_cells(i)(j,1);
---                    RowU_2 := U_cells(i)(j,2);
---                    RowU_3 := U_cells(i)(j,3);
---                    RowV := V_cells(i,j);
-                    
---                    tmp := (RowV - (RowU_0 * S(0) + RowU_1 * S(1) + RowU_2 * S(2) + RowU_3 * S(3))) mod q;
-
---                    if tmp > three_quar_q or tmp < quar_q then
---                        sig_dec_ascii_array(i)(j) <= '0';
---                    else
---                        sig_dec_ascii_array(i)(j) <= '1';
---                    end if;
---                    wait until clk'event and clk='0';
---                end loop;
---            end loop;
---            sig_is_dec_finished <= '1';
---            wait;
---        else
---            wait until clk'event and clk='0';
---        end if;
     end process;
 --=================== decryption to dec_ascii_array =====================
     

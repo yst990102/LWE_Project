@@ -9,7 +9,7 @@ entity ascii_array_to_chars is
         sig_is_dec_generated  : in std_logic;
         ascii_array_in        : in ascii_array;
         
-        decode_string         : out string(1 to 4);
+        decode_string         : out string(1 to string_length);
         sig_result_release    : out std_logic
     );
 end ascii_array_to_chars;

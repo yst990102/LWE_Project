@@ -11,37 +11,42 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="21.540 ns"></ZoomStartTime>
-      <ZoomEndTime time="35.611 ns"></ZoomEndTime>
-      <Cursor1Time time="26.920 ns"></Cursor1Time>
+      <ZoomStartTime time="999,989 ps"></ZoomStartTime>
+      <ZoomEndTime time="1,000,003 ps"></ZoomEndTime>
+      <Cursor1Time time="1,000,000 ps"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="226"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <ValueColumnWidth column_width="86"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="40" />
-   <wvobject fp_name="/Processor_TB/UUT/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
+   <WVObjectSize size="41" />
    <wvobject fp_name="/Processor_TB/UUT/encode_string" type="array">
       <obj_property name="ElementShortName">encode_string[1:4]</obj_property>
       <obj_property name="ObjectShortName">encode_string[1:4]</obj_property>
    </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/sig_reset" type="logic">
+      <obj_property name="ElementShortName">sig_reset</obj_property>
+      <obj_property name="ObjectShortName">sig_reset</obj_property>
+   </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/result" type="array">
       <obj_property name="ElementShortName">result[1:4]</obj_property>
       <obj_property name="ObjectShortName">result[1:4]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_ascii_array" type="array">
       <obj_property name="ElementShortName">sig_ascii_array[1:4][0:7]</obj_property>
       <obj_property name="ObjectShortName">sig_ascii_array[1:4][0:7]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_dec_ascii_array" type="array">
       <obj_property name="ElementShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
       <obj_property name="ObjectShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/sig_is_chars_loaded" type="logic">
+      <obj_property name="ElementShortName">sig_is_chars_loaded</obj_property>
+      <obj_property name="ObjectShortName">sig_is_chars_loaded</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/S" type="array">
       <obj_property name="ElementShortName">S[0:3]</obj_property>
@@ -62,10 +67,6 @@
    <wvobject fp_name="/Processor_TB/UUT/q" type="other">
       <obj_property name="ElementShortName">q</obj_property>
       <obj_property name="ObjectShortName">q</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_is_chars_loaded" type="logic">
-      <obj_property name="ElementShortName">sig_is_chars_loaded</obj_property>
-      <obj_property name="ObjectShortName">sig_is_chars_loaded</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_is_S_generated" type="logic">
       <obj_property name="ElementShortName">sig_is_S_generated</obj_property>
@@ -147,6 +148,10 @@
       <obj_property name="ElementShortName">sig_UV_row_num</obj_property>
       <obj_property name="ObjectShortName">sig_UV_row_num</obj_property>
    </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/sig_UV_output_generated" type="logic">
+      <obj_property name="ElementShortName">sig_UV_output_generated</obj_property>
+      <obj_property name="ObjectShortName">sig_UV_output_generated</obj_property>
+   </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_RowA_in_UV" type="array">
       <obj_property name="ElementShortName">sig_RowA_in_UV[0:3]</obj_property>
       <obj_property name="ObjectShortName">sig_RowA_in_UV[0:3]</obj_property>
@@ -162,10 +167,6 @@
    <wvobject fp_name="/Processor_TB/UUT/sig_RowV_out_UV" type="other">
       <obj_property name="ElementShortName">sig_RowV_out_UV</obj_property>
       <obj_property name="ObjectShortName">sig_RowV_out_UV</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/generate_Cells_UV/is_output_generated" type="logic">
-      <obj_property name="ElementShortName">is_output_generated</obj_property>
-      <obj_property name="ObjectShortName">is_output_generated</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/U_cells" type="array">
       <obj_property name="ElementShortName">U_cells[1:4][0:7][0:3]</obj_property>

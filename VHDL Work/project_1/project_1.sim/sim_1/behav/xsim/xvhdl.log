@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/ascii_array_to_chars.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ascii_array_to_chars'
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/chars_to_ascii_array.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'chars_to_ascii_array'

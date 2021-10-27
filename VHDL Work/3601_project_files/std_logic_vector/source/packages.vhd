@@ -4,7 +4,10 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 package configuration_set is
-    type ascii_array is array (1 to 4) of std_logic_vector(0 to 7); 
+    constant string_length : integer := 4;
+    constant ascii_length : integer := 8;
+
+    type ascii_array is array (1 to string_length) of std_logic_vector(0 to ascii_length - 1); 
 
     constant q_min_1 : integer := 1;
     constant q_max_1 : integer := 128;
