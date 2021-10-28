@@ -58,17 +58,6 @@ begin
         else
             wait;
         end if;
-    
-    
---        for row in matrixA_1'range(1) loop
---            for col in matrixA_1'range(2) loop
---                row_stored <= row;
---                col_stored <= col;
---                ele_stored <= random_result mod(q - 0);
---                wait until clk'event and clk = '0';
---            end loop;
---        end loop;
---        wait;
     end process;
     
     store_A_row <= row_stored;

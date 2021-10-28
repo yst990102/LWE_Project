@@ -48,13 +48,6 @@ begin
         else
             wait;
         end if;
-        
---        for row in matrixE_1'range(1) loop
---            row_stored <= row;
---            ele_stored <= random_result mod (e_max_1 - e_min_1 + 1) + e_min_1;
---            wait until clk'event and clk = '0';
---        end loop;
---        wait;
     end process;
     
     store_E_row <= row_stored;

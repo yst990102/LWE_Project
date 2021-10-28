@@ -57,23 +57,7 @@ begin
             end if;
         else
             wait until clk'event and clk = '0';
-        end if;    
-
---        if is_S_generated = '1' and is_A_generated = '1' and is_E_generated = '1' then
---            for i in matrixA_1'range(1) loop
---                wait until clk'event and clk = '1';
---                row_sum := 0;
---                for j in matrixA_1'range(2) loop
---                    row_sum := row_sum + RowA_in(j) * Matrix_S(j);
---                end loop;
-                
---                row_stored <= i;
---                ele_stored <= (row_sum  + RowE_in)mod q;
---            end loop;
---            wait;
---        else
---            wait until clk'event and clk = '0';
---        end if;
+        end if;
     end process;
     
     store_B_row <= row_stored;

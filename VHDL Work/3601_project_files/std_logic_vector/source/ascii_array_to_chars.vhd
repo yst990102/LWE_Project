@@ -41,7 +41,6 @@ begin
         else
             wait until clk'event and clk = '0';
         end if;
-        
     end process;
     
     decode_string <= final_string;

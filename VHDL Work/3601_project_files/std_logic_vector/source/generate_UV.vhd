@@ -132,59 +132,6 @@ begin
         else
             wait until clk'event and clk = '0';
         end if;
-    
-    
-    
---        if is_B_generated = '1' then
---            case q mod 2 is
---                when 0 => half_q := q / 2;
---                when others => half_q := (q + 1) / 2;
---            end case;
-        
---            for row in 1 to 4 loop
---                encoding_ascii := ascii_bits_array(row);
-
---                for i in encoding_ascii'range(1) loop
---                    row_num <= i;
-                    
---                    first_sum := 0;
---                    second_sum := 0;
---                    third_sum := 0;
---                    forth_sum := 0;
---                    fifth_sum := 0;
-                    
---                    for col in 0 to (A_row_1 / 4 - 1) loop
-                        
---                        first_sum := first_sum + RowA_in(0);
---                        second_sum := second_sum + RowA_in(1);
---                        third_sum := third_sum + RowA_in(2);
---                        forth_sum := forth_sum + RowA_in(3);
---                        fifth_sum := fifth_sum + RowB_in;
-
---                        wait until clk'event and clk = '0';
-                        
---                        is_output_generated <= '0';
---                    end loop;
-
---                    output_U(0) <=  first_sum mod q;
---                    output_U(1) <= second_sum mod q;
---                    output_U(2) <= third_sum mod q;
---                    output_U(3) <= forth_sum mod q;
-                    
---                    if encoding_ascii(i) = '0' then
---                        output_V <= (fifth_sum ) mod q;
---                    else
---                        output_V <= (fifth_sum - half_q) mod q;
---                    end if;
---                    is_output_generated <= '1';
-                    
---                end loop;
-                
---            end loop;
---            wait;
---        else
---            wait until clk'event and clk = '0';
---        end if;
     end process;
     
     
