@@ -38,13 +38,13 @@ begin
         );
 
     process
-        variable row : integer := 0;
+        variable col : integer := 0;
     begin
-        if row < A_row_1 then
-            row_stored <= row;
+        if col < A_col_1 then
+            row_stored <= col;
             ele_stored <= random_result mod (q - 0);
             wait until clk'event and clk = '0';
-            row := row + 1;
+            col := col + 1;
         else
             wait;
         end if;

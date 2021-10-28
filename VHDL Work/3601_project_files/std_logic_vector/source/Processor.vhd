@@ -223,12 +223,12 @@ begin
         );
         
     store_S : process       -- synthesizable now
-        variable row : integer := 0;
+        variable col : integer := 0;
     begin
-        if row < A_col_1 then
+        if col < A_col_1 then
             wait until clk'event and clk = '0';
             S(sig_store_S_row) <= sig_store_S_element;
-            row := row + 1;
+            col := col + 1;
         else
             sig_is_S_generated <= '1';
             wait;
@@ -287,7 +287,7 @@ begin
                     j := j + 1;
                 else
                     sig_RowE_in_B <= E(i);
-                    wait until clk'event and clk = '0';
+                    wait until clk'event and clk = '1';
                     B(sig_store_B_row) <= sig_store_B_element;
                     j := 0;
                     i := i + 1;
@@ -297,7 +297,7 @@ begin
                 wait;
             end if;
         else
-            wait until clk'event and clk = '0';
+            wait until clk'event and clk = '1';
         end if;
     end process;
 --======================= Matrix B =============================

@@ -7,19 +7,20 @@
          <top_modules>
             <top_module name="Processor_TB" />
             <top_module name="configuration_set" />
+            <top_module name="glbl" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="999,989 ps"></ZoomStartTime>
-      <ZoomEndTime time="1,000,003 ps"></ZoomEndTime>
-      <Cursor1Time time="1,000,000 ps"></Cursor1Time>
+      <ZoomStartTime time="11.600 ns"></ZoomStartTime>
+      <ZoomEndTime time="16.301 ns"></ZoomEndTime>
+      <Cursor1Time time="48.200 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="226"></NameColumnWidth>
-      <ValueColumnWidth column_width="86"></ValueColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="41" />
+   <WVObjectSize size="53" />
    <wvobject fp_name="/Processor_TB/UUT/encode_string" type="array">
       <obj_property name="ElementShortName">encode_string[1:4]</obj_property>
       <obj_property name="ObjectShortName">encode_string[1:4]</obj_property>
@@ -43,6 +44,7 @@
    <wvobject fp_name="/Processor_TB/UUT/sig_dec_ascii_array" type="array">
       <obj_property name="ElementShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
       <obj_property name="ObjectShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_is_chars_loaded" type="logic">
       <obj_property name="ElementShortName">sig_is_chars_loaded</obj_property>
@@ -132,6 +134,66 @@
       <obj_property name="ElementShortName">sig_RowE_in_B</obj_property>
       <obj_property name="ObjectShortName">sig_RowE_in_B</obj_property>
    </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Matrix_B/sig_x00" type="array">
+      <obj_property name="ElementShortName">sig_x00[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_x00[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Matrix_B/sig_x01" type="array">
+      <obj_property name="ElementShortName">sig_x01[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_x01[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Matrix_B/sig_x02" type="array">
+      <obj_property name="ElementShortName">sig_x02[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_x02[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Matrix_B/sig_x03" type="array">
+      <obj_property name="ElementShortName">sig_x03[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_x03[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Matrix_B/sig_y00" type="array">
+      <obj_property name="ElementShortName">sig_y00[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_y00[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Matrix_B/sig_y01" type="array">
+      <obj_property name="ElementShortName">sig_y01[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_y01[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Matrix_B/sig_y02" type="array">
+      <obj_property name="ElementShortName">sig_y02[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_y02[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Matrix_B/sig_y03" type="array">
+      <obj_property name="ElementShortName">sig_y03[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_y03[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Matrix_B/sig_m00" type="array">
+      <obj_property name="ElementShortName">sig_m00[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_m00[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Matrix_B/sig_m01" type="array">
+      <obj_property name="ElementShortName">sig_m01[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_m01[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Matrix_B/sig_m02" type="array">
+      <obj_property name="ElementShortName">sig_m02[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_m02[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/generate_Matrix_B/sig_m03" type="array">
+      <obj_property name="ElementShortName">sig_m03[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_m03[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_store_B_row" type="other">
       <obj_property name="ElementShortName">sig_store_B_row</obj_property>
       <obj_property name="ObjectShortName">sig_store_B_row</obj_property>
@@ -140,10 +202,6 @@
       <obj_property name="ElementShortName">sig_store_B_element</obj_property>
       <obj_property name="ObjectShortName">sig_store_B_element</obj_property>
    </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_random_row_num" type="other">
-      <obj_property name="ElementShortName">sig_random_row_num</obj_property>
-      <obj_property name="ObjectShortName">sig_random_row_num</obj_property>
-   </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_UV_row_num" type="other">
       <obj_property name="ElementShortName">sig_UV_row_num</obj_property>
       <obj_property name="ObjectShortName">sig_UV_row_num</obj_property>
@@ -151,6 +209,10 @@
    <wvobject fp_name="/Processor_TB/UUT/sig_UV_output_generated" type="logic">
       <obj_property name="ElementShortName">sig_UV_output_generated</obj_property>
       <obj_property name="ObjectShortName">sig_UV_output_generated</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/sig_random_row_num" type="other">
+      <obj_property name="ElementShortName">sig_random_row_num</obj_property>
+      <obj_property name="ObjectShortName">sig_random_row_num</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_RowA_in_UV" type="array">
       <obj_property name="ElementShortName">sig_RowA_in_UV[0:3]</obj_property>

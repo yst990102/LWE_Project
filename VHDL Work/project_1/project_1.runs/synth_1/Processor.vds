@@ -1,0 +1,643 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Thu Oct 28 17:39:48 2021
+# Process ID: 22888
+# Current directory: E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.runs/synth_1
+# Command line: vivado.exe -log Processor.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Processor.tcl
+# Log file: E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.runs/synth_1/Processor.vds
+# Journal file: E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Processor.tcl -notrace
+Command: synth_design -top Processor -part xc7k480tffv1156-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7k480t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k480t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 3676
+WARNING: [Synth 8-2507] parameter declaration becomes local in dgn_MBMmul8bit with formal parameter declaration list [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:13]
+WARNING: [Synth 8-2507] parameter declaration becomes local in SteeringLogicREM8 with formal parameter declaration list [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:103]
+WARNING: [Synth 8-2507] parameter declaration becomes local in ArithmeticBlockREM8 with formal parameter declaration list [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:112]
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1302.219 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'Processor' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:17]
+INFO: [Synth 8-3491] module 'chars_to_ascii_array' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/chars_to_ascii_array.vhd:7' bound to instance 'chars_to_asciis' of component 'chars_to_ascii_array' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:175]
+INFO: [Synth 8-638] synthesizing module 'chars_to_ascii_array' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/chars_to_ascii_array.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'chars_to_ascii_array' (1#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/chars_to_ascii_array.vhd:17]
+INFO: [Synth 8-3491] module 'generate_A' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_A.vhd:7' bound to instance 'generate_Matrix_A' of component 'generate_A' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:187]
+INFO: [Synth 8-638] synthesizing module 'generate_A' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_A.vhd:18]
+	Parameter data_width bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'random_generator' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/random_generator.vhd:5' bound to instance 'random_number' of component 'random_generator' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_A.vhd:33]
+INFO: [Synth 8-638] synthesizing module 'random_generator' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/random_generator.vhd:15]
+	Parameter data_width bound to: 8 - type: integer 
+WARNING: [Synth 8-614] signal 'run' is read in the process but is not in the sensitivity list [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/random_generator.vhd:22]
+WARNING: [Synth 8-614] signal 'seed' is read in the process but is not in the sensitivity list [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/random_generator.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'random_generator' (2#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/random_generator.vhd:15]
+INFO: [Synth 8-256] done synthesizing module 'generate_A' (3#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_A.vhd:18]
+INFO: [Synth 8-3491] module 'generate_s' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_s.vhd:7' bound to instance 'generate_Matrix_S' of component 'generate_s' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:217]
+INFO: [Synth 8-638] synthesizing module 'generate_s' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_s.vhd:17]
+	Parameter data_width bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'random_generator' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/random_generator.vhd:5' bound to instance 'random_number' of component 'random_generator' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_s.vhd:31]
+INFO: [Synth 8-256] done synthesizing module 'generate_s' (4#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_s.vhd:17]
+INFO: [Synth 8-3491] module 'generate_e' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_e.vhd:7' bound to instance 'generate_Matrix_E' of component 'generate_e' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:240]
+INFO: [Synth 8-638] synthesizing module 'generate_e' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_e.vhd:17]
+	Parameter data_width bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'random_generator' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/random_generator.vhd:5' bound to instance 'random_number' of component 'random_generator' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_e.vhd:31]
+INFO: [Synth 8-256] done synthesizing module 'generate_e' (5#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_e.vhd:17]
+INFO: [Synth 8-3491] module 'generate_B' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd:7' bound to instance 'generate_Matrix_B' of component 'generate_B' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:263]
+INFO: [Synth 8-638] synthesizing module 'generate_B' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd:24]
+	Parameter sz bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'dgn_MBMmul8bit' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:1' bound to instance 'approxim_multi00' of component 'dgn_MBMmul8bit' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd:42]
+INFO: [Synth 8-6157] synthesizing module 'dgn_MBMmul8bit' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:1]
+	Parameter sz bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'SteeringLogicREM8' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:29]
+	Parameter sz bound to: 8 - type: integer 
+	Parameter lgsz bound to: 3 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'SteeringLogicREM8' (6#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:29]
+INFO: [Synth 8-6157] synthesizing module 'ArithmeticBlockREM8' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:110]
+	Parameter sz bound to: 8 - type: integer 
+	Parameter lgsz bound to: 3 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'ArithmeticBlockREM8' (7#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:110]
+INFO: [Synth 8-6155] done synthesizing module 'dgn_MBMmul8bit' (8#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:1]
+	Parameter sz bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'dgn_MBMmul8bit' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:1' bound to instance 'approxim_multi01' of component 'dgn_MBMmul8bit' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd:50]
+	Parameter sz bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'dgn_MBMmul8bit' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:1' bound to instance 'approxim_multi02' of component 'dgn_MBMmul8bit' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd:57]
+	Parameter sz bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'dgn_MBMmul8bit' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:1' bound to instance 'approxim_multi03' of component 'dgn_MBMmul8bit' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd:65]
+INFO: [Synth 8-256] done synthesizing module 'generate_B' (9#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd:24]
+INFO: [Synth 8-3491] module 'generate_UV' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:7' bound to instance 'generate_Cells_UV' of component 'generate_UV' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:367]
+INFO: [Synth 8-638] synthesizing module 'generate_UV' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:24]
+	Parameter data_width bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'random_generator' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/random_generator.vhd:5' bound to instance 'random_number' of component 'random_generator' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:52]
+INFO: [Synth 8-256] done synthesizing module 'generate_UV' (10#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:24]
+INFO: [Synth 8-3491] module 'ascii_array_to_chars' declared at 'E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/ascii_array_to_chars.vhd:6' bound to instance 'ascii_to_chars' of component 'ascii_array_to_chars' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:438]
+INFO: [Synth 8-638] synthesizing module 'ascii_array_to_chars' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/ascii_array_to_chars.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'ascii_array_to_chars' (11#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/ascii_array_to_chars.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'Processor' (12#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:17]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1302.219 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1302.219 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7k480tffv1156-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1302.219 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7k480tffv1156-1
+WARNING: [Synth 8-327] inferring latch for variable 'is_chars_loaded_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/chars_to_ascii_array.vhd:29]
+WARNING: [Synth 8-327] inferring latch for variable 'run_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/random_generator.vhd:25]
+WARNING: [Synth 8-327] inferring latch for variable 'random_matrix_A.row_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_A.vhd:47]
+WARNING: [Synth 8-327] inferring latch for variable 'row_num_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:43]
+WARNING: [Synth 8-327] inferring latch for variable 'generate_random_rows.row_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:75]
+WARNING: [Synth 8-327] inferring latch for variable 'generate_random_rows.i_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:81]
+WARNING: [Synth 8-327] inferring latch for variable 'output_U_reg[0]' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:45]
+WARNING: [Synth 8-327] inferring latch for variable 'output_U_reg[1]' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:45]
+WARNING: [Synth 8-327] inferring latch for variable 'output_U_reg[2]' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:45]
+WARNING: [Synth 8-327] inferring latch for variable 'output_U_reg[3]' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:45]
+WARNING: [Synth 8-327] inferring latch for variable 'output_V_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:46]
+WARNING: [Synth 8-327] inferring latch for variable 'generate_random_rows.skip_2_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:82]
+WARNING: [Synth 8-327] inferring latch for variable 'generate_random_rows.skip_1_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:76]
+WARNING: [Synth 8-327] inferring latch for variable 'generate_random_rows.encoding_ascii_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd:77]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_is_dec_finished_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:428]
+WARNING: [Synth 8-327] inferring latch for variable 'decryption.i_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:406]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_is_B_generated_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:283]
+WARNING: [Synth 8-327] inferring latch for variable 'UV_output.i_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:313]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_is_S_generated_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:233]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_is_E_generated_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:256]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_is_A_generated_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:210]
+WARNING: [Synth 8-327] inferring latch for variable 'store_A.row_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:200]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_RowA_in_B_reg[0]' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:271]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_RowA_in_B_reg[1]' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:271]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_RowA_in_B_reg[2]' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:271]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_RowA_in_B_reg[3]' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:271]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1421.086 ; gain = 118.867
+---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'generate_Matrix_B/approxim_multi00' (dgn_MBMmul8bit) to 'generate_Matrix_B/approxim_multi01'
+INFO: [Synth 8-223] decloning instance 'generate_Matrix_B/approxim_multi00' (dgn_MBMmul8bit) to 'generate_Matrix_B/approxim_multi02'
+INFO: [Synth 8-223] decloning instance 'generate_Matrix_B/approxim_multi00' (dgn_MBMmul8bit) to 'generate_Matrix_B/approxim_multi03'
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 19    
+	   3 Input   32 Bit       Adders := 11    
+	   4 Input   32 Bit       Adders := 2     
+	   2 Input   31 Bit       Adders := 16    
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 2     
+	   3 Input    4 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 4     
++---Registers : 
+	               32 Bit    Registers := 1719  
+	                8 Bit    Registers := 16    
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Multipliers : 
+	              32x32  Multipliers := 8     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 83    
+	   4 Input   32 Bit        Muxes := 41    
+	   2 Input   31 Bit        Muxes := 20    
+	   2 Input    8 Bit        Muxes := 18    
+	   4 Input    8 Bit        Muxes := 3     
+	   2 Input    3 Bit        Muxes := 2     
+	   9 Input    3 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 42    
+	   2 Input    1 Bit        Muxes := 97    
+	   8 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1920 (col length:160)
+BRAMs: 1910 (col length: RAMB18 160 RAMB36 80)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7129] Port seed[31] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[30] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[29] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[28] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[27] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[26] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[25] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[24] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[23] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[22] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[21] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[20] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[19] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[18] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[17] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[16] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[15] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[14] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[13] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[12] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[11] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[10] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[9] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port seed[8] in module random_generator__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[31] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[30] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[29] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[28] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[27] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[26] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[25] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[24] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[23] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[22] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[21] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[20] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[19] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[18] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[17] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[16] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[15] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[14] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[13] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[12] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[11] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[10] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[9] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[8] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[7] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[6] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[5] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[4] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[3] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[2] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[1] in module generate_e is either unconnected or has no load
+WARNING: [Synth 8-7129] Port q[0] in module generate_e is either unconnected or has no load
+INFO: [Synth 8-3886] merging instance 'generate_Matrix_E/ele_stored_reg[2]' (FDE_1) to 'generate_Matrix_E/ele_stored_reg[3]'
+INFO: [Synth 8-3886] merging instance 'E_reg[0][3]' (FDE_1) to 'E_reg[0][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[255][3]' (FDE_1) to 'E_reg[255][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[254][3]' (FDE_1) to 'E_reg[254][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[253][3]' (FDE_1) to 'E_reg[253][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[252][3]' (FDE_1) to 'E_reg[252][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[251][3]' (FDE_1) to 'E_reg[251][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[250][3]' (FDE_1) to 'E_reg[250][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[249][3]' (FDE_1) to 'E_reg[249][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[248][3]' (FDE_1) to 'E_reg[248][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[247][3]' (FDE_1) to 'E_reg[247][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[246][3]' (FDE_1) to 'E_reg[246][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[245][3]' (FDE_1) to 'E_reg[245][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[244][3]' (FDE_1) to 'E_reg[244][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[243][3]' (FDE_1) to 'E_reg[243][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[242][3]' (FDE_1) to 'E_reg[242][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[241][3]' (FDE_1) to 'E_reg[241][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[240][3]' (FDE_1) to 'E_reg[240][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[239][3]' (FDE_1) to 'E_reg[239][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[238][3]' (FDE_1) to 'E_reg[238][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[237][3]' (FDE_1) to 'E_reg[237][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[236][3]' (FDE_1) to 'E_reg[236][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[235][3]' (FDE_1) to 'E_reg[235][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[234][3]' (FDE_1) to 'E_reg[234][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[233][3]' (FDE_1) to 'E_reg[233][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[232][3]' (FDE_1) to 'E_reg[232][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[231][3]' (FDE_1) to 'E_reg[231][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[230][3]' (FDE_1) to 'E_reg[230][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[229][3]' (FDE_1) to 'E_reg[229][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[228][3]' (FDE_1) to 'E_reg[228][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[227][3]' (FDE_1) to 'E_reg[227][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[226][3]' (FDE_1) to 'E_reg[226][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[225][3]' (FDE_1) to 'E_reg[225][4]'
+INFO: [Synth 8-3886] merging instance 'E_reg[224][3]' (FDE_1) to 'E_reg[224][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[223][3]' (FDE_1) to 'E_reg[223][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[222][3]' (FDE_1) to 'E_reg[222][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[221][3]' (FDE_1) to 'E_reg[221][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[220][3]' (FDE_1) to 'E_reg[220][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[219][3]' (FDE_1) to 'E_reg[219][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[218][3]' (FDE_1) to 'E_reg[218][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[217][3]' (FDE_1) to 'E_reg[217][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[216][3]' (FDE_1) to 'E_reg[216][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[215][3]' (FDE_1) to 'E_reg[215][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[214][3]' (FDE_1) to 'E_reg[214][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[213][3]' (FDE_1) to 'E_reg[213][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[212][3]' (FDE_1) to 'E_reg[212][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[211][3]' (FDE_1) to 'E_reg[211][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[210][3]' (FDE_1) to 'E_reg[210][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[209][3]' (FDE_1) to 'E_reg[209][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[208][3]' (FDE_1) to 'E_reg[208][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[207][3]' (FDE_1) to 'E_reg[207][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[206][3]' (FDE_1) to 'E_reg[206][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[205][3]' (FDE_1) to 'E_reg[205][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[204][3]' (FDE_1) to 'E_reg[204][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[203][3]' (FDE_1) to 'E_reg[203][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[202][3]' (FDE_1) to 'E_reg[202][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[201][3]' (FDE_1) to 'E_reg[201][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[200][3]' (FDE_1) to 'E_reg[200][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[199][3]' (FDE_1) to 'E_reg[199][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[198][3]' (FDE_1) to 'E_reg[198][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[197][3]' (FDE_1) to 'E_reg[197][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[196][3]' (FDE_1) to 'E_reg[196][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[195][3]' (FDE_1) to 'E_reg[195][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[194][3]' (FDE_1) to 'E_reg[194][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[193][3]' (FDE_1) to 'E_reg[193][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[192][3]' (FDE_1) to 'E_reg[192][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[191][3]' (FDE_1) to 'E_reg[191][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[190][3]' (FDE_1) to 'E_reg[190][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[189][3]' (FDE_1) to 'E_reg[189][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[188][3]' (FDE_1) to 'E_reg[188][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[187][3]' (FDE_1) to 'E_reg[187][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[186][3]' (FDE_1) to 'E_reg[186][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[185][3]' (FDE_1) to 'E_reg[185][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[184][3]' (FDE_1) to 'E_reg[184][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[183][3]' (FDE_1) to 'E_reg[183][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[182][3]' (FDE_1) to 'E_reg[182][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[181][3]' (FDE_1) to 'E_reg[181][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[180][3]' (FDE_1) to 'E_reg[180][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[179][3]' (FDE_1) to 'E_reg[179][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[178][3]' (FDE_1) to 'E_reg[178][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[177][3]' (FDE_1) to 'E_reg[177][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[176][3]' (FDE_1) to 'E_reg[176][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[175][3]' (FDE_1) to 'E_reg[175][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[174][3]' (FDE_1) to 'E_reg[174][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[173][3]' (FDE_1) to 'E_reg[173][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[172][3]' (FDE_1) to 'E_reg[172][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[171][3]' (FDE_1) to 'E_reg[171][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[170][3]' (FDE_1) to 'E_reg[170][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[169][3]' (FDE_1) to 'E_reg[169][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[168][3]' (FDE_1) to 'E_reg[168][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[167][3]' (FDE_1) to 'E_reg[167][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[166][3]' (FDE_1) to 'E_reg[166][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[165][3]' (FDE_1) to 'E_reg[165][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[164][3]' (FDE_1) to 'E_reg[164][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[163][3]' (FDE_1) to 'E_reg[163][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[162][3]' (FDE_1) to 'E_reg[162][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[161][3]' (FDE_1) to 'E_reg[161][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[160][3]' (FDE_1) to 'E_reg[160][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[159][3]' (FDE_1) to 'E_reg[159][31]'
+INFO: [Synth 8-3886] merging instance 'E_reg[158][3]' (FDE_1) to 'E_reg[158][31]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd:83]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd:83]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd:83]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd:83]
+DSP Report: Generating DSP row_sum_accurate3, operation Mode is: A*B.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: Generating DSP row_sum_accurate3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: Generating DSP row_sum_accurate3, operation Mode is: A*B.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: Generating DSP row_sum_accurate3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: Generating DSP row_sum_accurate2, operation Mode is: A*B.
+DSP Report: operator row_sum_accurate2 is absorbed into DSP row_sum_accurate2.
+DSP Report: operator row_sum_accurate2 is absorbed into DSP row_sum_accurate2.
+DSP Report: Generating DSP row_sum_accurate2, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator row_sum_accurate2 is absorbed into DSP row_sum_accurate2.
+DSP Report: operator row_sum_accurate2 is absorbed into DSP row_sum_accurate2.
+DSP Report: Generating DSP row_sum_accurate2, operation Mode is: A*B.
+DSP Report: operator row_sum_accurate2 is absorbed into DSP row_sum_accurate2.
+DSP Report: operator row_sum_accurate2 is absorbed into DSP row_sum_accurate2.
+DSP Report: Generating DSP row_sum_accurate2, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator row_sum_accurate2 is absorbed into DSP row_sum_accurate2.
+DSP Report: operator row_sum_accurate2 is absorbed into DSP row_sum_accurate2.
+DSP Report: Generating DSP row_sum_accurate1, operation Mode is: A*B.
+DSP Report: operator row_sum_accurate1 is absorbed into DSP row_sum_accurate1.
+DSP Report: operator row_sum_accurate1 is absorbed into DSP row_sum_accurate1.
+DSP Report: Generating DSP row_sum_accurate1, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator row_sum_accurate1 is absorbed into DSP row_sum_accurate1.
+DSP Report: operator row_sum_accurate1 is absorbed into DSP row_sum_accurate1.
+DSP Report: Generating DSP row_sum_accurate1, operation Mode is: A*B.
+DSP Report: operator row_sum_accurate1 is absorbed into DSP row_sum_accurate1.
+DSP Report: operator row_sum_accurate1 is absorbed into DSP row_sum_accurate1.
+DSP Report: Generating DSP row_sum_accurate1, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator row_sum_accurate1 is absorbed into DSP row_sum_accurate1.
+DSP Report: operator row_sum_accurate1 is absorbed into DSP row_sum_accurate1.
+DSP Report: Generating DSP row_sum_accurate3, operation Mode is: A*B.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: Generating DSP row_sum_accurate3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: Generating DSP row_sum_accurate3, operation Mode is: A*B.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: Generating DSP row_sum_accurate3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+DSP Report: operator row_sum_accurate3 is absorbed into DSP row_sum_accurate3.
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:414]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:414]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:414]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:414]
+DSP Report: Generating DSP sig_dec_ascii_array[1]10, operation Mode is: A2*B.
+DSP Report: register sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: Generating DSP sig_dec_ascii_array[1]10, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: Generating DSP sig_dec_ascii_array[1]10, operation Mode is: A*B2.
+DSP Report: register sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: Generating DSP sig_dec_ascii_array[1]10, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: Generating DSP sig_dec_ascii_array[1]9, operation Mode is: A2*B.
+DSP Report: register sig_dec_ascii_array[1]9 is absorbed into DSP sig_dec_ascii_array[1]9.
+DSP Report: operator sig_dec_ascii_array[1]9 is absorbed into DSP sig_dec_ascii_array[1]9.
+DSP Report: operator sig_dec_ascii_array[1]9 is absorbed into DSP sig_dec_ascii_array[1]9.
+DSP Report: Generating DSP sig_dec_ascii_array[1]9, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sig_dec_ascii_array[1]9 is absorbed into DSP sig_dec_ascii_array[1]9.
+DSP Report: operator sig_dec_ascii_array[1]9 is absorbed into DSP sig_dec_ascii_array[1]9.
+DSP Report: Generating DSP sig_dec_ascii_array[1]9, operation Mode is: A*B2.
+DSP Report: register sig_dec_ascii_array[1]9 is absorbed into DSP sig_dec_ascii_array[1]9.
+DSP Report: operator sig_dec_ascii_array[1]9 is absorbed into DSP sig_dec_ascii_array[1]9.
+DSP Report: operator sig_dec_ascii_array[1]9 is absorbed into DSP sig_dec_ascii_array[1]9.
+DSP Report: Generating DSP sig_dec_ascii_array[1]9, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sig_dec_ascii_array[1]9 is absorbed into DSP sig_dec_ascii_array[1]9.
+DSP Report: operator sig_dec_ascii_array[1]9 is absorbed into DSP sig_dec_ascii_array[1]9.
+DSP Report: Generating DSP sig_dec_ascii_array[1]8, operation Mode is: A2*B.
+DSP Report: register sig_dec_ascii_array[1]8 is absorbed into DSP sig_dec_ascii_array[1]8.
+DSP Report: operator sig_dec_ascii_array[1]8 is absorbed into DSP sig_dec_ascii_array[1]8.
+DSP Report: operator sig_dec_ascii_array[1]8 is absorbed into DSP sig_dec_ascii_array[1]8.
+DSP Report: Generating DSP sig_dec_ascii_array[1]8, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sig_dec_ascii_array[1]8 is absorbed into DSP sig_dec_ascii_array[1]8.
+DSP Report: operator sig_dec_ascii_array[1]8 is absorbed into DSP sig_dec_ascii_array[1]8.
+DSP Report: Generating DSP sig_dec_ascii_array[1]8, operation Mode is: A*B2.
+DSP Report: register sig_dec_ascii_array[1]8 is absorbed into DSP sig_dec_ascii_array[1]8.
+DSP Report: operator sig_dec_ascii_array[1]8 is absorbed into DSP sig_dec_ascii_array[1]8.
+DSP Report: operator sig_dec_ascii_array[1]8 is absorbed into DSP sig_dec_ascii_array[1]8.
+DSP Report: Generating DSP sig_dec_ascii_array[1]8, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sig_dec_ascii_array[1]8 is absorbed into DSP sig_dec_ascii_array[1]8.
+DSP Report: operator sig_dec_ascii_array[1]8 is absorbed into DSP sig_dec_ascii_array[1]8.
+DSP Report: Generating DSP sig_dec_ascii_array[1]10, operation Mode is: A2*B.
+DSP Report: register sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: Generating DSP sig_dec_ascii_array[1]10, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: Generating DSP sig_dec_ascii_array[1]10, operation Mode is: A*B2.
+DSP Report: register sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: Generating DSP sig_dec_ascii_array[1]10, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+DSP Report: operator sig_dec_ascii_array[1]10 is absorbed into DSP sig_dec_ascii_array[1]10.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:22 ; elapsed = 00:01:50 . Memory (MB): peak = 1494.430 ; gain = 192.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++---------------------+------------+---------------+----------------+
+|Module Name          | RTL Object | Depth x Width | Implemented As | 
++---------------------+------------+---------------+----------------+
+|ascii_array_to_chars | p_0_out    | 128x8         | LUT            | 
+|ascii_array_to_chars | p_0_out    | 128x8         | LUT            | 
++---------------------+------------+---------------+----------------+
+
+
+DSP: Preliminary Mapping Report (see note below)
++----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|generate_B      | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|generate_B      | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | A2*B           | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | A*B2           | 18     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | A2*B           | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | A*B2           | 18     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | A2*B           | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | A*B2           | 18     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | A2*B           | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | A*B2           | 18     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|Processor__GCB1 | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:29 ; elapsed = 00:01:58 . Memory (MB): peak = 1494.430 ; gain = 192.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:35 ; elapsed = 00:02:04 . Memory (MB): peak = 1497.758 ; gain = 195.539
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:46 ; elapsed = 00:02:15 . Memory (MB): peak = 1512.680 ; gain = 210.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:46 ; elapsed = 00:02:15 . Memory (MB): peak = 1512.680 ; gain = 210.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:48 ; elapsed = 00:02:18 . Memory (MB): peak = 1512.680 ; gain = 210.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:49 ; elapsed = 00:02:18 . Memory (MB): peak = 1512.680 ; gain = 210.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:50 ; elapsed = 00:02:19 . Memory (MB): peak = 1512.680 ; gain = 210.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:50 ; elapsed = 00:02:19 . Memory (MB): peak = 1512.680 ; gain = 210.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |    11|
+|2     |CARRY4  |  2522|
+|3     |DSP48E1 |    24|
+|4     |LUT1    |   202|
+|5     |LUT2    |  7345|
+|6     |LUT3    |  1110|
+|7     |LUT4    |  1110|
+|8     |LUT5    |  4103|
+|9     |LUT6    | 20450|
+|10    |MUXF7   |  8935|
+|11    |MUXF8   |  4372|
+|12    |FDCE    |   341|
+|13    |FDPE    |   270|
+|14    |FDRE    | 30666|
+|15    |LD      |   510|
+|16    |LDC     |   192|
+|17    |IBUF    |    33|
+|18    |OBUF    |    32|
++------+--------+------+
+
+Report Instance Areas: 
++------+--------------------+---------------------+------+
+|      |Instance            |Module               |Cells |
++------+--------------------+---------------------+------+
+|1     |top                 |                     | 82228|
+|2     |  ascii_to_chars    |ascii_array_to_chars |   136|
+|3     |  chars_to_asciis   |chars_to_ascii_array |   115|
+|4     |  generate_Cells_UV |generate_UV          | 22181|
+|5     |    random_number   |random_generator_2   | 17208|
+|6     |  generate_Matrix_A |generate_A           |  2218|
+|7     |    random_number   |random_generator_1   |   296|
+|8     |  generate_Matrix_B |generate_B           |  1928|
+|9     |  generate_Matrix_E |generate_e           |  1153|
+|10    |    random_number   |random_generator_0   |   116|
+|11    |  generate_Matrix_S |generate_s           |   190|
+|12    |    random_number   |random_generator     |    71|
++------+--------------------+---------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:50 ; elapsed = 00:02:19 . Memory (MB): peak = 1512.680 ; gain = 210.461
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 87 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:50 ; elapsed = 00:02:20 . Memory (MB): peak = 1512.680 ; gain = 210.461
+Synthesis Optimization Complete : Time (s): cpu = 00:01:50 ; elapsed = 00:02:20 . Memory (MB): peak = 1512.680 ; gain = 210.461
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1512.680 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 16555 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 8 inverter(s) to 15 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.141 . Memory (MB): peak = 1627.480 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 702 instances were transformed.
+  LD => LDCE: 503 instances
+  LD => LDCE (inverted pins: G): 7 instances
+  LDC => LDCE: 192 instances
+
+Synth Design complete, checksum: cfa8e71d
+INFO: [Common 17-83] Releasing license: Synthesis
+164 Infos, 87 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:10 ; elapsed = 00:02:41 . Memory (MB): peak = 1627.480 ; gain = 325.262
+INFO: [Common 17-1381] The checkpoint 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.runs/synth_1/Processor.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:14 ; elapsed = 00:00:11 . Memory (MB): peak = 1627.480 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_utilization -file Processor_utilization_synth.rpt -pb Processor_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 28 17:42:52 2021...
