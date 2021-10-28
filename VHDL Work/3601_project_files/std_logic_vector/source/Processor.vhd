@@ -184,7 +184,7 @@ architecture Behavioral of Processor is
     signal sig_is_dec_finished : std_logic := '0';
     signal three_quar_q : integer := 0;
     signal quar_q : integer := 0;
-    signal tmp_test : integer := 0;
+    signal tmp_test : integer := 0;           ---- signal for debugging & test
 
     signal sig_is_result_released : std_logic := '0';
 --   ====================== Other Self Test Signals ======================

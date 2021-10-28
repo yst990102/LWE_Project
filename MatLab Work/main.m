@@ -1,4 +1,4 @@
-[q,A,e,s] = generator(1);
+[q,A,e,s] = generator(2);
 
 [A_row, A_col] = size(A);
 % B = B_normal_multiplier(A,s,e,q);
