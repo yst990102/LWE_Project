@@ -52,7 +52,7 @@ begin
                   (q + 1) / 2 when others;
     
     random_number: random_generator
-        generic map (data_width => 8 )
+        generic map (data_width => 15 )
         port map(
             seed => 220,
             reset => '1',

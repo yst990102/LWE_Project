@@ -35,7 +35,7 @@ architecture Behavioral of generate_A is
 
 begin
     random_number: random_generator
-        generic map (data_width => 17 )
+        generic map (data_width => 16 )
         port map(
             seed => 250,
             reset => '1',

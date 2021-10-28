@@ -31,7 +31,7 @@ architecture Behavioral of generate_s is
     signal random_result : integer;
 begin
     random_number: random_generator
-        generic map (data_width => 17 )
+        generic map (data_width => 16 )
         port map(
             seed => 230,
             reset => '1',

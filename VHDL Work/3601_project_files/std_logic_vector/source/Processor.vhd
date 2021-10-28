@@ -139,7 +139,7 @@ architecture Behavioral of Processor is
     signal A : matrixA_3 := (others => (others => 0));
     signal E : matrixE_3 := (others => 0);
     signal B : matrixB_3 := (others => 0);
-    signal q : integer := 113;
+    signal q : integer := 0;
 --   ==== generation signals
     signal sig_is_q_generated : std_logic := '0';
     signal sig_is_S_generated : std_logic := '0';
@@ -184,6 +184,7 @@ architecture Behavioral of Processor is
     signal sig_is_dec_finished : std_logic := '0';
     signal three_quar_q : integer := 0;
     signal quar_q : integer := 0;
+    signal tmp_test : integer := 0;
 
     signal sig_is_result_released : std_logic := '0';
 --   ====================== Other Self Test Signals ======================
@@ -533,7 +534,8 @@ begin
                         RowU_08 * S(8)  + RowU_09 * S(9)  + RowU_10 * S(10) + RowU_11 * S(11) +
                         RowU_12 * S(12) + RowU_13 * S(13) + RowU_14 * S(14) + RowU_15 * S(15)
                         )) mod q;
-
+                    tmp_test <= tmp;
+                    
                     if tmp > three_quar_q or tmp < quar_q then
                         sig_dec_ascii_array(i)(j) <= '0';
                     else

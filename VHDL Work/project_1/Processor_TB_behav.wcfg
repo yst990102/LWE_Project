@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="137.200001 us"></ZoomEndTime>
+      <ZoomEndTime time="27.520001 us"></ZoomEndTime>
       <Cursor1Time time="0.000007 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="226"></NameColumnWidth>
-      <ValueColumnWidth column_width="70"></ValueColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="38" />
+   <WVObjectSize size="39" />
    <wvobject fp_name="/Processor_TB/UUT/encode_string" type="array">
       <obj_property name="ElementShortName">encode_string[1:4]</obj_property>
       <obj_property name="ObjectShortName">encode_string[1:4]</obj_property>
@@ -174,5 +174,9 @@
    <wvobject fp_name="/Processor_TB/UUT/quar_q" type="other">
       <obj_property name="ElementShortName">quar_q</obj_property>
       <obj_property name="ObjectShortName">quar_q</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Processor_TB/UUT/tmp_test" type="other">
+      <obj_property name="ElementShortName">tmp_test</obj_property>
+      <obj_property name="ObjectShortName">tmp_test</obj_property>
    </wvobject>
 </wave_config>
