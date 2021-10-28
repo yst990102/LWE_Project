@@ -62,8 +62,16 @@ q_r = q_r(q_r >= q_min);
 q = q_r(randperm(numel(q_r),1));
 
 A = randi([0,q],A_row,A_col);
+% random generated
 % e = randi([e_min,e_max],A_row,1);
-e = round(normrnd(0,0.341,A_row,1));
+
+% normal distributed
+% 1:A_row column, variance-0.3 , avg-2
+% e = round(normrnd(0,0.3,[A_row 1]));
+
+% gussian distribution
+% 1-A_row gap 1, variance-2 , avg-5
+e = gaussmf(1:1:A_row, [2 5])';
 s = randi([0, q],A_col,1);
 
 return

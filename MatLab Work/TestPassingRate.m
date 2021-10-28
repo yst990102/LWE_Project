@@ -11,7 +11,8 @@ for config_num = 0:3
         [q,A,e,s] = generator(config_num);
 
         [A_row, A_col] = size(A);
-        B = mod(A*s +e, q);
+        % B = mod(A*s +e, q);
+        B = B_normal_multiplier(A,s,e,q);
 
         bits_for_char = 8;
 
