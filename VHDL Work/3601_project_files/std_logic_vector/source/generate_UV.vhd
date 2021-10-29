@@ -9,6 +9,7 @@ entity generate_UV is
         is_B_generated      : in std_logic;
         clk                 : in std_logic;
         q                   : in integer;
+        reset               : in std_logic;
         ascii_bits_array    : in ascii_array;
         RowA_in             : in RowA_1;
         RowB_in             : in integer;
@@ -32,7 +33,6 @@ architecture Behavioral of generate_UV is
     end component;
     
     signal row_num_random_result : integer := 0;
-    signal row_num : integer := 0;
     signal is_output_generated : std_logic := '0';
     signal output_U : RowU_1 := (others => 0);
     signal output_V : integer := 0;
@@ -40,7 +40,6 @@ architecture Behavioral of generate_UV is
     signal half_q : integer := 0;
 begin
     random_row_num <= row_num_random_result;
-    uv_row_num <= row_num;
     output_generated <= is_output_generated;
     RowU_out <= output_U;
     RowV_out <= output_V;
@@ -80,7 +79,7 @@ begin
 
                 if i < 8 then
                     if skip_2 = '0' then
-                        row_num <= i;
+                        uv_row_num <= i;
                         
                         first_sum := 0;
                         second_sum := 0;
@@ -127,7 +126,18 @@ begin
                     row := row + 1;
                 end if;
             else
-                wait;
+                if reset = '1' then
+                    row := 1;
+                    skip_1 := '0';
+                    i := 0;
+                    skip_2 := '0';
+                    col := 0;
+                    is_output_generated <= '0';
+                    output_U <= (others => 0);
+                    output_V <= 0;
+                else
+                    wait until clk'event and clk = '0';
+                end if;
             end if;
         else
             wait until clk'event and clk = '0';

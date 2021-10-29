@@ -28,6 +28,7 @@ architecture Behavioral of Processor is
     component ascii_array_to_chars is
         Port ( 
             clk                   : in std_logic;
+            reset                 : in std_logic;
             sig_is_dec_generated  : in std_logic;
             ascii_array_in        : in ascii_array;
             
@@ -86,6 +87,7 @@ architecture Behavioral of Processor is
             is_B_generated      : in std_logic;
             clk                 : in std_logic;
             q                   : in integer;
+            reset               : in std_logic;
             ascii_bits_array    : in ascii_array;
             RowA_in             : in RowA_1;
             RowB_in             : in integer;
@@ -307,7 +309,6 @@ begin
     UV_output : process         -- synthesizable now
         variable i : integer := 1;
         variable j : integer := 0;
-        variable count : integer := 0;
     begin
         if sig_UV_output_generated = '1' then
             if i < (string_length + 1) then
@@ -325,7 +326,12 @@ begin
                     i := i + 1;
                 end if;
             else
-                wait;
+                if sig_reset = '1' then
+                    i := 1;
+                    j := 0;
+                else
+                    wait until clk'event and clk='1';
+                end if;
             end if;
         else
             wait until clk'event and clk='1';
@@ -357,9 +363,15 @@ begin
                     i := i + 1;
                 end if;
             else
-                sig_is_UV_generated <= '1';
-                wait;
-            end if;
+                if sig_reset = '1' then
+                    sig_is_UV_generated <= '0';
+                    i := 1;
+                    j := 0;
+                    k := 0;
+                else
+                    sig_is_UV_generated <= '1';
+                end if;
+            end if;            
         end if;
         wait until clk'event and clk='0';
     end process;
@@ -369,6 +381,7 @@ begin
             is_B_generated => sig_is_B_generated,
             clk => clk,
             q => q,
+            reset => sig_reset,
             ascii_bits_array => sig_ascii_array,
             RowA_in => sig_RowA_in_UV,
             RowB_in => sig_RowB_in_UV,
@@ -425,8 +438,15 @@ begin
                     i := i + 1;
                 end if;
             else
-                sig_is_dec_finished <= '1';
-                wait;
+                if sig_reset = '0' then
+                    sig_is_dec_finished <= '1';
+                else
+                    sig_is_dec_finished <= '0';
+                    sig_dec_ascii_array <= (others => (others => '0'));
+                    i := 1;
+                    j := 0;
+                end if;
+                wait until clk'event and clk='0';
             end if;
         else
             wait until clk'event and clk='0';
@@ -438,6 +458,7 @@ begin
     ascii_to_chars : ascii_array_to_chars
         port map(
             clk => clk,
+            reset => sig_reset,
             sig_is_dec_generated => sig_is_dec_finished,
             ascii_array_in => sig_dec_ascii_array,
             

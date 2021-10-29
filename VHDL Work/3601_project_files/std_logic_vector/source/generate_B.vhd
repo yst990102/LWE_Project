@@ -32,9 +32,9 @@ architecture Behavioral of generate_B is
     end component;
     
     constant sz : integer := 8;
-    signal sig_x00, sig_x01, sig_x02, sig_x03 : std_logic_vector(sz-1 downto 0);
-    signal sig_y00, sig_y01, sig_y02, sig_y03 : std_logic_vector(sz-1 downto 0);
-    signal sig_m00, sig_m01, sig_m02, sig_m03 : std_logic_vector(2*sz-1 downto 0);
+    signal sig_x00, sig_x01, sig_x02, sig_x03 : std_logic_vector(sz-1 downto 0) := (others => '0');
+    signal sig_y00, sig_y01, sig_y02, sig_y03 : std_logic_vector(sz-1 downto 0) := (others => '0');
+    signal sig_m00, sig_m01, sig_m02, sig_m03 : std_logic_vector(2*sz-1 downto 0) := (others => '0');
     
     signal row_stored : integer := 0;
     signal ele_stored : integer := 0;
@@ -78,12 +78,12 @@ begin
     begin
         if is_S_generated = '1' and is_A_generated = '1' and is_E_generated = '1' then
             if i < A_row_1 then                
---                row_sum_accurate := RowA_in(0) * Matrix_S(0) + RowA_in(1) * Matrix_S(1) + RowA_in(2) * Matrix_S(2) + RowA_in(3) * Matrix_S(3);
+                row_sum_accurate := RowA_in(0) * Matrix_S(0) + RowA_in(1) * Matrix_S(1) + RowA_in(2) * Matrix_S(2) + RowA_in(3) * Matrix_S(3);      -- accurate multiplier
                 
-                sig_x00 <= CONV_STD_LOGIC_VECTOR(RowA_in(0), sz); sig_x01 <= CONV_STD_LOGIC_VECTOR(RowA_in(1), sz); sig_x02 <= CONV_STD_LOGIC_VECTOR(RowA_in(2), sz); sig_x03 <= CONV_STD_LOGIC_VECTOR(RowA_in(3), sz);
-                sig_y00 <= CONV_STD_LOGIC_VECTOR(Matrix_S(0), sz); sig_y01 <= CONV_STD_LOGIC_VECTOR(Matrix_S(1), sz); sig_y02 <= CONV_STD_LOGIC_VECTOR(Matrix_S(2), sz); sig_y03 <= CONV_STD_LOGIC_VECTOR(Matrix_S(3), sz);
+--                sig_x00 <= CONV_STD_LOGIC_VECTOR(RowA_in(0), sz); sig_x01 <= CONV_STD_LOGIC_VECTOR(RowA_in(1), sz); sig_x02 <= CONV_STD_LOGIC_VECTOR(RowA_in(2), sz); sig_x03 <= CONV_STD_LOGIC_VECTOR(RowA_in(3), sz);
+--                sig_y00 <= CONV_STD_LOGIC_VECTOR(Matrix_S(0), sz); sig_y01 <= CONV_STD_LOGIC_VECTOR(Matrix_S(1), sz); sig_y02 <= CONV_STD_LOGIC_VECTOR(Matrix_S(2), sz); sig_y03 <= CONV_STD_LOGIC_VECTOR(Matrix_S(3), sz);
                 wait until clk'event and clk = '0';
-                row_sum_approxim := CONV_INTEGER(sig_m00) + CONV_INTEGER(sig_m01) + CONV_INTEGER(sig_m02) + CONV_INTEGER(sig_m03);
+--                row_sum_approxim := CONV_INTEGER(sig_m00) + CONV_INTEGER(sig_m01) + CONV_INTEGER(sig_m02) + CONV_INTEGER(sig_m03);
                 
                 row_stored <= i;
                 

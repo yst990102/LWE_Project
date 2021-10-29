@@ -6,6 +6,7 @@ use work.configuration_set.all;
 entity ascii_array_to_chars is
     Port ( 
         clk                   : in std_logic;
+        reset                 : in std_logic;
         sig_is_dec_generated  : in std_logic;
         ascii_array_in        : in ascii_array;
         
@@ -34,8 +35,13 @@ begin
                 end if;
                 i := i + 1;
             else
-                is_result_released <= '1';
-                wait;
+                if reset = '0' then
+                    is_result_released <= '1';
+                else
+                    is_result_released <= '0';
+                    i := 1;
+                    final_string <= (others => NUL);
+                end if;
             end if;
             wait until clk'event and clk = '0';
         else
