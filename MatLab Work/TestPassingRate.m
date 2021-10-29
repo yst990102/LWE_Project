@@ -1,5 +1,3 @@
-test_nums = 1000;
-
 input_multiplier = input("Enter multiplier choice (1 - accurate, 2 - approximate):", 's');
 multiplier_choice = str2double(input_multiplier);
 
@@ -7,6 +5,9 @@ if multiplier_choice == 2
     fn_multiplier = input("Enter approximate-multi choice (1 - MBM, 2 - Optimized MBM, 3 - REALM8x8):", 's');
     fn_multiplier_choice = str2double(fn_multiplier);
 end
+
+test_nums_input = input("Enter test cases:", 's');
+test_nums = str2double(test_nums_input);
 
 for config_num = 0:3
     fprintf("-------Testing Configuration %d-------\n", config_num);
@@ -21,7 +22,7 @@ for config_num = 0:3
         [A_row, A_col] = size(A);
         
         if multiplier_choice == 1
-            B = B_normal_multiplier(A,s,e,q);         % --- accurate multiplier
+            B = B_accurate_multiplier(A,s,e,q);         % --- accurate multiplier
         elseif multiplier_choice == 2
             B = B_approximate_multiplier(A,s,q,fn_multiplier_choice);      % --- approximate multiplier
         else
