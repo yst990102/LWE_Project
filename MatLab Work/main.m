@@ -1,12 +1,31 @@
-[q,A,e,s] = generator(2);
+input_config_num = input("Enter config_num (1/2/3):", 's');
+config_num = str2double(input_config_num);
+
+[q,A,e,s] = generator(config_num);
 
 [A_row, A_col] = size(A);
-% B = B_normal_multiplier(A,s,e,q);
-B = B_approximate_multiplier(A,s,q);
+
+input_multiplier = input("Enter multiplier choice (1 - accurate, 2 - approximate):", 's');
+multiplier_choice = str2double(input_multiplier);
+
+if multiplier_choice == 2
+    fn_multiplier = input("Enter approximate-multi choice (1 - MBM, 2 - Optimized MBM, 3 - REALM8x8):", 's');
+    fn_multiplier_choice = str2double(fn_multiplier);
+end
+
+if multiplier_choice == 1
+    B = B_normal_multiplier(A,s,e,q);         % --- accurate multiplier
+elseif multiplier_choice == 2
+    B = B_approximate_multiplier(A,s,q,fn_multiplier_choice);      % --- approximate multiplier
+else
+    error("incorrect multiplier choice, please re-run your program.");
+end
+
+
 
 bits_for_char = 8;
 
-input_string = input("Enter a string:", 's');
+input_string = input("Enter a string (no length limit):", 's');
 binary_string = StringToBinary(string(input_string), bits_for_char);
 
 [char_num, char_length] = size(binary_string);
