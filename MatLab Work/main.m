@@ -1,12 +1,22 @@
-[q,A,e,s] = generator(1);
+[q,A,e,s] = generator(0);
 
 [A_row, A_col] = size(A);
-B = mod(A*s +e, q);
-
+% B = mod(A*s +e, q);
 bits_for_char = 8;
 
+
+As = zeros([A_row, 1]);
+for r = 1:A_row
+    for c = 1:A_col
+        [Result, charA,charB ] = fn_MitchellMul_Optimized(A(r,c), s(c), 8);
+        As(c) = As(c) + Result;
+    end
+end
+
+B = mod(As, q);
+
 input_string = input("Enter a string:", 's');
-binary_string = StringToBinary(string(input_string), bits_for_char)
+binary_string = StringToBinary(string(input_string), bits_for_char);
 
 [char_num, char_length] = size(binary_string);
 
