@@ -16,11 +16,10 @@ for config_num = 0:3
     time_decrypt = zeros(1,test_nums);
     
     for test_num = 1:test_nums
-        tic
+        % generate matrices
+        % generate matrix A, matrix E, private key s, prime numebr q
         [q,A,e,s] = generator(config_num);
-
-        [A_row, A_col] = size(A);
-        
+        % generate matrix B with multiplier-type
         if multiplier_choice == 1
             B = B_accurate_multiplier(A,s,e,q);         % --- accurate multiplier
         elseif multiplier_choice == 2
@@ -28,25 +27,28 @@ for config_num = 0:3
         else
             error("incorrect multiplier choice, please re-run your program.");
         end
-
-        bits_for_char = 8;
-
-        binary_string = StringToBinary("AbcD", 8);
-        uv_cells = EncryptCharToUV(binary_string,B,A,q);
-        time_encrypt(test_num) = toc;
-        tic
+        
+        % encoded string
+        binary_string = StringToBinaryArray("AbcD", 8);
 
         [char_num, char_length] = size(binary_string);
-        
+        % allocate memory for decrypt result
         DecryptResult = zeros(char_num, char_length);
         for j = 1:char_num
+            % Encryption part
+            tic
             uv_cell = EncryptCharToUV(binary_string(j,:),B,A,q);
-
+            time_encrypt(test_num) = toc;
+            % Decryption part
+            tic
             DecryptResult(j,:) = DecryptUVToChar(uv_cell,q,s);
+            time_decrypt(test_num) = toc;
         end
         
-        time_decrypt(test_num) = toc;
-        success_count = success_count + CheckInputOutputMatch(binary_string, DecryptResult);
+        decoded_string = BinaryArrayToString(DecryptResult);
+        if decoded_string == input_string       
+            success_count = success_count + 1;
+        end
     end
 
     fprintf("\t---Stats---\n");
@@ -55,12 +57,13 @@ for config_num = 0:3
     fprintf("\t\tSuccess rate: %.2f%%\n",(success_count / test_nums) * 100);
     
     time_total = sum(time_encrypt) + sum(time_decrypt);
-    time_avg = time_total / test_nums;
     
     fprintf("\t---Total Times---\n");
     fprintf("\t\tOverall: %.2fs\n", time_total);
     fprintf("\t\tEncrypt: %.2fs (%.2f%%)\n", sum(time_encrypt), (sum(time_encrypt) / time_total) * 100);
     fprintf("\t\tDecrypt: %.2fs (%.2f%%)\n", sum(time_decrypt), (sum(time_decrypt) / time_total) * 100);
+    
+    time_avg = time_total / test_nums;
     
     fprintf("\t---Average Times---\n");
     fprintf("\t\tOverall: %.5fs\n", time_avg);
