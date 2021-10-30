@@ -5,15 +5,19 @@
 bits_for_char = 8;
 
 
-As = zeros([A_row, 1]);
-for r = 1:A_row
-    for c = 1:A_col
-        [Result, charA,charB ] = fn_MitchellMul_Optimized(A(r,c), s(c), 8);
-        As(c) = As(c) + Result;
-    end
-end
+% As = zeros([A_row, 1]);
+%  for r = 1:A_row
+%      for c = 1:A_col
+%          [Result, charA,charB ] = fn_MitchellMul_Optimized(A(r,c), s(c), 8);
+%          As(c) = As(c) + Result;
+%      end
+%  end
 
-B = mod(As, q);
+M = MatrixMul_UnsignedInt16_ApproxMuls(A,s);
+
+% B = mod(As, q);
+
+B = mod(M, q);
 
 input_string = input("Enter a string:", 's');
 binary_string = StringToBinary(string(input_string), bits_for_char);
