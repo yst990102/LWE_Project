@@ -326,15 +326,15 @@ begin
                     i := i + 1;
                 end if;
             else
-                if sig_reset = '1' then
-                    i := 1;
-                    j := 0;
-                else
-                    wait until clk'event and clk='1';
-                end if;
+                wait until clk'event and clk='1';
             end if;
         else
             wait until clk'event and clk='1';
+        end if;
+        
+        if sig_reset = '1' then
+            i := 1;
+            j := 0;
         end if;
     end process;
         
