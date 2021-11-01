@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k480tffv1156-1" LaunchTime="1635757637">
-  <File Type="PA-TCL" Name="Processor.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="Processor_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="Processor_reports.tcl"/>
-  <File Type="RDS-RDS" Name="Processor.vds"/>
-  <File Type="RDS-UTIL" Name="Processor_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="Processor_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="Processor.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="Processor_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="Processor_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7k480tffv1156-1" LaunchTime="1635777373">
+  <File Type="PA-TCL" Name="generate_S_by_file.tcl"/>
+  <File Type="REPORTS-TCL" Name="generate_S_by_file_reports.tcl"/>
+  <File Type="RDS-RDS" Name="generate_S_by_file.vds"/>
+  <File Type="RDS-DCP" Name="generate_S_by_file.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/packages.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/generate_S_by_file.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/generate_A_by_file.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -20,6 +35,7 @@
     </File>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/dgn_REALM8x8mul8bit.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -27,75 +43,78 @@
     </File>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/dgn_mitchellmul8bit.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/packages.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/ascii_array_to_chars.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/chars_to_ascii_array.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/generate_A.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/generate_B.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/generate_UV.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/generate_e.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/generate_s.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/random_generator.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/Processor.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="Processor"/>
-      <Option Name="TopAutoSet" Val="TRUE"/>
+      <Option Name="TopModule" Val="generate_S_by_file"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

@@ -7,7 +7,7 @@ entity generate_A_by_file_TB is
 end generate_A_by_file_TB;
 
 architecture Behavioral of generate_A_by_file_TB is
-    component text_file_io is
+    component generate_A_by_file is
         port(
             clk : in std_logic;
             rowA_out : out RowA_1
