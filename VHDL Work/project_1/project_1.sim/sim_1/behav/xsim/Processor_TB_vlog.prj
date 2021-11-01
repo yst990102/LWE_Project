@@ -1,6 +1,8 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
 "../../../../../3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v" \
+"../../../../../3601_project_files/std_logic_vector/source/dgn_REALM8x8mul8bit.v" \
+"../../../../../3601_project_files/std_logic_vector/source/dgn_mitchellmul8bit.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

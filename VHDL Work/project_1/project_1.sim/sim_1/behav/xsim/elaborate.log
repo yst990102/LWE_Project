@@ -24,6 +24,12 @@ Compiling architecture behavioral of entity xil_defaultlib.generate_e [generate_
 Compiling module xil_defaultlib.SteeringLogicREM8
 Compiling module xil_defaultlib.ArithmeticBlockREM8_default
 Compiling module xil_defaultlib.dgn_MBMmul8bit(sz=8)
+Compiling module xil_defaultlib.SteeringLogicM8(sz=8,lgsz=3)
+Compiling module xil_defaultlib.ArithmeticBlockM8
+Compiling module xil_defaultlib.dgn_mitchellmul8bit(sz=8)
+Compiling module xil_defaultlib.SteeringLogic_SMBM_8x8_8_Configu...
+Compiling module xil_defaultlib.ArithmeticBlock_SMBM_8x8_8_Confi...
+Compiling module xil_defaultlib.dgn_REALM8x8mul8bit(sz=8,m=8)
 Compiling architecture behavioral of entity xil_defaultlib.generate_B [generate_b_default]
 Compiling architecture behavioral of entity xil_defaultlib.generate_UV [generate_uv_default]
 Compiling architecture behavioral of entity xil_defaultlib.ascii_array_to_chars [ascii_array_to_chars_default]

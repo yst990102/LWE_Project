@@ -1,4 +1,4 @@
-module dgn_REALM8x8mul8bit #(parameter sz=8, m=08)(input [sz-1:0] X,Y,  output[2*sz-1:0] M);
+module dgn_REALM8x8mul8bit #(parameter sz=8, m=08)(input [sz-1:0] X,Y,  output[2*sz-1:0] MM);
 
 //----------------------------------------------------------------------------------------------
 function integer clog2;
@@ -18,7 +18,7 @@ wire [sz-1:tr] mantS;
 wire [lgsz:0] charS;
 wire CornerCase1;
 
-SteeringLogic_SMBM_8x8_8_ConfigurableARD_08   #(sz, lgsz,m) SLi (X,Y, charS, mantS, lgX, lgY, M, CornerCase1); 
+SteeringLogic_SMBM_8x8_8_ConfigurableARD_08   #(sz, lgsz,m) SLi (X,Y, charS, mantS, lgX, lgY, MM, CornerCase1); 
 ArithmeticBlock_SMBM_8x8_8_ConfigurableARD_08 #(sz, lgsz,m) ABi      (lgX,lgY, charS, mantS, CornerCase1); 
 //---------------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ endmodule
      
                                                                                           
 module SteeringLogic_SMBM_8x8_8_ConfigurableARD_08 #(parameter sz=8, parameter lgsz = 3, parameter m = 15, parameter tr = sz-m)(input [sz-1:0] X,Y, input [lgsz  : 0] charS, input [sz-1: tr] mantS,
-                                                                       output [lgsz + sz-1-1: tr] lgX, lgY,  output[2*sz-1:0] M, input CornerCase1); 
+                                                                       output [lgsz + sz-1-1: tr] lgX, lgY,  output[2*sz-1:0] MM, input CornerCase1); 
 
 parameter [lgsz-1:0] mc = m;
 
@@ -154,7 +154,7 @@ wire [2*sz-1:0] IntermediateResult = ExtendedResult[2*sz-1:0];
 
 wire [2:0] temp_sum = {IntermediateResult[2:0] + CornerCase1};
 
-assign M = {IntermediateResult[2*sz-1:3], temp_sum[2:0] } ;      // Make the {1,mantissa} 16bit (2*sz) bit and then shift it right depending on the ~charS 
+assign MM = {IntermediateResult[2*sz-1:3], temp_sum[2:0] } ;      // Make the {1,mantissa} 16bit (2*sz) bit and then shift it right depending on the ~charS 
                                                                   
 endmodule
 

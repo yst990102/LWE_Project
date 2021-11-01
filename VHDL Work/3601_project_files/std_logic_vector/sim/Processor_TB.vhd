@@ -11,6 +11,7 @@ architecture Behavioral of Processor_TB is
             encode_string : in string(1 to string_length);
             clk : in std_logic;
             sig_reset : in std_logic;
+            multi_type : in integer;
             
             result : out string(1 to string_length)
         );
@@ -38,6 +39,7 @@ begin
             encode_string => "AbcD",
             clk => clk,
             sig_reset => reset,
+            multi_type => 4,
             result => final_result
         );
 

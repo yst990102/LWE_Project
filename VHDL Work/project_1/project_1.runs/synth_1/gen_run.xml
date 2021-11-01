@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k480tffv1156-1" LaunchTime="1635671594">
+<GenRun Id="synth_1" LaunchPart="xc7k480tffv1156-1" LaunchTime="1635757637">
   <File Type="PA-TCL" Name="Processor.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="Processor_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="Processor_reports.tcl"/>
@@ -12,6 +12,20 @@
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/dgn_REALM8x8mul8bit.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../3601_project_files/std_logic_vector/source/dgn_mitchellmul8bit.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

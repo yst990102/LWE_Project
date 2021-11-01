@@ -6,11 +6,12 @@ use work.configuration_set.all;
 
 entity Processor is
     port (
-        encode_string : in string(1 to string_length);
-        clk : in std_logic;
-        sig_reset : in std_logic;
+        encode_string   : in string(1 to string_length);
+        clk             : in std_logic;
+        sig_reset       : in std_logic;
+        multi_type      : in integer;
 
-        result : out string(1 to string_length)
+        result          : out string(1 to string_length)
     );
 end Processor;
 
@@ -72,6 +73,7 @@ architecture Behavioral of Processor is
             is_E_generated : in std_logic;
             clk            : in std_logic;
             q              : in integer;
+            multi_type     : in integer;
 
             RowA_in        : in RowA_1;
             Matrix_S       : in matrixS_1;
@@ -104,10 +106,10 @@ architecture Behavioral of Processor is
     component random_generator is
         generic (data_width : natural);
         port(
-            seed : in integer;
-            reset : in std_logic;
-            clk : in std_logic;
-            data_out : out integer);
+            seed        : in integer;
+            reset       : in std_logic;
+            clk         : in std_logic;
+            data_out    : out integer);
     end component;
 -- ============================== statements =================================
 --    type t_state is (reseting, generating_ASE, generating_B, generating_UV, decrypting, finished);
@@ -268,7 +270,8 @@ begin
             is_A_generated => sig_is_A_generated,
             is_E_generated => sig_is_E_generated,
             clk => clk,
-            q => q, 
+            q => q,
+            multi_type => multi_type,
                         
             RowA_in => sig_RowA_in_B,
             Matrix_S => S,

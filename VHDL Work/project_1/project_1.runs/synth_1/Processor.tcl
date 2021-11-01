@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 4
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7k480tffv1156-1
 
@@ -84,7 +85,11 @@ set_property ip_output_repo {e:/Github_repository/COMP3601/VHDL Work/project_1/p
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib {{E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v}}
+read_verilog -library xil_defaultlib {
+  {E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v}
+  {E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_REALM8x8mul8bit.v}
+  {E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_mitchellmul8bit.v}
+}
 read_vhdl -library xil_defaultlib {
   {E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/packages.vhd}
   {E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/ascii_array_to_chars.vhd}
