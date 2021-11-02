@@ -55,7 +55,20 @@ architecture Behavioral of Processor is
     end component;
     -- ================= generate A by LFSR =======================
     
-    -- ================= generate B by LFSR =======================
+    -- ================= generate A by FILE =======================
+    component generate_A_by_file is
+        port(
+            clk : in std_logic;
+            txt_input : in std_logic;
+    
+            A_row : out integer;
+            A_out : out RowA_1;
+            file_end : out std_logic
+        );
+    end component;
+    -- ================= generate A by FILE =======================
+
+    -- ================= generate S by LFSR =======================
     component generate_s is
         port(
             clk         : in std_logic;
@@ -66,8 +79,21 @@ architecture Behavioral of Processor is
             store_S_ele : out integer
         );
     end component;
-    -- ================= generate A by LFSR =======================
+    -- ================= generate S by LFSR =======================
     
+    -- ================= generate S by FILE =======================
+    component generate_S_by_file is
+        port(
+            clk : in std_logic;
+            txt_input : in std_logic;
+    
+            S_row : out integer;
+            S_out : out integer;
+            file_end : out std_logic
+        );
+    end component;
+    -- ================= generate S by FILE =======================
+
     -- ================= generate E by LFSR =======================
     component generate_e is
         port(
@@ -81,12 +107,29 @@ architecture Behavioral of Processor is
     end component;
     -- ================= generate E by LFSR =======================
     
+    -- ================= generate E by FILE =======================
+    component generate_E_by_file is
+        port(
+            clk : in std_logic;
+            txt_input : in std_logic;
+
+            E_row : out integer;
+            E_out : out integer;
+            file_end : out std_logic
+        );
+    end component;
+    -- ================= generate E by FILE =======================
+
     -- ================= generate B by multiplier_type =======================
     component generate_B is
         port(
             is_S_generated : in std_logic;
             is_A_generated : in std_logic;
             is_E_generated : in std_logic;
+            is_S_generated_File : in std_logic;
+            is_A_generated_File : in std_logic;
+            is_E_generated_File : in std_logic;
+
             clk            : in std_logic;
             q              : in integer;
             multi_type     : in integer;
@@ -149,7 +192,7 @@ architecture Behavioral of Processor is
     signal E : matrixE_1 := (others => 0);
     signal B : matrixB_1 := (others => 0);
     signal q : integer := 113;
---   ==== generation signals
+--   ==== generation signals by LFSR
     signal sig_is_S_generated : std_logic := '0';
     signal sig_is_A_generated : std_logic := '0';
     signal sig_is_E_generated : std_logic := '0';
@@ -164,6 +207,22 @@ architecture Behavioral of Processor is
 --  ==== generate E by LFSR
     signal sig_store_E_row : integer := 0;
     signal sig_store_E_element : integer := 0;
+
+--   ==== generation signals by FILE
+    signal sig_is_S_generated_File : std_logic := '0';
+    signal sig_is_A_generated_File : std_logic := '0';
+    signal sig_is_E_generated_File : std_logic := '0';
+--  ==== generate S by FILE
+    signal sig_store_S_row_File : integer := 0;
+    signal sig_store_S_element_File : integer := 0;
+--  ==== generate A by FILE
+    signal sig_store_A_row_File : integer := 0;
+    signal sig_store_A_element_File : RowA_1 := (others => 0);
+--  ==== generate E by FILE
+    signal sig_store_E_row_File : integer := 0;
+    signal sig_store_E_element_File : integer := 0;
+
+
 --  ==== generate B
     signal sig_RowA_in_B : RowA_1 := (others => 0);
     signal sig_RowE_in_B : integer := 0;
@@ -199,7 +258,7 @@ architecture Behavioral of Processor is
 
 begin
 --============================== Char Load & To_Asciis =============================
-    chars_to_asciis : chars_to_ascii_array      -- synthesizable now
+    chars_to_asciis : chars_to_ascii_array      
     port map(
         clk => clk,
         encode_chars => encode_string,
@@ -211,7 +270,7 @@ begin
 
 --============================== Set Up =============================            
 --======================= Matrix A =============================
-    generate_Matrix_A : generate_A      -- synthesizable now
+    generate_Matrix_A_LFSR : generate_A
         port map(   
             clk => clk,
             q => q,
@@ -222,7 +281,7 @@ begin
             store_A_ele => sig_store_A_element
         );
     
-    store_A : process       -- synthesizable now
+    store_A : process
         variable row : integer := 0;
         variable col : integer := 0;
     begin
@@ -241,13 +300,36 @@ begin
                 wait;
             end if;
         else
-            wait;
+            if row < A_row_1 then
+                wait until clk'event and clk = '0';
+                A(sig_store_A_row_File, 0) <= sig_store_A_element_File(0);
+                A(sig_store_A_row_File, 1) <= sig_store_A_element_File(1);
+                A(sig_store_A_row_File, 2) <= sig_store_A_element_File(2);
+                A(sig_store_A_row_File, 3) <= sig_store_A_element_File(3);
+
+                row := row + 1;
+            else
+                sig_is_A_generated_File <= '1';
+                wait;
+            end if;
         end if;
     end process;
+
+    generate_Matrix_A_FILE : generate_A_by_file
+        port map(
+            clk => clk,
+            txt_input => txt_input,
+
+            A_row => sig_store_A_row_File,
+            A_out => sig_store_A_element_File,
+            file_end => sig_is_A_generated_File
+        );
+
+
 --======================= Matrix A =============================
 
 --======================= Matrix S =============================
-    generate_Matrix_S : generate_s      -- synthesizable now
+    generate_Matrix_S_LFSR : generate_s
         port map(
             clk => clk,
             q => q,
@@ -257,7 +339,7 @@ begin
             store_S_ele => sig_store_S_element
         );
         
-    store_S : process       -- synthesizable now
+    store_S : process
         variable col : integer := 0;
     begin
         if txt_input = '0' then
@@ -270,13 +352,30 @@ begin
                 wait;
             end if;
         else
-            wait;
+            if col < A_col_1 then
+                wait until clk'event and clk = '0';
+                S(sig_store_S_row_File) <= sig_store_S_element_File;
+                col := col + 1;
+            else
+                sig_is_S_generated_File <= '1';
+                wait;
+            end if;
         end if;
     end process;
+
+    generate_Matrix_S_FILE : generate_S_by_file
+    port map(
+        clk => clk,
+        txt_input => txt_input,
+
+        S_row => sig_store_S_row_File,
+        S_out => sig_store_S_element_File,
+        file_end => sig_is_S_generated_File
+    );
 --======================= Matrix S =============================
  
 --======================= Matrix E =============================
-    generate_Matrix_E : generate_e      -- synthesizable now
+    generate_Matrix_E_LFSR : generate_e      
         port map(
             clk => clk,
             q => q,
@@ -286,7 +385,7 @@ begin
             store_E_ele => sig_store_E_element
         );
         
-    store_E : process       -- synthesizable now
+    store_E : process       
         variable row : integer := 0;
     begin
         if txt_input = '0' then
@@ -299,17 +398,38 @@ begin
                 wait;
             end if;
         else
-            wait;
+            if row < A_row_1 then
+                wait until clk'event and clk = '0';
+                E(sig_store_E_row_File) <= sig_store_E_element_File;
+                row := row + 1;
+            else
+                sig_is_E_generated_File <= '1';
+                wait;
+            end if;
         end if;
     end process;
+
+    generate_Matrix_E_FILE : generate_E_by_file
+    port map(
+        clk => clk,
+        txt_input => txt_input,
+
+        E_row => sig_store_E_row_File,
+        E_out => sig_store_E_element_File,
+        file_end => sig_is_E_generated_File
+    );
 --======================= Matrix E =============================
  
 --======================= Matrix B =============================
-    generate_Matrix_B : generate_B      -- synthesizable now
+    generate_Matrix_B : generate_B      
         port map(
             is_S_generated => sig_is_S_generated,
             is_A_generated => sig_is_A_generated,
             is_E_generated => sig_is_E_generated,
+            is_S_generated_File => sig_is_S_generated_File,
+            is_A_generated_File => sig_is_A_generated_File,
+            is_E_generated_File => sig_is_E_generated_File,
+
             clk => clk,
             q => q,
             multi_type => multi_type,
@@ -322,11 +442,12 @@ begin
             store_B_ele => sig_store_B_element
         );
         
-    store_B : process       -- synthesizable now
+    store_B : process       
         variable i : integer := 0;
         variable j : integer := 0;
     begin
-        if sig_is_A_generated = '1' and sig_is_S_generated = '1' and sig_is_E_generated = '1' and sig_is_B_generated = '0' then
+        if (sig_is_A_generated = '1'      and sig_is_S_generated = '1'      and sig_is_E_generated = '1'      and sig_is_B_generated = '0') or
+           (sig_is_A_generated_File = '1' and sig_is_S_generated_File = '1' and sig_is_E_generated_File = '1' and sig_is_B_generated = '0') then
             if i < A_row_1 then
                 if j < A_col_1 then
                     sig_RowA_in_B(j) <= A(i,j);
@@ -347,10 +468,10 @@ begin
         end if;
     end process;
 --======================= Matrix B =============================
-----============================== Set Up =============================
+--============================== Set Up =============================
 
 --================================ Generate n/4 random row number for 4 cahrs , set UV cells =============================
-    UV_output : process         -- synthesizable now
+    UV_output : process         
         variable i : integer := 1;
         variable j : integer := 0;
     begin
@@ -382,7 +503,7 @@ begin
         end if;
     end process;
         
-    UV_input : process          -- synthesizable now
+    UV_input : process          
         variable i : integer := 1;
         variable j : integer := 0;
         variable k : integer := 0;
@@ -420,7 +541,7 @@ begin
         wait until clk'event and clk='0';
     end process;
     
-    generate_Cells_UV : generate_UV             -- synthesizable now
+    generate_Cells_UV : generate_UV             
         port map(
             is_B_generated => sig_is_B_generated,
             clk => clk,

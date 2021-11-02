@@ -40,7 +40,7 @@ begin
             encode_string => "AbcD",
             clk => clk,
             sig_reset => reset,
-            txt_input => '1',
+            txt_input => '0',
             multi_type => 1,        -- 1:accurate, 2:MBM, 3:Mit, 4:REALM
             result => final_result
         );

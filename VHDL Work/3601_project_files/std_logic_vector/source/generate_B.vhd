@@ -9,6 +9,10 @@ entity generate_B is
         is_S_generated : in std_logic;
         is_A_generated : in std_logic;
         is_E_generated : in std_logic;
+        is_S_generated_File : in std_logic;
+        is_A_generated_File : in std_logic;
+        is_E_generated_File : in std_logic;
+
         clk            : in std_logic;
         q              : in integer;
         multi_type     : in integer;
@@ -175,7 +179,8 @@ begin
         variable row_sum_approxim : integer := 0;
         variable i : integer := 0;
     begin
-        if is_S_generated = '1' and is_A_generated = '1' and is_E_generated = '1' then
+        if (is_S_generated = '1'      and is_A_generated = '1'      and is_E_generated = '1') or
+           (is_S_generated_File = '1' and is_A_generated_File = '1' and is_E_generated_File = '1') then
             if i < A_row_1 then
                 if multi_type = 1 then
                     -- accurate multiplier

@@ -12,17 +12,21 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0 ps"></ZoomStartTime>
-      <ZoomEndTime time="331 ps"></ZoomEndTime>
+      <ZoomEndTime time="384 ps"></ZoomEndTime>
       <Cursor1Time time="7 ps"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="217"></NameColumnWidth>
-      <ValueColumnWidth column_width="73"></ValueColumnWidth>
+      <ValueColumnWidth column_width="69"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="4" />
+   <WVObjectSize size="5" />
    <wvobject fp_name="/generate_S_by_file_TB/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/generate_S_by_file_TB/sig_S_row" type="other">
+      <obj_property name="ElementShortName">sig_S_row</obj_property>
+      <obj_property name="ObjectShortName">sig_S_row</obj_property>
    </wvobject>
    <wvobject fp_name="/generate_S_by_file_TB/sig_S_out" type="other">
       <obj_property name="ElementShortName">sig_S_out</obj_property>
