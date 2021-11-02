@@ -126,9 +126,6 @@ architecture Behavioral of Processor is
             is_S_generated : in std_logic;
             is_A_generated : in std_logic;
             is_E_generated : in std_logic;
-            is_S_generated_File : in std_logic;
-            is_A_generated_File : in std_logic;
-            is_E_generated_File : in std_logic;
 
             clk            : in std_logic;
             q              : in integer;
@@ -208,10 +205,10 @@ architecture Behavioral of Processor is
     signal sig_store_E_row : integer := 0;
     signal sig_store_E_element : integer := 0;
 
---   ==== generation signals by FILE
-    signal sig_is_S_generated_File : std_logic := '0';
-    signal sig_is_A_generated_File : std_logic := '0';
-    signal sig_is_E_generated_File : std_logic := '0';
+--  ==== is_file_end by FILE
+    signal sig_is_S_file_end : std_logic := '0';
+    signal sig_is_A_file_end : std_logic := '0';
+    signal sig_is_E_file_end : std_logic := '0';
 --  ==== generate S by FILE
     signal sig_store_S_row_File : integer := 0;
     signal sig_store_S_element_File : integer := 0;
@@ -309,7 +306,7 @@ begin
 
                 row := row + 1;
             else
-                sig_is_A_generated_File <= '1';
+                sig_is_A_generated <= '1';
                 wait;
             end if;
         end if;
@@ -322,7 +319,7 @@ begin
 
             A_row => sig_store_A_row_File,
             A_out => sig_store_A_element_File,
-            file_end => sig_is_A_generated_File
+            file_end => sig_is_A_file_end
         );
 
 
@@ -357,7 +354,7 @@ begin
                 S(sig_store_S_row_File) <= sig_store_S_element_File;
                 col := col + 1;
             else
-                sig_is_S_generated_File <= '1';
+                sig_is_S_generated <= '1';
                 wait;
             end if;
         end if;
@@ -370,7 +367,7 @@ begin
 
         S_row => sig_store_S_row_File,
         S_out => sig_store_S_element_File,
-        file_end => sig_is_S_generated_File
+        file_end => sig_is_S_file_end
     );
 --======================= Matrix S =============================
  
@@ -403,7 +400,7 @@ begin
                 E(sig_store_E_row_File) <= sig_store_E_element_File;
                 row := row + 1;
             else
-                sig_is_E_generated_File <= '1';
+                sig_is_E_generated <= '1';
                 wait;
             end if;
         end if;
@@ -416,7 +413,7 @@ begin
 
         E_row => sig_store_E_row_File,
         E_out => sig_store_E_element_File,
-        file_end => sig_is_E_generated_File
+        file_end => sig_is_E_file_end
     );
 --======================= Matrix E =============================
  
@@ -426,9 +423,6 @@ begin
             is_S_generated => sig_is_S_generated,
             is_A_generated => sig_is_A_generated,
             is_E_generated => sig_is_E_generated,
-            is_S_generated_File => sig_is_S_generated_File,
-            is_A_generated_File => sig_is_A_generated_File,
-            is_E_generated_File => sig_is_E_generated_File,
 
             clk => clk,
             q => q,
@@ -446,8 +440,7 @@ begin
         variable i : integer := 0;
         variable j : integer := 0;
     begin
-        if (sig_is_A_generated = '1'      and sig_is_S_generated = '1'      and sig_is_E_generated = '1'      and sig_is_B_generated = '0') or
-           (sig_is_A_generated_File = '1' and sig_is_S_generated_File = '1' and sig_is_E_generated_File = '1' and sig_is_B_generated = '0') then
+        if (sig_is_A_generated = '1'      and sig_is_S_generated = '1'      and sig_is_E_generated = '1'      and sig_is_B_generated = '0') then
             if i < A_row_1 then
                 if j < A_col_1 then
                     sig_RowA_in_B(j) <= A(i,j);
