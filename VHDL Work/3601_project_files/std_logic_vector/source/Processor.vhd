@@ -17,6 +17,7 @@ entity Processor is
 end Processor;
 
 architecture Behavioral of Processor is
+    -- ================= chars - ascii_array convertions =======================
     component chars_to_ascii_array is
         Port ( 
             clk                 : in std_logic;
@@ -38,7 +39,9 @@ architecture Behavioral of Processor is
             sig_result_release    : out std_logic
         );
     end component;
+    -- ================= chars - ascii_array convertions =======================
 
+    -- ================= generate A by LFSR =======================
     component generate_A is
         port (
             clk           : in std_logic;
@@ -50,7 +53,9 @@ architecture Behavioral of Processor is
             store_A_ele     : out integer
         );
     end component;
+    -- ================= generate A by LFSR =======================
     
+    -- ================= generate B by LFSR =======================
     component generate_s is
         port(
             clk         : in std_logic;
@@ -61,7 +66,9 @@ architecture Behavioral of Processor is
             store_S_ele : out integer
         );
     end component;
+    -- ================= generate A by LFSR =======================
     
+    -- ================= generate E by LFSR =======================
     component generate_e is
         port(
             clk     : in std_logic;
@@ -72,7 +79,9 @@ architecture Behavioral of Processor is
             store_E_ele : out integer
         );
     end component;
+    -- ================= generate E by LFSR =======================
     
+    -- ================= generate B by multiplier_type =======================
     component generate_B is
         port(
             is_S_generated : in std_logic;
@@ -90,7 +99,9 @@ architecture Behavioral of Processor is
             store_B_ele    : out integer
         );
     end component;
-    
+    -- ================= generate B by multiplier_type =======================
+
+    -- ================= generate UV cells =======================
     component generate_UV is
         port (
             is_B_generated      : in std_logic;
@@ -109,7 +120,9 @@ architecture Behavioral of Processor is
             RowV_out            : out integer
         );
     end component;
+    -- ================= generate UV cells =======================
     
+    -- ================= LFSR random generateor =======================
     component random_generator is
         generic (data_width : natural);
         port(
@@ -119,6 +132,7 @@ architecture Behavioral of Processor is
 
             data_out    : out integer);
     end component;
+    -- ================= LFSR random generateor =======================
 -- ============================== statements =================================
 --    type t_state is (reseting, generating_ASE, generating_B, generating_UV, decrypting, finished);
 --    signal State : t_state;
@@ -140,14 +154,14 @@ architecture Behavioral of Processor is
     signal sig_is_A_generated : std_logic := '0';
     signal sig_is_E_generated : std_logic := '0';
     signal sig_is_B_generated : std_logic := '0';
---  ==== generate S
+--  ==== generate S by LFSR
     signal sig_store_S_row : integer := 0;
     signal sig_store_S_element : integer := 0;
---  ==== generate A
+--  ==== generate A by LFSR
     signal sig_store_A_row : integer := 0;
     signal sig_store_A_col : integer := 0;
     signal sig_store_A_element : integer := 0;
---  ==== generate E    
+--  ==== generate E by LFSR
     signal sig_store_E_row : integer := 0;
     signal sig_store_E_element : integer := 0;
 --  ==== generate B
@@ -180,7 +194,8 @@ architecture Behavioral of Processor is
     signal quar_q : integer := 0;
 
     signal sig_is_result_released : std_logic := '0';
---   ====================== Other Self Test Signals ======================
+    
+--====================== Other Self Test Signals ======================
 
 begin
 --============================== Char Load & To_Asciis =============================
@@ -334,7 +349,7 @@ begin
 --======================= Matrix B =============================
 ----============================== Set Up =============================
 
-----============================== Generate n/4 random row number for 4 cahrs , set UV cells =============================
+--================================ Generate n/4 random row number for 4 cahrs , set UV cells =============================
     UV_output : process         -- synthesizable now
         variable i : integer := 1;
         variable j : integer := 0;
@@ -422,7 +437,9 @@ begin
             RowU_out => sig_RowU_out_UV,
             RowV_out => sig_RowV_out_UV
         );
-----============================== Generate n/4 random row number for 4 cahrs , set UV cells =============================
+--================================ Generate n/4 random row number for 4 cahrs , set UV cells =============================
+
+--======================= 3q/4 and q/4 round up =============================
     with (3*q mod 4) select
         three_quar_q <= (3*q/4) when 0,
                         (3*q - 1)/4 when 1,
@@ -431,9 +448,10 @@ begin
 
     with (q mod 4) select
         quar_q <= (q/4) when 0,
-                  (q - 1)/4 when 1,
-                  (q + 2)/4 when 2,
-                  (q + 1)/4 when others;
+                    (q - 1)/4 when 1,
+                    (q + 2)/4 when 2,
+                    (q + 1)/4 when others;
+--======================= 3q/4 and q/4 round up =============================
 
 --=================== decryption to dec_ascii_array =====================
     decryption : process

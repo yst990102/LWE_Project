@@ -2,3 +2,6 @@ Running: xsim.dir/Processor_TB_behav/xsimk.exe -simmode gui -wdb Processor_TB_be
 Design successfully loaded
 Design Loading Memory Usage: 7300 KB (Peak: 7300 KB)
 Design Loading CPU Usage: 61 ms
+Simulation completed
+Simulation Memory Usage: 11960 KB (Peak: 11960 KB)
+Simulation CPU Usage: 155 ms

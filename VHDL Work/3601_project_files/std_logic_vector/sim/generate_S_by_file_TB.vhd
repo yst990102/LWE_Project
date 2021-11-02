@@ -10,14 +10,16 @@ architecture Behavioral of generate_S_by_file_TB is
     component generate_S_by_file is
         port(
             clk : in std_logic;
-            S_out : out integer
+            S_out : out integer;
+            file_end : out std_logic
         );
     end component;
 
     constant clk_period : time := 20ps;
     signal clk : std_logic := '0';
     
-    signal result : integer := 0;
+    signal sig_S_out : integer := 0;
+    signal sig_file_end : std_logic := '0';
 
 begin
     clk_generate : process
@@ -31,7 +33,8 @@ begin
     generate_S_by_file_TB: generate_S_by_file
     port map(
         clk => clk,
-        S_out => result
+        S_out => sig_S_out,
+        file_end => sig_file_end
     );
 
 end Behavioral;

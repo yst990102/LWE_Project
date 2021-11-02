@@ -1,38 +1,7 @@
 Vivado Simulator v2021.1
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto 603e2b418602403b84dfdd99c91ae139 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Processor_TB_behav xil_defaultlib.Processor_TB xil_defaultlib.glbl -log elaborate.log 
+Running: D:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto 603e2b418602403b84dfdd99c91ae139 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot generate_S_by_file_TB_behav xil_defaultlib.generate_S_by_file_TB -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-Pass Through NonSizing Optimizer
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling package xil_defaultlib.configuration_set
-Compiling package vl.vl_types
-Compiling module xil_defaultlib.glbl
-Compiling architecture behavioral of entity xil_defaultlib.chars_to_ascii_array [chars_to_ascii_array_default]
-Compiling architecture rtl of entity xil_defaultlib.random_generator [\random_generator(data_width=8)\]
-Compiling architecture behavioral of entity xil_defaultlib.generate_A [generate_a_default]
-Compiling architecture behavioral of entity xil_defaultlib.generate_s [generate_s_default]
-Compiling architecture behavioral of entity xil_defaultlib.generate_e [generate_e_default]
-Compiling module xil_defaultlib.SteeringLogicREM8
-Compiling module xil_defaultlib.ArithmeticBlockREM8_default
-Compiling module xil_defaultlib.dgn_MBMmul8bit(sz=8)
-Compiling module xil_defaultlib.SteeringLogicM8(sz=8,lgsz=3)
-Compiling module xil_defaultlib.ArithmeticBlockM8
-Compiling module xil_defaultlib.dgn_mitchellmul8bit(sz=8)
-Compiling module xil_defaultlib.SteeringLogic_SMBM_8x8_8_Configu...
-Compiling module xil_defaultlib.ArithmeticBlock_SMBM_8x8_8_Confi...
-Compiling module xil_defaultlib.dgn_REALM8x8mul8bit(sz=8,m=8)
-Compiling architecture behavioral of entity xil_defaultlib.generate_B [generate_b_default]
-Compiling architecture behavioral of entity xil_defaultlib.generate_UV [generate_uv_default]
-Compiling architecture behavioral of entity xil_defaultlib.ascii_array_to_chars [ascii_array_to_chars_default]
-Compiling architecture behavioral of entity xil_defaultlib.Processor [processor_default]
-Compiling architecture behavioral of entity xil_defaultlib.processor_tb
-Built simulation snapshot Processor_TB_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

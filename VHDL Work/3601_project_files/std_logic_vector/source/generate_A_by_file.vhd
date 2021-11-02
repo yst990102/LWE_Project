@@ -9,16 +9,21 @@ use work.configuration_set.all;
 entity generate_A_by_file is
     port(
         clk : in std_logic;
-        rowA_out : out RowA_1
+
+        rowA_out : out RowA_1;
+        file_end : out std_logic
     );
 end generate_A_by_file;
 
 architecture Behavioral of generate_A_by_file is
     file read_file : text;
+
     signal sig_rowA_out : RowA_1 := (others => 0);
+    signal is_file_end : std_logic := '0';
 begin
     rowA_out <= sig_rowA_out;
-    
+    file_end <= is_file_end;
+
     process is
         variable tmp_line : line;
         variable tmp_int_array : RowA_1 := (others => 0);
@@ -216,6 +221,7 @@ begin
 
           wait until clk'event and clk = '1';
         end loop;
+        is_file_end <= '1';
 
         file_close(read_file);
         wait;
