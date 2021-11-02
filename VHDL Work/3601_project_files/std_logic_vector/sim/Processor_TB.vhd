@@ -8,12 +8,13 @@ end Processor_TB;
 architecture Behavioral of Processor_TB is
     component Processor is
         port (
-            encode_string : in string(1 to string_length);
-            clk : in std_logic;
-            sig_reset : in std_logic;
-            multi_type : in integer;
-            
-            result : out string(1 to string_length)
+            encode_string   : in string(1 to string_length);
+            clk             : in std_logic;
+            sig_reset       : in std_logic;
+            txt_input       : in std_logic;
+            multi_type      : in integer;
+    
+            result          : out string(1 to string_length)
         );
     end component;
     
@@ -39,7 +40,8 @@ begin
             encode_string => "AbcD",
             clk => clk,
             sig_reset => reset,
-            multi_type => 4,
+            txt_input => '1',
+            multi_type => 1,        -- 1:accurate, 2:MBM, 3:Mit, 4:REALM
             result => final_result
         );
 

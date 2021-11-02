@@ -8,7 +8,8 @@ entity generate_e is
     port(
         clk     : in std_logic;
         q       : in integer;
-        
+        txt_input     : in std_logic;
+
         store_E_row : out integer;
         store_E_ele : out integer
     );
@@ -40,11 +41,15 @@ begin
     process
         variable row : integer := 0;
     begin
-        if row < A_row_1 then
-            row_stored <= row;
-            ele_stored <= random_result mod (e_max_1 - e_min_1 + 1) + e_min_1;
-            wait until clk'event and clk = '0';
-            row := row + 1;
+        if txt_input = '0' then
+            if row < A_row_1 then
+                row_stored <= row;
+                ele_stored <= random_result mod (e_max_1 - e_min_1 + 1) + e_min_1;
+                wait until clk'event and clk = '0';
+                row := row + 1;
+            else
+                wait;
+            end if;
         else
             wait;
         end if;

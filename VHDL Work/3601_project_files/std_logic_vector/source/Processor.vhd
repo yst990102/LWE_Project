@@ -9,6 +9,7 @@ entity Processor is
         encode_string   : in string(1 to string_length);
         clk             : in std_logic;
         sig_reset       : in std_logic;
+        txt_input       : in std_logic;
         multi_type      : in integer;
 
         result          : out string(1 to string_length)
@@ -42,6 +43,8 @@ architecture Behavioral of Processor is
         port (
             clk           : in std_logic;
             q             : in integer;
+            txt_input     : in std_logic;
+
             store_A_row     : out integer;
             store_A_col     : out integer;
             store_A_ele     : out integer
@@ -52,6 +55,8 @@ architecture Behavioral of Processor is
         port(
             clk         : in std_logic;
             q           : in integer;
+            txt_input   : in std_logic;
+
             store_S_row : out integer;
             store_S_ele : out integer
         );
@@ -61,6 +66,8 @@ architecture Behavioral of Processor is
         port(
             clk     : in std_logic;
             q       : in integer;
+            txt_input   : in std_logic;
+
             store_E_row : out integer;
             store_E_ele : out integer
         );
@@ -97,7 +104,7 @@ architecture Behavioral of Processor is
             random_row_num      : out integer;
             uv_row_num          : out integer;
 
-            output_generated        : out std_logic;
+            output_generated    : out std_logic;
             RowU_out            : out RowU_1;
             RowV_out            : out integer
         );
@@ -109,6 +116,7 @@ architecture Behavioral of Processor is
             seed        : in integer;
             reset       : in std_logic;
             clk         : in std_logic;
+
             data_out    : out integer);
     end component;
 -- ============================== statements =================================
@@ -192,6 +200,8 @@ begin
         port map(   
             clk => clk,
             q => q,
+            txt_input => txt_input,
+
             store_A_row => sig_store_A_row,
             store_A_col => sig_store_A_col,
             store_A_ele => sig_store_A_element
@@ -201,17 +211,21 @@ begin
         variable row : integer := 0;
         variable col : integer := 0;
     begin
-        if row < A_row_1 then
-            if col < A_col_1 then
-                wait until clk'event and clk = '0';
-                A(sig_store_A_row, sig_store_A_col) <= sig_store_A_element;
-                col := col + 1;
+        if txt_input = '0' then
+            if row < A_row_1 then
+                if col < A_col_1 then
+                    wait until clk'event and clk = '0';
+                    A(sig_store_A_row, sig_store_A_col) <= sig_store_A_element;
+                    col := col + 1;
+                else
+                    col := 0;
+                    row := row + 1;
+                end if;
             else
-                col := 0;
-                row := row + 1;
+                sig_is_A_generated <= '1';
+                wait;
             end if;
         else
-            sig_is_A_generated <= '1';
             wait;
         end if;
     end process;
@@ -222,6 +236,8 @@ begin
         port map(
             clk => clk,
             q => q,
+            txt_input => txt_input,
+
             store_S_row => sig_store_S_row,
             store_S_ele => sig_store_S_element
         );
@@ -229,12 +245,16 @@ begin
     store_S : process       -- synthesizable now
         variable col : integer := 0;
     begin
-        if col < A_col_1 then
-            wait until clk'event and clk = '0';
-            S(sig_store_S_row) <= sig_store_S_element;
-            col := col + 1;
+        if txt_input = '0' then
+            if col < A_col_1 then
+                wait until clk'event and clk = '0';
+                S(sig_store_S_row) <= sig_store_S_element;
+                col := col + 1;
+            else
+                sig_is_S_generated <= '1';
+                wait;
+            end if;
         else
-            sig_is_S_generated <= '1';
             wait;
         end if;
     end process;
@@ -245,6 +265,8 @@ begin
         port map(
             clk => clk,
             q => q,
+            txt_input => txt_input,
+
             store_E_row => sig_store_E_row,
             store_E_ele => sig_store_E_element
         );
@@ -252,12 +274,16 @@ begin
     store_E : process       -- synthesizable now
         variable row : integer := 0;
     begin
-        if row < A_row_1 then
-            wait until clk'event and clk = '0';
-            E(sig_store_E_row) <= sig_store_E_element;
-            row := row + 1;
+        if txt_input = '0' then
+            if row < A_row_1 then
+                wait until clk'event and clk = '0';
+                E(sig_store_E_row) <= sig_store_E_element;
+                row := row + 1;
+            else
+                sig_is_E_generated <= '1';
+                wait;
+            end if;
         else
-            sig_is_E_generated <= '1';
             wait;
         end if;
     end process;

@@ -33,6 +33,7 @@ architecture Behavioral of generate_UV is
     end component;
     
     signal row_num_random_result : integer := 0;
+    signal sig_uv_row_num : integer := 0;
     signal is_output_generated : std_logic := '0';
     signal output_U : RowU_1 := (others => 0);
     signal output_V : integer := 0;
@@ -40,6 +41,7 @@ architecture Behavioral of generate_UV is
     signal half_q : integer := 0;
 begin
     random_row_num <= row_num_random_result;
+    uv_row_num <= sig_uv_row_num;
     output_generated <= is_output_generated;
     RowU_out <= output_U;
     RowV_out <= output_V;
@@ -79,7 +81,7 @@ begin
 
                 if i < 8 then
                     if skip_2 = '0' then
-                        uv_row_num <= i;
+                        sig_uv_row_num <= i;
                         
                         first_sum := 0;
                         second_sum := 0;

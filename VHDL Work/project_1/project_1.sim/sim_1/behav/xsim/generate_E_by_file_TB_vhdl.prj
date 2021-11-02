@@ -1,8 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../../3601_project_files/std_logic_vector/source/packages.vhd" \
-"../../../../../3601_project_files/std_logic_vector/source/generate_E_by_file.vhd" \
-"../../../../../3601_project_files/std_logic_vector/sim/generate_E_by_file_TB.vhd" \
-
-# Do not sort compile order
-nosort
