@@ -24,7 +24,6 @@ begin
     asciis_to_string : process
         variable i : integer := 1;
         variable ascii_val : integer := 0;
-        variable char_out : character;
     begin
         if sig_is_dec_generated = '1' then
             if i < (string_length + 1) then

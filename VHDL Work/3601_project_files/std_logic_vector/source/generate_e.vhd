@@ -29,10 +29,10 @@ architecture Behavioral of generate_e is
     
     signal row_stored : integer := 0;
     signal ele_stored : integer := 0;
-    signal random_result : integer;
+    signal random_result : integer := 0;
 begin
     random_number: random_generator
-        generic map (data_width => 16 )
+        generic map (data_width => 20 )
         port map(
             seed => 210,
             reset => '1',

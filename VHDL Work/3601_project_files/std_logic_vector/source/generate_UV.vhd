@@ -41,7 +41,7 @@ architecture Behavioral of generate_UV is
     
     signal half_q : integer := 0;
 begin
-    random_row_num <= row_num_random_result;
+    random_row_num <= row_num_random_result mod A_row;
     uv_row_num <= row_num;
     output_generated <= is_output_generated;
     RowU_out <= output_U;
@@ -52,7 +52,7 @@ begin
                   (q + 1) / 2 when others;
     
     random_number: random_generator
-        generic map (data_width => 15 )
+        generic map (data_width => 20 )
         port map(
             seed => 220,
             reset => '1',
@@ -63,12 +63,12 @@ begin
     generate_random_rows : process
         variable encoding_ascii : std_logic_vector(0 to ascii_length - 1);
 
-        variable sum_U00, sum_U01, sum_U02, sum_U03 : integer;
-        variable sum_U04, sum_U05, sum_U06, sum_U07 : integer;
-        variable sum_U08, sum_U09, sum_U10, sum_U11 : integer;
-        variable sum_U12, sum_U13, sum_U14, sum_U15 : integer;
+        variable sum_U00, sum_U01, sum_U02, sum_U03 : integer := 0;
+        variable sum_U04, sum_U05, sum_U06, sum_U07 : integer := 0;
+        variable sum_U08, sum_U09, sum_U10, sum_U11 : integer := 0;
+        variable sum_U12, sum_U13, sum_U14, sum_U15 : integer := 0;
 
-        variable sum_V : integer;
+        variable sum_V : integer := 0;
         
         variable row : integer := 1;
         variable skip_1 : std_logic := '0';
@@ -97,21 +97,21 @@ begin
                     end if;
                     
                     if col < A_row / 4 then
-                        sum_U00 := sum_U00 + RowA_in(0);    sum_U01 := sum_U01 + RowA_in(1);    sum_U02 := sum_U02 + RowA_in(2);    sum_U03 := sum_U03 + RowA_in(3);
-                        sum_U04 := sum_U04 + RowA_in(4);    sum_U05 := sum_U05 + RowA_in(5);    sum_U06 := sum_U06 + RowA_in(6);    sum_U07 := sum_U07 + RowA_in(7);
-                        sum_U08 := sum_U08 + RowA_in(8);    sum_U09 := sum_U09 + RowA_in(9);    sum_U10 := sum_U10 + RowA_in(9);    sum_U11 := sum_U11 + RowA_in(11);
-                        sum_U12 := sum_U12 + RowA_in(12);   sum_U13 := sum_U13 + RowA_in(13);   sum_U14 := sum_U14 + RowA_in(13);   sum_U15 := sum_U15 + RowA_in(15);                        
-                        
-                        sum_V := sum_V + RowB_in;
+                        sum_U00 := (sum_U00 + RowA_in(0))  mod q;   sum_U01 := (sum_U01 + RowA_in(1))  mod q;   sum_U02 := (sum_U02 + RowA_in(2))  mod q;   sum_U03 := (sum_U03 + RowA_in(3))  mod q;
+                        sum_U04 := (sum_U04 + RowA_in(4))  mod q;   sum_U05 := (sum_U05 + RowA_in(5))  mod q;   sum_U06 := (sum_U06 + RowA_in(6))  mod q;   sum_U07 := (sum_U07 + RowA_in(7))  mod q;
+                        sum_U08 := (sum_U08 + RowA_in(8))  mod q;   sum_U09 := (sum_U09 + RowA_in(9))  mod q;   sum_U10 := (sum_U10 + RowA_in(9))  mod q;   sum_U11 := (sum_U11 + RowA_in(11)) mod q;
+                        sum_U12 := (sum_U12 + RowA_in(12)) mod q;   sum_U13 := (sum_U13 + RowA_in(13)) mod q;   sum_U14 := (sum_U14 + RowA_in(13)) mod q;   sum_U15 := (sum_U15 + RowA_in(15)) mod q;
+                        sum_V := (sum_V + RowB_in) mod q;
+
                         wait until clk'event and clk = '0';
                         is_output_generated <= '0';
                         
                         col := col + 1;
                     else
-                        output_U(0) <= sum_U00 mod q;   output_U(1) <= sum_U01 mod q;   output_U(2) <= sum_U02 mod q;   output_U(3) <= sum_U03 mod q;
-                        output_U(4) <= sum_U04 mod q;   output_U(5) <= sum_U05 mod q;   output_U(6) <= sum_U06 mod q;   output_U(7) <= sum_U07 mod q;
-                        output_U(8) <= sum_U08 mod q;   output_U(9) <= sum_U09 mod q;   output_U(10) <= sum_U10 mod q;  output_U(11) <= sum_U11 mod q;
-                        output_U(12) <= sum_U12 mod q;  output_U(13) <= sum_U13 mod q;  output_U(14) <= sum_U14 mod q;  output_U(15) <= sum_U15 mod q;
+                        output_U(0)  <= sum_U00 mod q;   output_U(1) <= sum_U01 mod q;   output_U(2)  <= sum_U02 mod q;   output_U(3)  <= sum_U03 mod q;
+                        output_U(4)  <= sum_U04 mod q;   output_U(5) <= sum_U05 mod q;   output_U(6)  <= sum_U06 mod q;   output_U(7)  <= sum_U07 mod q;
+                        output_U(8)  <= sum_U08 mod q;   output_U(9) <= sum_U09 mod q;   output_U(10) <= sum_U10 mod q;   output_U(11) <= sum_U11 mod q;
+                        output_U(12) <= sum_U12 mod q;  output_U(13) <= sum_U13 mod q;   output_U(14) <= sum_U14 mod q;   output_U(15) <= sum_U15 mod q;
                         
                         if encoding_ascii(i) = '0' then
                             output_V <= (sum_V ) mod q;

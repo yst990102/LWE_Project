@@ -31,11 +31,11 @@ architecture Behavioral of generate_A is
     signal row_stored : integer := 0;
     signal col_stored : integer := 0;
     signal ele_stored : integer := 0;    
-    signal random_result : integer;
+    signal random_result : integer := 0;
 
 begin
     random_number: random_generator
-        generic map (data_width => 16 )
+        generic map (data_width => 20 )
         port map(
             seed => 250,
             reset => '1',

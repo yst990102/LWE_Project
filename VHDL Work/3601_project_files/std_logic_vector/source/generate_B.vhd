@@ -28,7 +28,6 @@ architecture Behavioral of generate_B is
 
     signal row_stored : integer := 0;
     signal ele_stored : integer := 0;
-    signal temp_sum : integer;
 begin
     process
         variable row_sum : integer := 0;

@@ -13,8 +13,8 @@ entity random_generator is
 end random_generator ;
 
 architecture rtl of random_generator is  
-    signal feedback : std_logic ;
-    signal lfsr_reg : UNSIGNED(data_width - 1 downto 0) ;
+    signal feedback : std_logic := '0';
+    signal lfsr_reg : UNSIGNED(data_width - 1 downto 0) := (others => '0');
     signal run : std_logic := '0';
 begin
     feedback <= lfsr_reg(data_width - 1) xor lfsr_reg(0) ;
