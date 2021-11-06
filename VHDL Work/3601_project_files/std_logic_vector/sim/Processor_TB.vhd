@@ -37,7 +37,7 @@ begin
         port map(
             encode_string => "AbcD",
             clk => clk,
-            config_num => 2,
+            config_num => 3,
             result => final_result
         );
 

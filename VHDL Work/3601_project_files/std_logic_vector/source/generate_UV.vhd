@@ -108,10 +108,10 @@ begin
                         
                         col := col + 1;
                     else
-                        output_U(0)  <= sum_U00 mod q;   output_U(1) <= sum_U01 mod q;   output_U(2)  <= sum_U02 mod q;   output_U(3)  <= sum_U03 mod q;
-                        output_U(4)  <= sum_U04 mod q;   output_U(5) <= sum_U05 mod q;   output_U(6)  <= sum_U06 mod q;   output_U(7)  <= sum_U07 mod q;
-                        output_U(8)  <= sum_U08 mod q;   output_U(9) <= sum_U09 mod q;   output_U(10) <= sum_U10 mod q;   output_U(11) <= sum_U11 mod q;
-                        output_U(12) <= sum_U12 mod q;  output_U(13) <= sum_U13 mod q;   output_U(14) <= sum_U14 mod q;   output_U(15) <= sum_U15 mod q;
+                        output_U(0)  <= sum_U00 ;   output_U(1) <= sum_U01 ;   output_U(2)  <= sum_U02 ;   output_U(3)  <= sum_U03 ;
+                        output_U(4)  <= sum_U04 ;   output_U(5) <= sum_U05 ;   output_U(6)  <= sum_U06 ;   output_U(7)  <= sum_U07 ;
+                        output_U(8)  <= sum_U08 ;   output_U(9) <= sum_U09 ;   output_U(10) <= sum_U10 ;   output_U(11) <= sum_U11 ;
+                        output_U(12) <= sum_U12 ;   output_U(13) <= sum_U13 ;  output_U(14) <= sum_U14 ;   output_U(15) <= sum_U15 ;
                         
                         if encoding_ascii(i) = '0' then
                             output_V <= (sum_V ) mod q;

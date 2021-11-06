@@ -214,7 +214,7 @@ begin
             A_row <= A_row_2;
             A_col <= A_col_2;        
         else
-            q <= 29611;
+            q <= 16411;
             A_row <= A_row_3;
             A_col <= A_col_3;        
         end if;
@@ -529,10 +529,10 @@ begin
                     RowV := V_cells(i,j);
                     
                     tmp := (RowV - (
-                        (RowU_00 mod q) * (S(0)  mod q) + (RowU_01 mod q) * (S(1)  mod q) + (RowU_02 mod q) * (S(2)  mod q) + (RowU_03 mod q) * (S(3)  mod q) +
-                        (RowU_04 mod q) * (S(4)  mod q) + (RowU_05 mod q) * (S(5)  mod q) + (RowU_06 mod q) * (S(6)  mod q) + (RowU_07 mod q) * (S(7)  mod q) +
-                        (RowU_08 mod q) * (S(8)  mod q) + (RowU_09 mod q) * (S(9)  mod q) + (RowU_10 mod q) * (S(10) mod q) + (RowU_11 mod q) * (S(11) mod q) +
-                        (RowU_12 mod q) * (S(12) mod q) + (RowU_13 mod q) * (S(13) mod q) + (RowU_14 mod q) * (S(14) mod q) + (RowU_15 mod q) * (S(15) mod q)
+                        (RowU_00 ) * (S(0)  ) mod q + (RowU_01 ) * (S(1)  ) mod q + (RowU_02 ) * (S(2)  ) mod q + (RowU_03 ) * (S(3)  ) mod q +
+                        (RowU_04 ) * (S(4)  ) mod q + (RowU_05 ) * (S(5)  ) mod q + (RowU_06 ) * (S(6)  ) mod q + (RowU_07 ) * (S(7)  ) mod q +
+                        (RowU_08 ) * (S(8)  ) mod q + (RowU_09 ) * (S(9)  ) mod q + (RowU_10 ) * (S(10) ) mod q + (RowU_11 ) * (S(11) ) mod q +
+                        (RowU_12 ) * (S(12) ) mod q + (RowU_13 ) * (S(13) ) mod q + (RowU_14 ) * (S(14) ) mod q + (RowU_15 ) * (S(15) ) mod q 
                         )) mod q;
                     tmp_test <= tmp;
                     
