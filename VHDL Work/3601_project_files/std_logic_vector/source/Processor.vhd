@@ -239,7 +239,7 @@ architecture Behavioral of Processor is
     signal sig_RowU_out_UV : RowU_1 := (others => 0);
     signal sig_RowV_out_UV : integer := 0;
 
-    signal U_cells : U_storage := (others => (others => (others => 0)));
+    signal U_cells : U_storage_1 := (others => (others => (others => 0)));
     signal V_cells : V_storage := (others => (others => 0));
 
     signal sig_is_UV_generated : std_logic := '0';
@@ -286,7 +286,7 @@ begin
             if row < A_row_1 then
                 if col < A_col_1 then
                     wait until clk'event and clk = '0';
-                    A(sig_store_A_row, sig_store_A_col) <= sig_store_A_element;
+                    A(sig_store_A_row)(sig_store_A_col) <= sig_store_A_element;
                     col := col + 1;
                 else
                     col := 0;
@@ -299,10 +299,10 @@ begin
         else
             if row < A_row_1 then
                 wait until clk'event and clk = '0';
-                A(sig_store_A_row_File, 0) <= sig_store_A_element_File(0);
-                A(sig_store_A_row_File, 1) <= sig_store_A_element_File(1);
-                A(sig_store_A_row_File, 2) <= sig_store_A_element_File(2);
-                A(sig_store_A_row_File, 3) <= sig_store_A_element_File(3);
+                A(sig_store_A_row_File)(0) <= sig_store_A_element_File(0);
+                A(sig_store_A_row_File)(1) <= sig_store_A_element_File(1);
+                A(sig_store_A_row_File)(2) <= sig_store_A_element_File(2);
+                A(sig_store_A_row_File)(3) <= sig_store_A_element_File(3);
 
                 row := row + 1;
             else
@@ -443,7 +443,7 @@ begin
         if (sig_is_A_generated = '1'      and sig_is_S_generated = '1'      and sig_is_E_generated = '1'      and sig_is_B_generated = '0') then
             if i < A_row_1 then
                 if j < A_col_1 then
-                    sig_RowA_in_B(j) <= A(i,j);
+                    sig_RowA_in_B(j) <= A(i)(j);
                     j := j + 1;
                 else
                     sig_RowE_in_B <= E(i);
@@ -471,10 +471,10 @@ begin
         if sig_UV_output_generated = '1' then
             if i < (string_length + 1) then
                 if j < ascii_length then
-                    U_cells(i)(j, 0) <= sig_RowU_out_UV(0);
-                    U_cells(i)(j, 1) <= sig_RowU_out_UV(1);
-                    U_cells(i)(j, 2) <= sig_RowU_out_UV(2);
-                    U_cells(i)(j, 3) <= sig_RowU_out_UV(3);
+                    U_cells(i)(j)(0) <= sig_RowU_out_UV(0);
+                    U_cells(i)(j)(1) <= sig_RowU_out_UV(1);
+                    U_cells(i)(j)(2) <= sig_RowU_out_UV(2);
+                    U_cells(i)(j)(3) <= sig_RowU_out_UV(3);
                     
                     V_cells(i,j) <= sig_RowV_out_UV;
                     j := j + 1;
@@ -505,10 +505,10 @@ begin
             if i < (string_length + 1) then
                 if j < ascii_length then
                     if k < A_row_1 / 4 - 1 then
-                        sig_RowA_in_UV(0) <= A(sig_random_row_num, 0);
-                        sig_RowA_in_UV(1) <= A(sig_random_row_num, 1);
-                        sig_RowA_in_UV(2) <= A(sig_random_row_num, 2);
-                        sig_RowA_in_UV(3) <= A(sig_random_row_num, 3);
+                        sig_RowA_in_UV(0) <= A(sig_random_row_num)(0);
+                        sig_RowA_in_UV(1) <= A(sig_random_row_num)(1);
+                        sig_RowA_in_UV(2) <= A(sig_random_row_num)(2);
+                        sig_RowA_in_UV(3) <= A(sig_random_row_num)(3);
                                
                         sig_RowB_in_UV <= B(sig_random_row_num);
                         k := k + 1;
@@ -579,10 +579,10 @@ begin
         if sig_is_UV_generated = '1' then        
             if i < (string_length + 1) then
                 if j < ascii_length then
-                    RowU_0 := U_cells(i)(j,0);
-                    RowU_1 := U_cells(i)(j,1);
-                    RowU_2 := U_cells(i)(j,2);
-                    RowU_3 := U_cells(i)(j,3);
+                    RowU_0 := U_cells(i)(j)(0);
+                    RowU_1 := U_cells(i)(j)(1);
+                    RowU_2 := U_cells(i)(j)(2);
+                    RowU_3 := U_cells(i)(j)(3);
                     RowV := V_cells(i,j);
                     
                     tmp := (RowV - (RowU_0 * S(0) + RowU_1 * S(1) + RowU_2 * S(2) + RowU_3 * S(3))) mod q;
