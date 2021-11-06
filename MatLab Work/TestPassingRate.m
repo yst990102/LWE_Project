@@ -2,19 +2,28 @@ input_multiplier = input("Enter multiplier choice (1 - accurate, 2 - approximate
 multiplier_choice = str2double(input_multiplier);
 
 if multiplier_choice == 2
-    fn_multiplier = input("Enter approximate-multi choice (1 - MBM, 2 - Optimized MBM, 3 - REALM8x8):", 's');
+    fn_multiplier = input("Enter approximate-multi choice (1 - MBM, 2 - Optimized MBM, 3 - REALM8x8, 4 - ECALE):", 's');
     fn_multiplier_choice = str2double(fn_multiplier);
+
+    if ~ismember(fn_multiplier_choice,[1 2 3 4])
+        error("incorrect fn_multiplier_choice, please re-run your program.");
+    end
+elseif multiplier_choice ~= 1
+    error("incorrect multiplier choice, please re-run your program.");
 end
 
 test_nums_input = input("Enter test cases:", 's');
 test_nums = str2double(test_nums_input);
+if test_nums < 0
+    error("incorrect test nums, please re-run your program.");
+end
 
 for config_num = 0:3
     fprintf("-------Testing Configuration %d-------\n", config_num);
     success_count = 0;
     time_encrypt = zeros(1,test_nums);
     time_decrypt = zeros(1,test_nums);
-    
+        
     for test_num = 1:test_nums
         % generate matrices
         % generate matrix A, matrix E, private key s, prime numebr q
@@ -27,7 +36,7 @@ for config_num = 0:3
         else
             error("incorrect multiplier choice, please re-run your program.");
         end
-        
+    
         % encoded string
         binary_string = StringToBinaryArray("AbcD", 8);
 
@@ -46,7 +55,7 @@ for config_num = 0:3
         end
         
         decoded_string = BinaryArrayToString(DecryptResult);
-        if decoded_string == input_string       
+        if decoded_string == "AbcD"       
             success_count = success_count + 1;
         end
     end
