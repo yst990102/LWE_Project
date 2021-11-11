@@ -8,7 +8,8 @@ entity chars_to_ascii_array is
     Port ( 
         clk                 : in std_logic;
         encode_chars        : in string(1 to string_length);
-        
+        reset               : in std_logic;
+
         ascii_array_out     : out ascii_array;
         sig_chars_loaded    : out std_logic
     );
@@ -26,8 +27,13 @@ begin
             wait until clk'event and clk = '0';
             i := i + 1;
         else
-            is_chars_loaded <= '1';
-            wait;
+            if reset = '1' then
+                i := 1;
+                is_chars_loaded <= '0';
+            else
+                is_chars_loaded <= '1';
+            end if;
+            wait until clk'event and clk = '0';
         end if;
     end process;
     

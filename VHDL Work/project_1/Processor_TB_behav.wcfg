@@ -12,13 +12,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="683.001 ns"></ZoomEndTime>
-      <Cursor1Time time="37.000 ns"></Cursor1Time>
+      <ZoomStartTime time="88.550 ns"></ZoomStartTime>
+      <ZoomEndTime time="157.251 ns"></ZoomEndTime>
+      <Cursor1Time time="100.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="217"></NameColumnWidth>
-      <ValueColumnWidth column_width="85"></ValueColumnWidth>
+      <ValueColumnWidth column_width="77"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="39" />
    <wvobject fp_name="/Processor_TB/UUT/encode_string" type="array">
@@ -40,19 +40,20 @@
    <wvobject fp_name="/Processor_TB/UUT/sig_ascii_array" type="array">
       <obj_property name="ElementShortName">sig_ascii_array[1:4][0:7]</obj_property>
       <obj_property name="ObjectShortName">sig_ascii_array[1:4][0:7]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_dec_ascii_array" type="array">
       <obj_property name="ElementShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
       <obj_property name="ObjectShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/S" type="array">
       <obj_property name="ElementShortName">S[0:3]</obj_property>
       <obj_property name="ObjectShortName">S[0:3]</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/A" type="array">
-      <obj_property name="ElementShortName">A[0:255,0:3]</obj_property>
-      <obj_property name="ObjectShortName">A[0:255,0:3]</obj_property>
+      <obj_property name="ElementShortName">A[0:255][0:3]</obj_property>
+      <obj_property name="ObjectShortName">A[0:255][0:3]</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/E" type="array">
       <obj_property name="ElementShortName">E[0:255]</obj_property>

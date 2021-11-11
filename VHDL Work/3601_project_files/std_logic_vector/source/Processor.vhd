@@ -22,7 +22,8 @@ architecture Behavioral of Processor is
         Port ( 
             clk                 : in std_logic;
             encode_chars        : in string(1 to string_length);
-            
+            reset               : in std_logic;
+
             ascii_array_out     : out ascii_array;
             sig_chars_loaded    : out std_logic
         );
@@ -144,6 +145,7 @@ architecture Behavioral of Processor is
     -- ================= generate UV cells =======================
     component generate_UV is
         port (
+            is_chars_loaded     : in std_logic;
             is_B_generated      : in std_logic;
             clk                 : in std_logic;
             q                   : in integer;
@@ -259,6 +261,7 @@ begin
     port map(
         clk => clk,
         encode_chars => encode_string,
+        reset => sig_reset,
         
         ascii_array_out => sig_ascii_array,
         sig_chars_loaded => sig_is_chars_loaded
@@ -468,7 +471,7 @@ begin
         variable i : integer := 1;
         variable j : integer := 0;
     begin
-        if sig_UV_output_generated = '1' then
+        if sig_UV_output_generated = '1' and sig_is_chars_loaded = '1' then
             if i < (string_length + 1) then
                 if j < ascii_length then
                     U_cells(i)(j)(0) <= sig_RowU_out_UV(0);
@@ -501,7 +504,7 @@ begin
         variable j : integer := 0;
         variable k : integer := 0;
     begin
-        if sig_is_B_generated = '1' then
+        if sig_is_B_generated = '1' and sig_is_chars_loaded = '1' then
             if i < (string_length + 1) then
                 if j < ascii_length then
                     if k < A_row_1 / 4 - 1 then
@@ -536,6 +539,7 @@ begin
     
     generate_Cells_UV : generate_UV             
         port map(
+            is_chars_loaded => sig_is_chars_loaded,
             is_B_generated => sig_is_B_generated,
             clk => clk,
             q => q,

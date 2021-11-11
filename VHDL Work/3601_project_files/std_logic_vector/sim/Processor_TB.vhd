@@ -23,7 +23,7 @@ architecture Behavioral of Processor_TB is
     signal clk : std_logic := '0';
     signal final_result : string(1 to string_length) := (others => NUL);
 
-    signal test_string : string(1 to string_length) := (others => NUL);
+    signal test_string : string(1 to string_length) := "AbcD";
     signal reset : std_logic := '0';
 begin
 
@@ -37,7 +37,7 @@ begin
     
     UUT : Processor
         port map(
-            encode_string => "AbcD",
+            encode_string => test_string,
             clk => clk,
             sig_reset => reset,
             txt_input => '0',
@@ -48,8 +48,9 @@ begin
     main_testing : process
     begin
         wait for 100 ns;
+        test_string <= "DcbA";
         reset <= '1';
-        wait for clk_period;
+        wait for clk_period * 2;
         reset <= '0';
         wait for 2 sec;
     end process;

@@ -6,6 +6,7 @@ use work.configuration_set.all;
 
 entity generate_UV is
     port (
+        is_chars_loaded     : in std_logic;
         is_B_generated      : in std_logic;
         clk                 : in std_logic;
         q                   : in integer;
@@ -71,7 +72,7 @@ begin
         variable col : integer := 0;
         
     begin
-        if is_B_generated = '1' then
+        if is_B_generated = '1' and is_chars_loaded = '1' then
         
             if row < 5 then
                 if skip_1 = '0' then
@@ -128,20 +129,19 @@ begin
                     row := row + 1;
                 end if;
             else
-                if reset = '1' then
-                    row := 1;
-                    skip_1 := '0';
-                    i := 0;
-                    skip_2 := '0';
-                    col := 0;
-                    is_output_generated <= '0';
-                    output_U <= (others => 0);
-                    output_V <= 0;
-                else
-                    wait until clk'event and clk = '0';
-                end if;
+                wait until clk'event and clk = '0';
             end if;
         else
+            if reset = '1' then
+                row := 1;
+                skip_1 := '0';
+                i := 0;
+                skip_2 := '0';
+                col := 0;
+                is_output_generated <= '0';
+                output_U <= (others => 0);
+                output_V <= 0;
+            end if;
             wait until clk'event and clk = '0';
         end if;
     end process;
