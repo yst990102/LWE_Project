@@ -1,9 +1,4 @@
-function Matrix_B = B_approximate_multiplier(A,s,q,multi_choice,logdeltas, expdeltas,k)
-    if multi_choice == 4
-        Matrix_B = fn_ECALEMul(A,s,q,logdeltas, expdeltas,k);
-        return
-    end
-
+function Matrix_B = B_approximate_multiplier(A,s,q)
     [A_row, A_col] = size(A);
     Matrix_B = zeros(A_row, 1);
 

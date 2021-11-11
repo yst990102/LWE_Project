@@ -2,10 +2,10 @@ input_multiplier = input("Enter multiplier choice (1 - accurate, 2 - approximate
 multiplier_choice = str2double(input_multiplier);
 
 if multiplier_choice == 2
-    fn_multiplier = input("Enter approximate-multi choice (1 - MBM, 2 - Optimized MBM, 3 - REALM8x8, 4 - ECALE):", 's');
+    fn_multiplier = input("Enter approximate-multi choice (1 - MBM, 2 - Optimized MBM, 3 - REALM8x8, 4 - ECALE, 5 - LogMul):", 's');
     fn_multiplier_choice = str2double(fn_multiplier);
 
-    if ~ismember(fn_multiplier_choice,[1 2 3 4])
+    if ~ismember(fn_multiplier_choice,[1 2 3 4 5])
         error("incorrect fn_multiplier_choice, please re-run your program.");
     end
 elseif multiplier_choice ~= 1
@@ -36,7 +36,13 @@ for config_num = 0:3
     if multiplier_choice == 1
         B = B_accurate_multiplier(A,s,e,q);         % --- accurate multiplier
     elseif multiplier_choice == 2
-        B = B_approximate_multiplier(A,s,q,fn_multiplier_choice,logdeltas, expdeltas,k);      % --- approximate multiplier
+        if ismember(fn_multiplier_choice,[1 2 3])
+            B = B_approximate_multiplier(A,s,q);      % --- approximate multiplier
+        elseif fn_multiplier_choice == 4
+            B = B_ECALE_multiplier(A,s,q,logdeltas,expdeltas,k);
+        elseif fn_multiplier_choice == 5
+            B = B_Log_multiplier(A,s,q);
+        end
     else
         error("incorrect multiplier choice, please re-run your program.");
     end
