@@ -23,19 +23,25 @@ for config_num = 0:3
     success_count = 0;
     time_encrypt = zeros(1,test_nums);
     time_decrypt = zeros(1,test_nums);
-        
+    
+    % generate matrices
+    % generate matrix A, matrix E, private key s, prime numebr q
+    [q,A,e,s] = generator(config_num);
+    if fn_multiplier_choice == 4
+        fprintf("ECALE need to preset logdeltas & expdeltas, may need some time...");
+        [logdeltas, expdeltas,k] = fn_ECALEMul_preset(q);
+    end
+    
+    % generate matrix B with multiplier-type
+    if multiplier_choice == 1
+        B = B_accurate_multiplier(A,s,e,q);         % --- accurate multiplier
+    elseif multiplier_choice == 2
+        B = B_approximate_multiplier(A,s,q,fn_multiplier_choice,logdeltas, expdeltas,k);      % --- approximate multiplier
+    else
+        error("incorrect multiplier choice, please re-run your program.");
+    end
+    
     for test_num = 1:test_nums
-        % generate matrices
-        % generate matrix A, matrix E, private key s, prime numebr q
-        [q,A,e,s] = generator(config_num);
-        % generate matrix B with multiplier-type
-        if multiplier_choice == 1
-            B = B_accurate_multiplier(A,s,e,q);         % --- accurate multiplier
-        elseif multiplier_choice == 2
-            B = B_approximate_multiplier(A,s,q,fn_multiplier_choice);      % --- approximate multiplier
-        else
-            error("incorrect multiplier choice, please re-run your program.");
-        end
     
         % encoded string
         binary_string = StringToBinaryArray("AbcD", 8);

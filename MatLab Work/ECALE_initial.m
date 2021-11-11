@@ -9,15 +9,22 @@ close all; % closes plots
 % When calculating failure rates, many different primes will be considered
 q = 8191;
 bitlen = ceil(log2(q))
-stride = 16; % Size of pixel in graph.
+
+% Size of pixel in graph. increase size for less lag.
+stride = 64; 
+
+% Only run computation for every skipth value.
+% Reduces memory consumption by a factor of skip^2
+% Make this number a prime to get a fair analysis of error.
+skip = 5 
 
 % Deltas are the correction that bring the approximate function
 % closer to it's actual value.
 % These values essentially represent the lookup tables
-logME = 13; % log2 of # correction values for exponential. ME = 2^15
+logME = 15; % log2 of # correction values for exponential. ME = 2^15
 logML = 12; % log2 of # correction values for logarithmm. ML = 2^12
 expdeltas = calcExpDeltas(logME, bitlen*2+1, 'discrete');
-logdeltas = calcLogDeltas(logML, bitlen, 'precise');
+logdeltas = calcLogDeltas(logML, bitlen*2+1, 'precise');
 
 % uncomment to set corrections to zero. Zero correction gives you
 % mitchell's multiplier.
@@ -29,7 +36,7 @@ logdeltas = calcLogDeltas(logML, bitlen, 'precise');
 %% Plots
 plotApproxExp(expdeltas, bitlen*2+1);
 plotApproxLog(logdeltas,bitlen*2+1);
-plotErrProfile(logdeltas, expdeltas, bitlen, stride, q);
+plotErrProfile(logdeltas, expdeltas, bitlen, stride, skip, q);
 
 function [] = plotApproxExp(expdeltas, k)
     hold on
@@ -56,12 +63,12 @@ end
 
 % plots error graphically, failure rate for different configuration and
 % a summary for the given q.
-function [] = plotErrProfile(logdeltas, expdeltas, bitlen, stride, q)
+function [] = plotErrProfile(logdeltas, expdeltas, bitlen, stride, skip, q)
     % Create x,y grid
-    [X,Y] = meshgrid(1:(ceil(q/stride)*stride),1:(ceil(q/stride)*stride));
+    [X,Y] = meshgrid(1:skip:(ceil(q/(stride*skip))*stride*skip),1:skip:(ceil(q/(stride*skip))*stride*skip));
     % Compute Z
     Z = ecMult(X,Y,logdeltas, expdeltas, bitlen*2+1) - X.*Y;
-
+    
     meanErr = sum(Z, 'all')/numel(Z)
     
     % Take stride*stride squares of Z and take the maximum value for that
@@ -76,7 +83,7 @@ function [] = plotErrProfile(logdeltas, expdeltas, bitlen, stride, q)
     primes = [61, 127, 251, 509, 1021, 2039, 4093 , 8191, 16381, 32749, 65521, 131071];
 
     % Filter for all primes less than q, and then tack q on the end.
-    primes = [primes(primes < q),q]; 
+    primes = [primes(primes < q),q]
     
     % standard deviations and means when the multiplications are restricted
     % to each prime.
@@ -85,9 +92,9 @@ function [] = plotErrProfile(logdeltas, expdeltas, bitlen, stride, q)
     
     for i=1:length(primes)
         % mean = E(X)
-        meanErrs(i) = sum(Z(1:primes(i),1:primes(i)), 'all')/(primes(i)^2);
+        meanErrs(i) = sum(Z(1:ceil(primes(i)/skip),1:ceil(primes(i)/skip)), 'all')/(primes(i)^2);
         % sd = sqrt(E(X^2) - E(X)^2)
-        standardDevs(i) = sqrt(sum(Z(1:primes(i),1:primes(i)).^2, 'all')/(primes(i)^2) - meanErrs(i)^2);
+        standardDevs(i) = sqrt(sum(Z(1:ceil(primes(i)/skip),1:ceil(primes(i)/skip)).^2, 'all')/(primes(i)^2) - meanErrs(i)^2);
     end
     
     % display failure rate table
@@ -109,7 +116,8 @@ function [] = plotErrProfile(logdeltas, expdeltas, bitlen, stride, q)
     standardDev = standardDevs(end);
     meanErr= meanErrs(end);
     maxErr = max(MZ,[], 'all');
-    disp(table(q, standardDev, meanErr, maxErr));
+    maxRelError = max(MZ./(MX.*MY), [], 'all');
+    disp(table(q, standardDev, meanErr, maxErr, maxRelError));
     % plot surface
     surf(MX,MY,MZ, 'LineStyle', 'none');
     
@@ -124,23 +132,7 @@ function out = failureRate(q, nsamples, sd)
     out = 1-erf(q./(4.*sd*sqrt(nsamples)));
 end
 
-%% Approximate logs
-
-
-% approximate log (uncorrected)
-function out = aLog(x)
-    integ = floor(log2(x)); % integer part. Obtainable using barrel shift.
-    mant = x./(2.^integ) - 1;  % mantissa
-    out = integ + mant;
-end
-
-% approximate 2^x (uncorrected)
-function out = aExp(x)
-    integ = floor(x); % integer part
-    frac  = x - integ; % fractional part  
-    out   = 2.^integ.*(frac + 1);
-end
-
+%% Approximate funcitons
 
 % approximate exp respecting bit arithmetic. X is an integer
 function out = ecExp(x, deltas, k)
@@ -235,7 +227,7 @@ end
 
 function deltas = calcLogDeltas(n, bitlen, errorMode)
     if (n>bitlen)
-        n=bitlen;
+        n=bitlen
     end
     len = 2^n;
     step = 2^-bitlen;
