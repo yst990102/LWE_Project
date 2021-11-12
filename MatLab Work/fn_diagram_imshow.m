@@ -18,6 +18,11 @@ if ismember(fn_multiplier_choice, [1 2 3])
 elseif fn_multiplier_choice == 4
     fprintf("ECALE need to preset logdeltas & expdeltas, may need some time...");
     [logdeltas, expdeltas,k] = fn_ECALEMul_preset(8192);    % default config == 2
+elseif fn_multiplier_choice == 5
+    round_bits = input("Enter the fractional length of log:",'s');
+    round_bits_num = str2double(round_bits);
+    
+    LUT = GenerateLogLUT(test_nums, round_bits_num);     % for all config123 passed, at least 9
 end
 
 
@@ -33,7 +38,7 @@ for i = 1:test_nums
         elseif fn_multiplier_choice == 4
             M(i,j) = (i*j - ecMult(i,j,logdeltas,expdeltas,k));
         elseif fn_multiplier_choice == 5
-            M(i,j) = (i*j - 2^(log2(i) + log2(j)));
+            M(i,j) = (i*j - 2^( LUT(i) + LUT(j)));
         end
     end
 end

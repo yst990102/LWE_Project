@@ -21,13 +21,41 @@ while exit_state ~= "e"
     input_string = input("Enter a string (no length limit):", 's');
     binary_string = StringToBinaryArray(string(input_string), bits_for_char);
 
+    % generate LUT or (logdeltas,expdeltas)
+    if fn_multiplier_choice == 4
+        fprintf("ECALE need to preset logdeltas & expdeltas, may need some time...\n");
+        tic
+        if config_num == 0
+            q_max = 79;
+        elseif config_num == 1
+            q_max= 128;
+        elseif config_num == 2
+            q_max = 8192;
+        elseif config_num == 3
+            q_max = 65535;
+        end
+        [logdeltas, expdeltas,k] = fn_ECALEMul_preset(q_max);
+        log_exp_time_cost = toc;
+        fprintf("Logdeltas & Expdeltas Generation Finished in %.5f. Testing.....\n", log_exp_time_cost);
+    elseif fn_multiplier_choice == 5
+        fprintf("LogMultiplier need to generate LUT, may need some time...\n");
+        tic
+        if config_num == 0
+            q_max = 79;
+        elseif config_num == 1
+            q_max= 128;
+        elseif config_num == 2
+            q_max = 8192;
+        elseif config_num == 3
+            q_max = 65535;
+        end
+        LUT_time_cost = toc;
+        LUT = GenerateLogLUT(q_max, 9);     % for all config123 passed, at least 9
+        fprintf("LUT Generation Finished in %.5f. Testing.....\n", LUT_time_cost);
+    end
+    
     % generate Matrix A, Matrix E, key s, prime q
     [q,A,e,s] = generator(config_num);
-    
-    if fn_multiplier_choice == 4
-        fprintf("ECALE need to preset logdeltas & expdeltas, may need some time...");
-        [logdeltas, expdeltas,k] = fn_ECALEMul_preset(q);
-    end
     
     % generate Matrix B
     if multiplier_choice == 1
@@ -38,7 +66,7 @@ while exit_state ~= "e"
         elseif fn_multiplier_choice == 4
             B = B_ECALE_multiplier(A,s,q,logdeltas,expdeltas,k);
         elseif fn_multiplier_choice == 5
-            B = B_Log_multiplier(A,s,q);
+            B = B_Log_multiplier(A,s,q,LUT);
         end
     end
     
