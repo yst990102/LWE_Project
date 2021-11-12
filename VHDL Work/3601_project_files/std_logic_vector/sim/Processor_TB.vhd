@@ -52,6 +52,13 @@ begin
         reset <= '1';
         wait for clk_period * 2;
         reset <= '0';
+
+        wait for 100 ns;
+        test_string <= "EfgH";
+        reset <= '1';
+        wait for clk_period * 2;
+        reset <= '0';
+
         wait for 2 sec;
     end process;
 
