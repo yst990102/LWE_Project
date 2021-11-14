@@ -29,7 +29,8 @@ for config_num = 0:3
         end
         
         % encoded string
-        binary_string = StringToBinaryArray("AbcD", 8);
+        input_string = "AbcD";
+        binary_string = StringToBinaryArray(input_string, 8);
 
         [char_num, char_length] = size(binary_string);
         % allocate memory for decrypt result
