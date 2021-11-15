@@ -54,13 +54,15 @@ for config_num = 0:3
             elseif config_num == 3
                 q_max = 65535;
             end
+            [LUT_int,LUT_fra] = GenerateLogLUT(q_max, 9);     % for all config123 passed, at least 9
             LUT_time_cost = toc;
-            LUT = GenerateLogLUT(q_max, 9);     % for all config123 passed, at least 9
             fprintf("LUT Generation Finished in %.5f. Testing.....\n", LUT_time_cost);
         else
             fprintf("LogLUT file exists, load LUT in....\n");
+            tic
             load LogLUT.mat;
-            fprintf("LogLUT loaded.\n");
+            LUT_time_cost = toc;
+            fprintf("LogLUT loaded in %.5f.\n", LUT_time_cost);
         end
     end
     
@@ -79,7 +81,7 @@ for config_num = 0:3
             elseif fn_multiplier_choice == 4
                 B = B_ECALE_multiplier(A,s,q,logdeltas,expdeltas,k);
             elseif fn_multiplier_choice == 5
-                B = B_Log_multiplier(A,s,q,LUT);
+                B = B_Log_multiplier(A,s,q,LUT_int,LUT_fra);
             end
         else
             error("incorrect multiplier choice, please re-run your program.");

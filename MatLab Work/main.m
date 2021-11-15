@@ -38,20 +38,28 @@ while exit_state ~= "e"
         log_exp_time_cost = toc;
         fprintf("Logdeltas & Expdeltas Generation Finished in %.5f. Testing.....\n", log_exp_time_cost);
     elseif fn_multiplier_choice == 5
-        fprintf("LogMultiplier need to generate LUT, may need some time...\n");
-        tic
-        if config_num == 0
-            q_max = 79;
-        elseif config_num == 1
-            q_max= 128;
-        elseif config_num == 2
-            q_max = 8192;
-        elseif config_num == 3
-            q_max = 65535;
+        if ~exist('LogLUT.mat','file')
+            fprintf("LogMultiplier need to generate LUT, may need some time...\n");
+            tic
+            if config_num == 0
+                q_max = 79;
+            elseif config_num == 1
+                q_max= 128;
+            elseif config_num == 2
+                q_max = 8192;
+            elseif config_num == 3
+                q_max = 65535;
+            end
+            [LUT_int,LUT_fra] = GenerateLogLUT(q_max, 9);     % for all config123 passed, at least 9
+            LUT_time_cost = toc;
+            fprintf("LUT Generation Finished in %.5f. Testing.....\n", LUT_time_cost);
+        else
+            fprintf("LogLUT file exists, load LUT in....\n");
+            tic
+            load LogLUT.mat;
+            LUT_time_cost = toc;
+            fprintf("LogLUT loaded in %.5f.\n", LUT_time_cost);
         end
-        LUT_time_cost = toc;
-        LUT = GenerateLogLUT(q_max, 9);     % for all config123 passed, at least 9
-        fprintf("LUT Generation Finished in %.5f. Testing.....\n", LUT_time_cost);
     end
     
     % generate Matrix A, Matrix E, key s, prime q
