@@ -12,7 +12,8 @@ entity Processor is
         txt_input       : in std_logic;
         multi_type      : in integer;
 
-        result          : out string(1 to string_length)
+        result          : out string(1 to string_length);
+        is_result_released : out std_logic
     );
 end Processor;
 
@@ -631,4 +632,6 @@ begin
             sig_result_release => sig_is_result_released
         );
 --================== final stage : convert ascii array to chars ===========================
+
+    is_result_released <= sig_is_result_released;
 end Behavioral;

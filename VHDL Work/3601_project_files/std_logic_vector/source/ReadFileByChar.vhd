@@ -9,27 +9,30 @@ use work.configuration_set.all;
 entity ReadFileByChar is
     port(
         clk : in std_logic;
-        char_out : out character
+        string_out : out string(1 to 60)
     );
 end ReadFileByChar;
 
 architecture Behavioral of ReadFileByChar is
     file read_file : text;
 
-    signal sig_char_out : character;
+    signal sig_string_out : string(1 to 60) := (others => NUL);
     signal is_file_end : std_logic := '0';
 begin
-    char_out <= sig_char_out;
+    string_out <= sig_string_out;
     process
         variable tmp_line : Line;
+        variable tmp_char : character;
     begin
         file_open(read_file, "E:\Github_repository\COMP3601\VHDL Work\3601_project_files\std_logic_vector\source\Sample.txt", read_mode);
         while not endfile(read_file) loop
             readline(read_file, tmp_line);
             for j in tmp_line'range loop
-                sig_char_out <= tmp_line(j);
-                wait until clk'event and clk = '0';
+                read(tmp_line, tmp_char);
+                sig_string_out(j) <= tmp_char;
             end loop;
+            wait until clk'event and clk = '0';
+            sig_string_out <= (others => NUL);
         end loop;
         is_file_end <= '1';
 

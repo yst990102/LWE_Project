@@ -9,14 +9,14 @@ architecture Behavioral of ReadFileByChar_TB is
     component ReadFileByChar is
     port(
         clk : in std_logic;
-        char_out : out character
+        string_out : out string(1 to 60)
     );
     end component;
 
     constant clk_period : time := 20ps;
     
     signal clk : std_logic := '0';
-    signal result_char : character;
+    signal result_string : string(1 to 60);
 
 begin
 
@@ -31,7 +31,7 @@ begin
     FileRead : ReadFileByChar
         port map(
             clk =>  clk,
-            char_out => result_char
+            string_out => result_string
         );
 
 end Behavioral;

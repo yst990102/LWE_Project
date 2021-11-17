@@ -74,13 +74,13 @@ begin
     begin
         if is_B_generated = '1' and is_chars_loaded = '1' then
         
-            if row < 5 then
+            if row < (string_length + 1) then
                 if skip_1 = '0' then
                     encoding_ascii := ascii_bits_array(row);
                     skip_1 := '1';
                 end if;
 
-                if i < 8 then
+                if i < ascii_length then
                     if skip_2 = '0' then
                         sig_uv_row_num <= i;
                         
@@ -102,9 +102,7 @@ begin
                         is_output_generated <= '0';
                         
                         col := col + 1;
-                    end if;
-                    
-                    if col = A_row_1 / 4 then
+                    else
                         output_U(0) <= first_sum mod q;
                         output_U(1) <= second_sum mod q;
                         output_U(2) <= third_sum mod q;
@@ -121,9 +119,7 @@ begin
                         i := i + 1;
                         skip_2 := '0';
                     end if;
-                end if;
-                
-                if i = 8 then
+                else
                     i := 0;
                     skip_1 := '0';
                     row := row + 1;
