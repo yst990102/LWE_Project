@@ -1,9 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../Shi Tong Yuan.srcs/sources_1/new/PC.vhd" \
-"../../../../Shi Tong Yuan.srcs/sources_1/new/packages.vhd" \
-"../../../../Shi Tong Yuan.srcs/sources_1/new/random_generator_8.vhd" \
-"../../../../Shi Tong Yuan.srcs/sources_1/new/Processor.vhd" \
-
-# Do not sort compile order
-nosort

@@ -1,6 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../Shi Tong Yuan.srcs/sources_1/new/matrix_sum.vhd" \
-
-# Do not sort compile order
-nosort

@@ -61,8 +61,14 @@ q_r = primes(q_max);
 q_r = q_r(q_r >= q_min);
 q = q_r(randperm(numel(q_r),1));
 
-A = randi([0,q],A_row,A_col);
+A = randi([1,q],A_row,A_col);
+% random generated
 e = randi([e_min,e_max],A_row,1);
-s = randi([0, q],A_col,1);
+
+% normal distributed
+% 1:A_row column, variance-0.1 , avg-0
+% e = (e_max - e_min) * round(normrnd(0,0.1,[A_row 1]));
+
+s = randi([1, q],A_col,1);
 
 return

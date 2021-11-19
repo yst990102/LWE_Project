@@ -1,0 +1,14 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dgn_MBMmul8bit
+INFO: [VRFC 10-311] analyzing module SteeringLogicREM8
+INFO: [VRFC 10-311] analyzing module ArithmeticBlockREM8
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_REALM8x8mul8bit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dgn_REALM8x8mul8bit
+INFO: [VRFC 10-311] analyzing module SteeringLogic_SMBM_8x8_8_ConfigurableARD_08
+INFO: [VRFC 10-311] analyzing module ArithmeticBlock_SMBM_8x8_8_ConfigurableARD_08
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_mitchellmul8bit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dgn_mitchellmul8bit
+INFO: [VRFC 10-311] analyzing module SteeringLogicM8
+INFO: [VRFC 10-311] analyzing module ArithmeticBlockM8
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
