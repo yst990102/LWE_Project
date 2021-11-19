@@ -30,6 +30,7 @@ architecture Behavioral of Processor_TB is
 
     -- signal test_string : string(1 to string_length) := "AbcD";
     signal test_string : string(1 to string_length) := (others => NUL);
+    
     signal reset : std_logic := '0';
 
     signal is_file_end : std_logic := '0';
@@ -58,7 +59,7 @@ begin
         variable tmp_line : Line;
         variable tmp_char : character;
     begin
-        file_open(read_file, "E:\Github_repository\COMP3601\VHDL Work\3601_project_files\std_logic_vector\source\Sample.txt", read_mode);
+        file_open(read_file, "E:\Github_repository\COMP3601\VHDL Work\3601_project_files\std_logic_vector\source\measure.txt", read_mode);
         while not endfile(read_file) loop
             readline(read_file, tmp_line);
             for j in tmp_line'range loop
@@ -73,6 +74,27 @@ begin
         file_close(read_file);
         wait;
     end process;
+
+    -- main_testing : process
+    --     file read_file : text;
+    --     variable tmp_line : Line;
+    --     variable tmp_char : character;
+    -- begin
+    --     file_open(read_file, "E:\Github_repository\COMP3601\VHDL Work\3601_project_files\std_logic_vector\source\Sample.txt", read_mode);
+    --     while not endfile(read_file) loop
+    --         readline(read_file, tmp_line);
+    --         for j in tmp_line'range loop
+    --             read(tmp_line, tmp_char);
+    --             test_string(j) <= tmp_char;
+    --         end loop;
+    --         wait for 700 ns;
+    --         test_string <= (others => NUL);
+    --     end loop;
+    --     is_file_end <= '1';
+
+    --     file_close(read_file);
+    --     wait;
+    -- end process;
 
     reset_process : process
     begin

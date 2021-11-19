@@ -12,18 +12,18 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="88.550 ns"></ZoomStartTime>
-      <ZoomEndTime time="157.251 ns"></ZoomEndTime>
-      <Cursor1Time time="100.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="6,890.001 ns"></ZoomEndTime>
+      <Cursor1Time time="34.494 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="217"></NameColumnWidth>
-      <ValueColumnWidth column_width="77"></ValueColumnWidth>
+      <ValueColumnWidth column_width="73"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="39" />
+   <WVObjectSize size="21" />
    <wvobject fp_name="/Processor_TB/UUT/encode_string" type="array">
-      <obj_property name="ElementShortName">encode_string[1:4]</obj_property>
-      <obj_property name="ObjectShortName">encode_string[1:4]</obj_property>
+      <obj_property name="ElementShortName">encode_string[1:60]</obj_property>
+      <obj_property name="ObjectShortName">encode_string[1:60]</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
@@ -34,17 +34,17 @@
       <obj_property name="ObjectShortName">sig_reset</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/result" type="array">
-      <obj_property name="ElementShortName">result[1:4]</obj_property>
-      <obj_property name="ObjectShortName">result[1:4]</obj_property>
+      <obj_property name="ElementShortName">result[1:60]</obj_property>
+      <obj_property name="ObjectShortName">result[1:60]</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_ascii_array" type="array">
-      <obj_property name="ElementShortName">sig_ascii_array[1:4][0:7]</obj_property>
-      <obj_property name="ObjectShortName">sig_ascii_array[1:4][0:7]</obj_property>
+      <obj_property name="ElementShortName">sig_ascii_array[1:60][0:7]</obj_property>
+      <obj_property name="ObjectShortName">sig_ascii_array[1:60][0:7]</obj_property>
       <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_dec_ascii_array" type="array">
-      <obj_property name="ElementShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
-      <obj_property name="ObjectShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
+      <obj_property name="ElementShortName">sig_dec_ascii_array[1:60][0:7]</obj_property>
+      <obj_property name="ObjectShortName">sig_dec_ascii_array[1:60][0:7]</obj_property>
       <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/S" type="array">
@@ -67,37 +67,41 @@
       <obj_property name="ElementShortName">q</obj_property>
       <obj_property name="ObjectShortName">q</obj_property>
    </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_is_chars_loaded" type="logic">
-      <obj_property name="ElementShortName">sig_is_chars_loaded</obj_property>
-      <obj_property name="ObjectShortName">sig_is_chars_loaded</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_is_S_generated" type="logic">
-      <obj_property name="ElementShortName">sig_is_S_generated</obj_property>
-      <obj_property name="ObjectShortName">sig_is_S_generated</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_is_A_generated" type="logic">
-      <obj_property name="ElementShortName">sig_is_A_generated</obj_property>
-      <obj_property name="ObjectShortName">sig_is_A_generated</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_is_E_generated" type="logic">
-      <obj_property name="ElementShortName">sig_is_E_generated</obj_property>
-      <obj_property name="ObjectShortName">sig_is_E_generated</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_is_B_generated" type="logic">
-      <obj_property name="ElementShortName">sig_is_B_generated</obj_property>
-      <obj_property name="ObjectShortName">sig_is_B_generated</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_is_UV_generated" type="logic">
-      <obj_property name="ElementShortName">sig_is_UV_generated</obj_property>
-      <obj_property name="ObjectShortName">sig_is_UV_generated</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_is_dec_finished" type="logic">
-      <obj_property name="ElementShortName">sig_is_dec_finished</obj_property>
-      <obj_property name="ObjectShortName">sig_is_dec_finished</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_is_result_released" type="logic">
-      <obj_property name="ElementShortName">sig_is_result_released</obj_property>
-      <obj_property name="ObjectShortName">sig_is_result_released</obj_property>
+   <wvobject fp_name="group112" type="group">
+      <obj_property name="label">Step_signals</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/Processor_TB/UUT/sig_is_chars_loaded" type="logic">
+         <obj_property name="ElementShortName">sig_is_chars_loaded</obj_property>
+         <obj_property name="ObjectShortName">sig_is_chars_loaded</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_is_S_generated" type="logic">
+         <obj_property name="ElementShortName">sig_is_S_generated</obj_property>
+         <obj_property name="ObjectShortName">sig_is_S_generated</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_is_A_generated" type="logic">
+         <obj_property name="ElementShortName">sig_is_A_generated</obj_property>
+         <obj_property name="ObjectShortName">sig_is_A_generated</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_is_E_generated" type="logic">
+         <obj_property name="ElementShortName">sig_is_E_generated</obj_property>
+         <obj_property name="ObjectShortName">sig_is_E_generated</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_is_B_generated" type="logic">
+         <obj_property name="ElementShortName">sig_is_B_generated</obj_property>
+         <obj_property name="ObjectShortName">sig_is_B_generated</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_is_UV_generated" type="logic">
+         <obj_property name="ElementShortName">sig_is_UV_generated</obj_property>
+         <obj_property name="ObjectShortName">sig_is_UV_generated</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_is_dec_finished" type="logic">
+         <obj_property name="ElementShortName">sig_is_dec_finished</obj_property>
+         <obj_property name="ObjectShortName">sig_is_dec_finished</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_is_result_released" type="logic">
+         <obj_property name="ElementShortName">sig_is_result_released</obj_property>
+         <obj_property name="ObjectShortName">sig_is_result_released</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="group96" type="group">
       <obj_property name="label">Generate By LFSR</obj_property>
@@ -171,57 +175,65 @@
          <obj_property name="ObjectShortName">sig_store_E_element_File</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_RowA_in_B" type="array">
-      <obj_property name="ElementShortName">sig_RowA_in_B[0:3]</obj_property>
-      <obj_property name="ObjectShortName">sig_RowA_in_B[0:3]</obj_property>
+   <wvobject fp_name="group111" type="group">
+      <obj_property name="label">B_generation</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/Processor_TB/UUT/sig_RowA_in_B" type="array">
+         <obj_property name="ElementShortName">sig_RowA_in_B[0:3]</obj_property>
+         <obj_property name="ObjectShortName">sig_RowA_in_B[0:3]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_RowE_in_B" type="other">
+         <obj_property name="ElementShortName">sig_RowE_in_B</obj_property>
+         <obj_property name="ObjectShortName">sig_RowE_in_B</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_store_B_row" type="other">
+         <obj_property name="ElementShortName">sig_store_B_row</obj_property>
+         <obj_property name="ObjectShortName">sig_store_B_row</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_store_B_element" type="other">
+         <obj_property name="ElementShortName">sig_store_B_element</obj_property>
+         <obj_property name="ObjectShortName">sig_store_B_element</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_RowE_in_B" type="other">
-      <obj_property name="ElementShortName">sig_RowE_in_B</obj_property>
-      <obj_property name="ObjectShortName">sig_RowE_in_B</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_store_B_row" type="other">
-      <obj_property name="ElementShortName">sig_store_B_row</obj_property>
-      <obj_property name="ObjectShortName">sig_store_B_row</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_store_B_element" type="other">
-      <obj_property name="ElementShortName">sig_store_B_element</obj_property>
-      <obj_property name="ObjectShortName">sig_store_B_element</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_UV_row_num" type="other">
-      <obj_property name="ElementShortName">sig_UV_row_num</obj_property>
-      <obj_property name="ObjectShortName">sig_UV_row_num</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_UV_output_generated" type="logic">
-      <obj_property name="ElementShortName">sig_UV_output_generated</obj_property>
-      <obj_property name="ObjectShortName">sig_UV_output_generated</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_random_row_num" type="other">
-      <obj_property name="ElementShortName">sig_random_row_num</obj_property>
-      <obj_property name="ObjectShortName">sig_random_row_num</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_RowA_in_UV" type="array">
-      <obj_property name="ElementShortName">sig_RowA_in_UV[0:3]</obj_property>
-      <obj_property name="ObjectShortName">sig_RowA_in_UV[0:3]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_RowB_in_UV" type="other">
-      <obj_property name="ElementShortName">sig_RowB_in_UV</obj_property>
-      <obj_property name="ObjectShortName">sig_RowB_in_UV</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_RowU_out_UV" type="array">
-      <obj_property name="ElementShortName">sig_RowU_out_UV[0:3]</obj_property>
-      <obj_property name="ObjectShortName">sig_RowU_out_UV[0:3]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/sig_RowV_out_UV" type="other">
-      <obj_property name="ElementShortName">sig_RowV_out_UV</obj_property>
-      <obj_property name="ObjectShortName">sig_RowV_out_UV</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/U_cells" type="array">
-      <obj_property name="ElementShortName">U_cells[1:4][0:7][0:3]</obj_property>
-      <obj_property name="ObjectShortName">U_cells[1:4][0:7][0:3]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Processor_TB/UUT/V_cells" type="array">
-      <obj_property name="ElementShortName">V_cells[1:4,0:7]</obj_property>
-      <obj_property name="ObjectShortName">V_cells[1:4,0:7]</obj_property>
+   <wvobject fp_name="group110" type="group">
+      <obj_property name="label">UV_generation</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/Processor_TB/UUT/sig_UV_row_num" type="other">
+         <obj_property name="ElementShortName">sig_UV_row_num</obj_property>
+         <obj_property name="ObjectShortName">sig_UV_row_num</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_UV_output_generated" type="logic">
+         <obj_property name="ElementShortName">sig_UV_output_generated</obj_property>
+         <obj_property name="ObjectShortName">sig_UV_output_generated</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_RowA_in_UV" type="array">
+         <obj_property name="ElementShortName">sig_RowA_in_UV[0:3]</obj_property>
+         <obj_property name="ObjectShortName">sig_RowA_in_UV[0:3]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_random_row_num" type="other">
+         <obj_property name="ElementShortName">sig_random_row_num</obj_property>
+         <obj_property name="ObjectShortName">sig_random_row_num</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_RowB_in_UV" type="other">
+         <obj_property name="ElementShortName">sig_RowB_in_UV</obj_property>
+         <obj_property name="ObjectShortName">sig_RowB_in_UV</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_RowU_out_UV" type="array">
+         <obj_property name="ElementShortName">sig_RowU_out_UV[0:3]</obj_property>
+         <obj_property name="ObjectShortName">sig_RowU_out_UV[0:3]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_RowV_out_UV" type="other">
+         <obj_property name="ElementShortName">sig_RowV_out_UV</obj_property>
+         <obj_property name="ObjectShortName">sig_RowV_out_UV</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/U_cells" type="array">
+         <obj_property name="ElementShortName">U_cells[1:60][0:7][0:3]</obj_property>
+         <obj_property name="ObjectShortName">U_cells[1:60][0:7][0:3]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/V_cells" type="array">
+         <obj_property name="ElementShortName">V_cells[1:60,0:7]</obj_property>
+         <obj_property name="ObjectShortName">V_cells[1:60,0:7]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/three_quar_q" type="other">
       <obj_property name="ElementShortName">three_quar_q</obj_property>
