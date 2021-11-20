@@ -16,8 +16,28 @@ if ismember(fn_multiplier_choice, [1 2 3])
         k = str2double(k_str);
     end
 elseif fn_multiplier_choice == 4
-    fprintf("ECALE need to preset logdeltas & expdeltas, may need some time...");
-    [logdeltas, expdeltas,k] = fn_ECALEMul_preset(8192);    % default config == 2
+        if ~exist('ECALEpreset.mat','file')
+            fprintf("ECALE need to preset logdeltas & expdeltas, may need some time...\n");
+            tic
+            if config_num == 0
+                q_max = 79;
+            elseif config_num == 1
+                q_max= 128;
+            elseif config_num == 2
+                q_max = 8192;
+            elseif config_num == 3
+                q_max = 65535;
+            end
+            [logdeltas, expdeltas,k] = fn_ECALEMul_preset(q_max);
+            log_exp_time_cost = toc;
+            fprintf("Logdeltas & Expdeltas Generation Finished in %.5f. Testing.....\n", log_exp_time_cost);
+        else
+            fprintf("ECALEpreset file exists, load Deltases in....\n");
+            tic
+            load ECALEpreset.mat;
+            LUT_time_cost = toc;
+            fprintf("ECALEpreset loaded in %.5f.\n", LUT_time_cost);
+        end
 elseif fn_multiplier_choice == 5
     round_bits = input("Enter the fractional length of log:",'s');
     round_bits_num = str2double(round_bits);
