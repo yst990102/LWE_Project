@@ -1,11 +1,11 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date             : Sun Nov 21 13:11:24 2021
+| Date             : Sun Nov 21 16:45:06 2021
 | Host             : GamingPC running 64-bit major release  (build 9200)
 | Command          : report_power -file Processor_power_routed.rpt -pb Processor_power_summary_routed.pb -rpx Processor_power_routed.rpx
 | Design           : Processor
-| Device           : xc7k480tffv1156-1
+| Device           : xc7k160tffv676-1
 | Design State     : routed
 | Grade            : commercial
 | Process          : typical
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 61.471 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 58.571 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 57.697                           |
-| Device Static (W)        | 3.774                            |
-| Effective TJA (C/W)      | 1.4                              |
+| Dynamic (W)              | 56.515                           |
+| Device Static (W)        | 2.056                            |
+| Effective TJA (C/W)      | 1.9                              |
 | Max Ambient (C)          | 0.0                              |
-| Junction Temperature (C) | 111.6                            |
+| Junction Temperature (C) | 125.0                            |
 | Confidence Level         | Low                              |
 | Setting File             | ---                              |
 | Simulation Activity File | ---                              |
@@ -52,17 +52,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |    26.988 |     5310 |       --- |             --- |
-|   LUT as Logic |    22.670 |     3387 |    298600 |            1.13 |
-|   CARRY4       |     4.197 |      799 |     74650 |            1.07 |
-|   Register     |     0.096 |      930 |    597200 |            0.16 |
+| Slice Logic    |    26.739 |     5310 |       --- |             --- |
+|   LUT as Logic |    22.422 |     3391 |    101400 |            3.34 |
+|   CARRY4       |     4.197 |      799 |     25350 |            3.15 |
+|   Register     |     0.096 |      930 |    202800 |            0.46 |
 |   BUFG         |     0.024 |        4 |        32 |           12.50 |
 |   Others       |     0.000 |       15 |       --- |             --- |
-| Signals        |    25.101 |     5436 |       --- |             --- |
-| DSPs           |     3.698 |       12 |      1920 |            0.63 |
+| Signals        |    24.167 |     5436 |       --- |             --- |
+| DSPs           |     3.698 |       12 |       600 |            2.00 |
 | I/O            |     1.911 |       68 |       400 |           17.00 |
-| Static Power   |     3.774 |          |           |                 |
-| Total          |    61.471 |          |           |                 |
+| Static Power   |     2.056 |          |           |                 |
+| Total          |    58.571 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,8 +72,8 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |    59.182 |      55.926 |      3.255 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.348 |       0.145 |      0.203 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |    56.507 |      54.744 |      1.762 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.253 |       0.145 |      0.108 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.840 |       0.839 |      0.001 |       NA    | Unspecified | NA         |
@@ -81,7 +81,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.114 |       0.000 |      0.114 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.061 |       0.000 |      0.061 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -113,10 +113,10 @@ Table of Contents
 
 +-----------------------+--------------------------+
 | Ambient Temp (C)      | 25.0                     |
-| ThetaJA (C/W)         | 1.4                      |
+| ThetaJA (C/W)         | 1.9                      |
 | Airflow (LFM)         | 250                      |
 | Heat Sink             | medium (Medium Profile)  |
-| ThetaSA (C/W)         | 2.4                      |
+| ThetaSA (C/W)         | 3.4                      |
 | Board Selection       | medium (10"x10")         |
 | # of Board Layers     | 12to15 (12 to 15 Layers) |
 | Board Temperature (C) | 25.0                     |
@@ -140,12 +140,12 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| Processor                |    57.697 |
-|   ascii_to_chars         |     0.339 |
-|   chars_to_asciis        |     0.258 |
-|   generate_Matrix_S_FILE |     0.011 |
-|   generate_Matrix_S_LFSR |    21.450 |
-|     random_number        |     0.020 |
+| Processor                |    56.515 |
+|   ascii_to_chars         |     0.385 |
+|   chars_to_asciis        |     0.260 |
+|   generate_Matrix_S_FILE |     0.008 |
+|   generate_Matrix_S_LFSR |    21.063 |
+|     random_number        |     0.017 |
 +--------------------------+-----------+
 
 

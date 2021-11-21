@@ -73,7 +73,7 @@ OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param general.maxThreads 8
 set_param chipscope.maxJobs 4
 OPTRACE "Creating in-memory project" START { }
-create_project -in_memory -part xc7k480tffv1156-1
+create_project -in_memory -part xc7k160tffv676-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
@@ -119,7 +119,7 @@ set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top Processor -part xc7k480tffv1156-1
+synth_design -top Processor -part xc7k160tffv676-1
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"

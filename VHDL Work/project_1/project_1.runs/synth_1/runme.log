@@ -11,13 +11,13 @@
 
 Sourcing tcl script 'D:/Xilinx/Vivado/2021.1/scripts/Vivado_init.tcl'
 source Processor.tcl -notrace
-Command: synth_design -top Processor -part xc7k480tffv1156-1
+Command: synth_design -top Processor -part xc7k160tffv676-1
 Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7k480t'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k480t'
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7k160t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k160t'
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 26524
+INFO: [Synth 8-7075] Helper process launched with PID 17860
 WARNING: [Synth 8-2507] parameter declaration becomes local in dgn_MBMmul8bit with formal parameter declaration list [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:13]
 WARNING: [Synth 8-2507] parameter declaration becomes local in SteeringLogicREM8 with formal parameter declaration list [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:103]
 WARNING: [Synth 8-2507] parameter declaration becomes local in ArithmeticBlockREM8 with formal parameter declaration list [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_MBMmul8bit.v:112]
@@ -28,7 +28,7 @@ WARNING: [Synth 8-2507] parameter declaration becomes local in ArithmeticBlock_S
 WARNING: [Synth 8-2507] parameter declaration becomes local in ArithmeticBlock_SMBM_8x8_8_ConfigurableARD_08 with formal parameter declaration list [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_REALM8x8mul8bit.v:165]
 WARNING: [Synth 8-2507] parameter declaration becomes local in dgn_mitchellmul8bit with formal parameter declaration list [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/dgn_mitchellmul8bit.v:13]
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1306.340 ; gain = 0.000
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1306.160 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'Processor' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:21]
 WARNING: [Synth 8-614] signal 'is_q_set' is read in the process but is not in the sensitivity list [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:264]
@@ -148,17 +148,17 @@ INFO: [Synth 8-638] synthesizing module 'ascii_array_to_chars' [E:/Github_reposi
 INFO: [Synth 8-256] done synthesizing module 'ascii_array_to_chars' (20#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/ascii_array_to_chars.vhd:18]
 INFO: [Synth 8-256] done synthesizing module 'Processor' (21#1) [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:21]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1409.945 ; gain = 103.605
+Finished Synthesize : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1403.820 ; gain = 97.660
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1409.945 ; gain = 103.605
+Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1403.820 ; gain = 97.660
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
-Loading part: xc7k480tffv1156-1
+Loading part: xc7k160tffv676-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1409.945 ; gain = 103.605
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1403.820 ; gain = 97.660
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-327] inferring latch for variable 'run_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/random_generator.vhd:25]
 WARNING: [Synth 8-327] inferring latch for variable 'is_file_end_reg' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_A_by_file.vhd:29]
@@ -178,7 +178,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'sig_RowA_in_B_reg[1]' [E:/G
 WARNING: [Synth 8-327] inferring latch for variable 'sig_RowA_in_B_reg[2]' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:447]
 WARNING: [Synth 8-327] inferring latch for variable 'sig_RowA_in_B_reg[3]' [E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd:447]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:45 ; elapsed = 00:00:44 . Memory (MB): peak = 1516.984 ; gain = 210.645
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:43 ; elapsed = 00:00:42 . Memory (MB): peak = 1446.969 ; gain = 140.809
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -228,8 +228,8 @@ Finished RTL Component Statistics
 Start Part Resource Summary
 ---------------------------------------------------------------------------------
 Part Resources:
-DSPs: 1920 (col length:160)
-BRAMs: 1910 (col length: RAMB18 160 RAMB36 80)
+DSPs: 600 (col length:100)
+BRAMs: 650 (col length: RAMB18 100 RAMB36 50)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
@@ -593,7 +593,6 @@ WARNING: [Synth 8-7129] Port seed[11] in module random_generator__6 is either un
 WARNING: [Synth 8-7129] Port seed[10] in module random_generator__6 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port seed[9] in module random_generator__6 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port seed[8] in module random_generator__6 is either unconnected or has no load
-INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-7129] Port q[31] in module generate_e is either unconnected or has no load
 WARNING: [Synth 8-7129] Port q[30] in module generate_e is either unconnected or has no load
 WARNING: [Synth 8-7129] Port q[29] in module generate_e is either unconnected or has no load
@@ -627,7 +626,7 @@ WARNING: [Synth 8-7129] Port q[2] in module generate_e is either unconnected or 
 WARNING: [Synth 8-7129] Port q[1] in module generate_e is either unconnected or has no load
 WARNING: [Synth 8-7129] Port q[0] in module generate_e is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:34 ; elapsed = 00:01:35 . Memory (MB): peak = 1560.504 ; gain = 254.164
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:30 . Memory (MB): peak = 1488.664 ; gain = 182.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -689,13 +688,13 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:22 ; elapsed = 00:02:23 . Memory (MB): peak = 1585.367 ; gain = 279.027
+Finished Timing Optimization : Time (s): cpu = 00:02:16 ; elapsed = 00:02:17 . Memory (MB): peak = 1513.535 ; gain = 207.375
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:29 ; elapsed = 00:02:31 . Memory (MB): peak = 1587.906 ; gain = 281.566
+Finished Technology Mapping : Time (s): cpu = 00:02:24 ; elapsed = 00:02:24 . Memory (MB): peak = 1515.297 ; gain = 209.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -713,37 +712,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:34 ; elapsed = 00:02:36 . Memory (MB): peak = 1587.906 ; gain = 281.566
+Finished IO Insertion : Time (s): cpu = 00:02:28 ; elapsed = 00:02:29 . Memory (MB): peak = 1515.297 ; gain = 209.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:34 ; elapsed = 00:02:36 . Memory (MB): peak = 1587.906 ; gain = 281.566
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:28 ; elapsed = 00:02:29 . Memory (MB): peak = 1515.297 ; gain = 209.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:34 ; elapsed = 00:02:36 . Memory (MB): peak = 1587.906 ; gain = 281.566
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:28 ; elapsed = 00:02:29 . Memory (MB): peak = 1515.297 ; gain = 209.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:34 ; elapsed = 00:02:36 . Memory (MB): peak = 1587.906 ; gain = 281.566
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:28 ; elapsed = 00:02:29 . Memory (MB): peak = 1515.297 ; gain = 209.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:34 ; elapsed = 00:02:36 . Memory (MB): peak = 1587.906 ; gain = 281.566
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:29 ; elapsed = 00:02:29 . Memory (MB): peak = 1515.297 ; gain = 209.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:34 ; elapsed = 00:02:36 . Memory (MB): peak = 1587.906 ; gain = 281.566
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:29 ; elapsed = 00:02:29 . Memory (MB): peak = 1515.297 ; gain = 209.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -791,18 +790,18 @@ Report Instance Areas:
 |6     |    random_number        |random_generator     |    11|
 +------+-------------------------+---------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:34 ; elapsed = 00:02:36 . Memory (MB): peak = 1587.906 ; gain = 281.566
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:29 ; elapsed = 00:02:29 . Memory (MB): peak = 1515.297 ; gain = 209.137
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 109 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:34 ; elapsed = 00:02:36 . Memory (MB): peak = 1587.906 ; gain = 281.566
-Synthesis Optimization Complete : Time (s): cpu = 00:02:34 ; elapsed = 00:02:36 . Memory (MB): peak = 1587.906 ; gain = 281.566
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:29 ; elapsed = 00:02:30 . Memory (MB): peak = 1515.297 ; gain = 209.137
+Synthesis Optimization Complete : Time (s): cpu = 00:02:29 ; elapsed = 00:02:30 . Memory (MB): peak = 1515.297 ; gain = 209.137
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.071 . Memory (MB): peak = 1597.000 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.071 . Memory (MB): peak = 1515.297 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 985 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 5 inverter(s) to 12 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1608.055 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1520.879 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 174 instances were transformed.
   LD => LDCE: 1 instance 
@@ -813,12 +812,12 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 
 Synth Design complete, checksum: 72cf28de
 INFO: [Common 17-83] Releasing license: Synthesis
-297 Infos, 109 Warnings, 0 Critical Warnings and 0 Errors encountered.
+296 Infos, 109 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:39 ; elapsed = 00:02:41 . Memory (MB): peak = 1608.055 ; gain = 301.715
+synth_design: Time (s): cpu = 00:02:33 ; elapsed = 00:02:34 . Memory (MB): peak = 1520.879 ; gain = 214.719
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 INFO: [Common 17-1381] The checkpoint 'E:/Github_repository/COMP3601/VHDL Work/project_1/project_1.runs/synth_1/Processor.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1608.055 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1520.879 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file Processor_utilization_synth.rpt -pb Processor_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Nov 21 13:09:30 2021...
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 21 16:43:34 2021...

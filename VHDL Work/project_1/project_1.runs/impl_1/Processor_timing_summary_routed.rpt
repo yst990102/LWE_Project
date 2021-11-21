@@ -1,11 +1,11 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Sun Nov 21 13:11:24 2021
+| Date         : Sun Nov 21 16:45:06 2021
 | Host         : GamingPC running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file Processor_timing_summary_routed.rpt -pb Processor_timing_summary_routed.pb -rpx Processor_timing_summary_routed.rpx -warn_on_violation
 | Design       : Processor
-| Device       : 7k480t-ffv1156
+| Device       : 7k160t-ffv676
 | Speed File   : -1  PRODUCTION 1.12 2017-02-17
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
