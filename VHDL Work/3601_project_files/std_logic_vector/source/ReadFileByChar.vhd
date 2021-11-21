@@ -24,7 +24,7 @@ begin
         variable tmp_line : Line;
         variable tmp_char : character;
     begin
-        file_open(read_file, "E:\Github_repository\COMP3601\VHDL Work\3601_project_files\std_logic_vector\source\Sample.txt", read_mode);
+        file_open(read_file, "Sample.txt", read_mode);
         while not endfile(read_file) loop
             readline(read_file, tmp_line);
             for j in tmp_line'range loop

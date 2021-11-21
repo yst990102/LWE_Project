@@ -39,7 +39,7 @@ begin
         variable space : character;
     begin
         if txt_input = '1' then
-            file_open(read_file, "E:\Github_repository\COMP3601\VHDL Work\3601_project_files\std_logic_vector\source\Private_key_S.txt", read_mode);
+            file_open(read_file, "Private_key_S.txt", read_mode);
             while not endfile(read_file) loop
                 readline(read_file, tmp_line);
                 

@@ -1,27 +1,3 @@
 INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/packages.vhd" into library xil_defaultlib
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/Processor.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Processor'
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/ascii_array_to_chars.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'ascii_array_to_chars'
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/chars_to_ascii_array.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'chars_to_ascii_array'
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_A.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'generate_A'
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_A_by_file.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'generate_A_by_file'
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_B.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'generate_B'
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_E_by_file.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'generate_E_by_file'
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_S_by_file.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'generate_S_by_file'
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_UV.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'generate_UV'
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_e.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'generate_e'
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/generate_s.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'generate_s'
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/source/random_generator.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'random_generator'
 INFO: [VRFC 10-163] Analyzing VHDL file "E:/Github_repository/COMP3601/VHDL Work/3601_project_files/std_logic_vector/sim/Processor_TB.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'Processor_TB'

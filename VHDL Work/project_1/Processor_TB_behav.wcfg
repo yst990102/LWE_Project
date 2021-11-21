@@ -13,17 +13,17 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="6,890.001 ns"></ZoomEndTime>
-      <Cursor1Time time="34.494 ns"></Cursor1Time>
+      <ZoomEndTime time="693.001 ns"></ZoomEndTime>
+      <Cursor1Time time="67.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="217"></NameColumnWidth>
-      <ValueColumnWidth column_width="73"></ValueColumnWidth>
+      <ValueColumnWidth column_width="65"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
+   <WVObjectSize size="24" />
    <wvobject fp_name="/Processor_TB/UUT/encode_string" type="array">
-      <obj_property name="ElementShortName">encode_string[1:60]</obj_property>
-      <obj_property name="ObjectShortName">encode_string[1:60]</obj_property>
+      <obj_property name="ElementShortName">encode_string[1:4]</obj_property>
+      <obj_property name="ObjectShortName">encode_string[1:4]</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
@@ -34,17 +34,17 @@
       <obj_property name="ObjectShortName">sig_reset</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/result" type="array">
-      <obj_property name="ElementShortName">result[1:60]</obj_property>
-      <obj_property name="ObjectShortName">result[1:60]</obj_property>
+      <obj_property name="ElementShortName">result[1:4]</obj_property>
+      <obj_property name="ObjectShortName">result[1:4]</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_ascii_array" type="array">
-      <obj_property name="ElementShortName">sig_ascii_array[1:60][0:7]</obj_property>
-      <obj_property name="ObjectShortName">sig_ascii_array[1:60][0:7]</obj_property>
+      <obj_property name="ElementShortName">sig_ascii_array[1:4][0:7]</obj_property>
+      <obj_property name="ObjectShortName">sig_ascii_array[1:4][0:7]</obj_property>
       <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/sig_dec_ascii_array" type="array">
-      <obj_property name="ElementShortName">sig_dec_ascii_array[1:60][0:7]</obj_property>
-      <obj_property name="ObjectShortName">sig_dec_ascii_array[1:60][0:7]</obj_property>
+      <obj_property name="ElementShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
+      <obj_property name="ObjectShortName">sig_dec_ascii_array[1:4][0:7]</obj_property>
       <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/S" type="array">
@@ -118,13 +118,9 @@
          <obj_property name="ElementShortName">sig_store_A_row</obj_property>
          <obj_property name="ObjectShortName">sig_store_A_row</obj_property>
       </wvobject>
-      <wvobject fp_name="/Processor_TB/UUT/sig_store_A_col" type="other">
-         <obj_property name="ElementShortName">sig_store_A_col</obj_property>
-         <obj_property name="ObjectShortName">sig_store_A_col</obj_property>
-      </wvobject>
-      <wvobject fp_name="/Processor_TB/UUT/sig_store_A_element" type="other">
-         <obj_property name="ElementShortName">sig_store_A_element</obj_property>
-         <obj_property name="ObjectShortName">sig_store_A_element</obj_property>
+      <wvobject fp_name="/Processor_TB/UUT/sig_store_A_element" type="array">
+         <obj_property name="ElementShortName">sig_store_A_element[0:3]</obj_property>
+         <obj_property name="ObjectShortName">sig_store_A_element[0:3]</obj_property>
       </wvobject>
       <wvobject fp_name="/Processor_TB/UUT/sig_store_E_row" type="other">
          <obj_property name="ElementShortName">sig_store_E_row</obj_property>
@@ -175,6 +171,42 @@
          <obj_property name="ObjectShortName">sig_store_E_element_File</obj_property>
       </wvobject>
    </wvobject>
+   <wvobject fp_name="group491" type="group">
+      <obj_property name="label">E_generation</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/Processor_TB/UUT/sig_store_E_element" type="other">
+         <obj_property name="ElementShortName">sig_store_E_element</obj_property>
+         <obj_property name="ObjectShortName">sig_store_E_element</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_store_E_row" type="other">
+         <obj_property name="ElementShortName">sig_store_E_row</obj_property>
+         <obj_property name="ObjectShortName">sig_store_E_row</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group490" type="group">
+      <obj_property name="label">S_generation</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/Processor_TB/UUT/sig_store_S_element" type="other">
+         <obj_property name="ElementShortName">sig_store_S_element</obj_property>
+         <obj_property name="ObjectShortName">sig_store_S_element</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_store_S_row" type="other">
+         <obj_property name="ElementShortName">sig_store_S_row</obj_property>
+         <obj_property name="ObjectShortName">sig_store_S_row</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group489" type="group">
+      <obj_property name="label">A_generation</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/Processor_TB/UUT/sig_store_A_element" type="array">
+         <obj_property name="ElementShortName">sig_store_A_element[0:3]</obj_property>
+         <obj_property name="ObjectShortName">sig_store_A_element[0:3]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Processor_TB/UUT/sig_store_A_row" type="other">
+         <obj_property name="ElementShortName">sig_store_A_row</obj_property>
+         <obj_property name="ObjectShortName">sig_store_A_row</obj_property>
+      </wvobject>
+   </wvobject>
    <wvobject fp_name="group111" type="group">
       <obj_property name="label">B_generation</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -198,6 +230,7 @@
    <wvobject fp_name="group110" type="group">
       <obj_property name="label">UV_generation</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/Processor_TB/UUT/sig_UV_row_num" type="other">
          <obj_property name="ElementShortName">sig_UV_row_num</obj_property>
          <obj_property name="ObjectShortName">sig_UV_row_num</obj_property>
@@ -227,12 +260,12 @@
          <obj_property name="ObjectShortName">sig_RowV_out_UV</obj_property>
       </wvobject>
       <wvobject fp_name="/Processor_TB/UUT/U_cells" type="array">
-         <obj_property name="ElementShortName">U_cells[1:60][0:7][0:3]</obj_property>
-         <obj_property name="ObjectShortName">U_cells[1:60][0:7][0:3]</obj_property>
+         <obj_property name="ElementShortName">U_cells[1:4][0:7][0:3]</obj_property>
+         <obj_property name="ObjectShortName">U_cells[1:4][0:7][0:3]</obj_property>
       </wvobject>
       <wvobject fp_name="/Processor_TB/UUT/V_cells" type="array">
-         <obj_property name="ElementShortName">V_cells[1:60,0:7]</obj_property>
-         <obj_property name="ObjectShortName">V_cells[1:60,0:7]</obj_property>
+         <obj_property name="ElementShortName">V_cells[1:4,0:7]</obj_property>
+         <obj_property name="ObjectShortName">V_cells[1:4,0:7]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="/Processor_TB/UUT/three_quar_q" type="other">

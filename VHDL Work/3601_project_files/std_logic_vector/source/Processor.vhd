@@ -11,6 +11,7 @@ entity Processor is
         sig_reset       : in std_logic;
         txt_input       : in std_logic;
         multi_type      : in integer;
+        q_in            : in integer;
 
         result          : out string(1 to string_length);
         is_result_released : out std_logic
@@ -45,15 +46,14 @@ architecture Behavioral of Processor is
 
     -- ================= generate A by LFSR =======================
     component generate_A is
-        port (
-            clk           : in std_logic;
-            q             : in integer;
-            txt_input     : in std_logic;
+    port (
+        clk           : in std_logic;
+        q             : in integer;
+        txt_input     : in std_logic;
 
-            store_A_row     : out integer;
-            store_A_col     : out integer;
-            store_A_ele     : out integer
-        );
+        store_A_row     : out integer;
+        store_A_ele     : out RowA_1
+    );
     end component;
     -- ================= generate A by LFSR =======================
     
@@ -191,7 +191,11 @@ architecture Behavioral of Processor is
     signal A : matrixA_1 := (others => (others => 0));
     signal E : matrixE_1 := (others => 0);
     signal B : matrixB_1 := (others => 0);
+    type q_array is array(0 to 30) of integer;
+    signal q_options : q_array := (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
+        73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127);
     signal q : integer := 113;
+    signal is_q_set : std_logic := '0';
 --   ==== generation signals by LFSR
     signal sig_is_S_generated : std_logic := '0';
     signal sig_is_A_generated : std_logic := '0';
@@ -202,8 +206,7 @@ architecture Behavioral of Processor is
     signal sig_store_S_element : integer := 0;
 --  ==== generate A by LFSR
     signal sig_store_A_row : integer := 0;
-    signal sig_store_A_col : integer := 0;
-    signal sig_store_A_element : integer := 0;
+    signal sig_store_A_element : RowA_1 := (others => 0);
 --  ==== generate E by LFSR
     signal sig_store_E_row : integer := 0;
     signal sig_store_E_element : integer := 0;
@@ -257,6 +260,19 @@ architecture Behavioral of Processor is
 --====================== Other Self Test Signals ======================
 
 begin
+--============================== initialize q by input =============================
+    init_q: process (clk, q_in)
+    begin
+        if is_q_set = '0' then
+            if q_in < 31 and q_in >= 0 then
+                q <= q_options(q_in);
+            else
+                q <= 113;
+            end if;
+            is_q_set <= '1';
+        end if;
+    end process;
+
 --============================== Char Load & To_Asciis =============================
     chars_to_asciis : chars_to_ascii_array      
     port map(
@@ -278,7 +294,6 @@ begin
             txt_input => txt_input,
 
             store_A_row => sig_store_A_row,
-            store_A_col => sig_store_A_col,
             store_A_ele => sig_store_A_element
         );
     
@@ -288,14 +303,11 @@ begin
     begin
         if txt_input = '0' then
             if row < A_row_1 then
-                if col < A_col_1 then
-                    wait until clk'event and clk = '0';
-                    A(sig_store_A_row)(sig_store_A_col) <= sig_store_A_element;
-                    col := col + 1;
-                else
-                    col := 0;
-                    row := row + 1;
-                end if;
+                wait until clk'event and clk = '0';
+                store_A: for i in 0 to A_col_1-1 loop
+                    A(sig_store_A_row)(i) <= sig_store_A_element(i);
+                end loop;
+                row := row + 1;
             else
                 sig_is_A_generated <= '1';
                 wait;

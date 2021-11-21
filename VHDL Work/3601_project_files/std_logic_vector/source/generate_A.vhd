@@ -11,8 +11,7 @@ entity generate_A is
         txt_input     : in std_logic;
 
         store_A_row     : out integer;
-        store_A_col     : out integer;
-        store_A_ele     : out integer
+        store_A_ele     : out RowA_1
     );
 end generate_A;
 
@@ -28,35 +27,73 @@ architecture Behavioral of generate_A is
 
     signal row_stored : integer := 0;
     signal col_stored : integer := 0;
-    signal ele_stored : integer := 0;    
-    signal random_result : integer;
+    signal ele_stored : RowA_1 := (others => 0);
+    signal random_result : RowA_1;
+    --signal seeds      : RowA_1;
 begin
-    random_number: random_generator
+    --seeds <= (250, 78, 236, 42);
+    --gen_lfsr: for i in 0 to A_col_1-1 generate
+    --    random_number1: random_generator
+    --        generic map (data_width => 8 )
+    --        port map(
+    --            seed => seeds(i),
+    --            reset => '1',
+    --            clk => clk,
+    --            data_out => random_result(i)
+    --        );
+    --end generate gen_lfsr;
+    
+        random_number0: random_generator
+            generic map (data_width => 8 )
+            port map(
+                seed => 250,
+                reset => '1',
+                clk => clk,
+                data_out => random_result(0)
+            );
+       random_number1: random_generator
+            generic map (data_width => 8 )
+            port map(
+                seed => 78,
+                reset => '1',
+                clk => clk,
+                data_out => random_result(1)
+            );
+        random_number2: random_generator
         generic map (data_width => 8 )
         port map(
-            seed => 250,
+            seed => 236,
             reset => '1',
             clk => clk,
-            data_out => random_result
+            data_out => random_result(2)
         );
-
+        
+        random_number3: random_generator
+        generic map (data_width => 8 )
+        port map(
+            seed => 42,
+            reset => '1',
+            clk => clk,
+            data_out => random_result(3)
+        );
+        
     random_matrix_A : 
     process
         variable row : integer := 0;
-        variable col : integer := 0;
     begin
         if txt_input = '0' then
             if row < A_row_1 then
-                if col < A_col_1 then
-                    row_stored <= row;
-                    col_stored <= col;
-                    ele_stored <= random_result mod(q - 0);
-                    wait until clk'event and clk = '0';
-                    col := col + 1;
-                else
-                    col := 0;
-                    row := row + 1;
-                end if;
+                row_stored <= row;
+                ele_stored(0) <= random_result(0) mod(q);
+                ele_stored(1) <= random_result(1) mod(q);
+                ele_stored(2) <= random_result(2) mod(q);
+                ele_stored(3) <= random_result(3) mod(q);
+                -- done for debugging. Could also be done like this.
+                --Gen_ele: for i in 0 to A_col_1-1 loop
+                --    ele_stored(i) <= random_result(i) mod(q);
+                --end loop;
+                wait until clk'event and clk = '0';
+                row := row + 1;
             else
                 wait;
             end if;
@@ -66,7 +103,9 @@ begin
     end process;
     
     store_A_row <= row_stored;
-    store_A_col <= col_stored;
-    store_A_ele <= ele_stored;
+    store_A_ele(0) <= ele_stored(0);
+    store_A_ele(1) <= ele_stored(1);
+    store_A_ele(2) <= ele_stored(2);
+    store_A_ele(3) <= ele_stored(3);
     
 end Behavioral;
