@@ -1,6 +1,7 @@
 input_multiplier = input("Enter multiplier choice (1 - accurate, 2 - approximate):", 's');
 multiplier_choice = str2double(input_multiplier);
 
+fn_multiplier_choice = 0;
 if multiplier_choice == 2
     fn_multiplier = input("Enter approximate-multi choice (1 - MBM, 2 - Optimized MBM, 3 - REALM8x8, 4 - ECALE, 5 - LogMul):", 's');
     fn_multiplier_choice = str2double(fn_multiplier);
